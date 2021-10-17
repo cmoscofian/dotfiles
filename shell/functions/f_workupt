@@ -1,0 +1,112 @@
+# A simple function to fetch and update all git projects at once
+# based on a branch and a remote.
+# 
+# USAGE: f_workupt [-b branch] [-r remote] [-h] path
+#
+# [path]: Path to the workspace directory where all git projects reside.
+# [branch]: Branch to switch into and fast-forward agains. Default: "develop"
+# [remote]: Remote from which all changes will be fetched. Default: "origin"
+#
+# Author: Charles Moscofian <charlesmoscofian@hotmail.com>
+function f_workupt() {
+	local __red='\033[31m'
+	local __green='\033[32m'
+	local __yellow='\033[33m'
+	local __cyan='\033[36m'
+	local __default='\033[0m'
+
+	local __error="${__red}[error]${__default}"
+	local __success="${__green}[ok]${__default}"
+	local __warning="${__yellow}[warning]${__default}"
+
+	local __branch="develop"
+	local __remote="origin"
+
+	local __opt
+	local __help=0
+
+	while getopts ":b:r:h" __opt; do
+		case $__opt in
+			b) __branch=$OPTARG;;
+			r) __remote=$OPTARG;;
+			h) __help=1;;
+			\?) ;;
+		esac
+	done
+	shift $((OPTIND - 1))
+
+	if [ $__help -eq 1 ]; then
+		echo -e "USAGE: $0 [-b branch] [-r remote] [-h] path\n"
+		return 0
+	fi
+
+	if [ ! -d $1 ] || [ -z $1 ]; then
+		echo -e "${__error} Not a valid workspace directory"
+		return 1
+	fi
+
+	echo -e "Updating against ${__cyan}\"$__remote/$__branch\"${__default}...\n"
+
+	local __path=$PWD
+	local __workspace=$1
+
+	cd $__workspace
+
+	local __i_workspace
+	for __i_workspace in $(ls); do
+		[ ! -d $__i_workspace ] && continue
+
+		cd $__i_workspace
+		local __msg="project ${__cyan}$__i_workspace${__default} "
+
+		git rev-parse --is-inside-work-tree &> /dev/null
+		if [ $? -eq 0 ]; then
+			git switch --no-guess $__branch &> /dev/null
+			if [ $? -ne 0 ]; then
+				echo -e "${__msg}${__error} unable to switch to branch $__branch"
+				cd ..
+				continue
+			fi
+
+			if [ ! -z $__remote ]; then
+				git fetch $__remote &> /dev/null
+				if [ $? -ne 0 ]; then
+					echo -e "${__msg}${__error} unable to fetch from remote $__remote"
+					cd ..
+					continue
+				fi
+
+				git pull $__remote $_branch &> /dev/null
+				if [ $? -ne 0 ]; then
+					echo -e "${__msg}${__error} unable to pull from remote $__remote into branch $__branch"
+					cd ..
+					continue
+				fi
+			else
+				git fetch --all &> /dev/null
+				if [ $? -ne 0 ]; then
+					echo -e "${__msg}${__error} unable to fetch from ANY remote"
+					cd ..
+					continue
+				fi
+
+				git pull origin $__branch &> /dev/null
+				if [ $? -ne 0 ]; then
+					echo -e "${__msg}${__error} unable to pull from remote origin into branch $__branch"
+					cd ..
+					continue
+				fi
+			fi
+			echo -e "${__msg}${__success}"
+			cd ..
+		else
+			echo -e "${__error} $__i_workspace is not a git directory"
+			cd ..
+		fi
+	done
+
+	cd $__path
+
+	return 0
+}
+

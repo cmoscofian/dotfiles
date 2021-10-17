@@ -1,0 +1,4 @@
+export DOTDIR="$HOME/.dotfiles"
+export SHELL_SESSIONS_DISABLE=1
+
+[ -f "$DOTDIR/shell/shell-env" ] && source "$DOTDIR/shell/shell-env"

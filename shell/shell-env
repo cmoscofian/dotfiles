@@ -1,0 +1,50 @@
+# Set dotfiles path variables
+export BDOTDIR="$DOTDIR/bin"
+export CACHEDIR="$DOTDIR/cache"
+export GITDIR="$DOTDIR/git"
+export SHELLDIR="$DOTDIR/shell"
+export SSHDIR="$DOTDIR/ssh"
+export VIMDIR="$DOTDIR/vim"
+export ZDOTDIR="$DOTDIR/zsh"
+
+# Set general usage variables
+export BROWSER="brave"
+export EDITOR=vim
+export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist nonu noma nornu' -\""
+export VISUAL=vim
+
+# Set golang env variables
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+
+# Set path for golang executables
+export PATH="$GOBIN:/usr/local/bin/go:$PATH"
+
+# Set path for python executables
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
+# Set path to enable MPLab 8bit compiler
+export PATH="/Applications/microchip/xc8/v2.32/bin:$PATH"
+
+# Set path to enable gettext
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+# Set dotfile functions
+export PATH="$BDOTDIR:$PATH"
+
+# Set path to workspace
+export WORKSPACE="$HOME/Workspace"
+
+# Set private workspace
+export PRIVATE="$WORKSPACE/private"
+export PRIVATE_PROJECTS="$PRIVATE/projects"
+export PRIVATE_SCRIPTS="$PRIVATE/scripts"
+
+# Set meli workspace
+export MELI="$WORKSPACE/meli"
+export MELI_PROJECTS="$MELI/projects"
+export MELI_SCRIPTS="$MELI/scripts"
+
+# Set default Java version Java-8
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/"
+

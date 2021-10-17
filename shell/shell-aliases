@@ -1,0 +1,31 @@
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+alias bup="brew update && brew upgrade --greedy"
+alias bcl="brew cleanup"
+alias c=clear
+alias dst="docker start"
+alias dsp="docker stop"
+alias dps="docker ps"
+alias fgt="fury get"
+alias fgtk="fury get-token | sed '\$!D;s:.*\n::' | tr -d '[:space:]' | tee >(pbcopy)"
+alias fcv="fury create-version"
+alias fup="fury upgrade"
+alias gadd="git add"
+alias gbr="git br"
+alias gck="git ck"
+alias gct="git ct"
+alias gctn="git ct --no-verify"
+alias gdev="git dev"
+alias glg="git log --oneline --graph --all --decorate"
+alias gft="git ft --all"
+alias gpl="git pl"
+alias gps="git ps"
+alias gradd="f_groot && gadd"
+alias gsh="git show --pretty=oneline"
+alias gst="git st"
+alias gsw="git sw"
+alias python=python3
+alias pip=pip3
+alias v=vim

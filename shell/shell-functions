@@ -1,0 +1,15 @@
+function add_file() {
+	[ -f "$1" ] && source "$1"
+}
+
+function add_folder() {
+	if [ ! -d $1 ]; then
+		echo "Not a valid folder to add"
+		return 1
+	fi
+
+	local __file
+	for __file in $(ls $1); do
+		add_file "$1/$__file"
+	done
+}

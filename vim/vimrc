@@ -1,0 +1,53 @@
+syntax on
+filetype plugin on
+filetype indent on
+
+colorscheme gruvbox
+
+let &t_SI.="\e[5 q"
+let &t_SR.="\e[3 q"
+let &t_EI.="\e[2 q"
+
+" set noshowmode
+set autoindent
+set autoread
+set background=dark
+set backspace=eol,indent,start
+set belloff=all
+set clipboard=unnamed
+set colorcolumn=120
+set completeopt=menuone,noinsert,noselect
+set hidden
+set ignorecase
+set incsearch
+set laststatus=2
+set linebreak
+set mouse=a
+set nobackup
+set nocompatible
+set noswapfile
+set nowrap
+set number relativenumber
+set path=.,**
+set scrolloff=5
+set shiftwidth=4
+set smartcase
+set smartindent
+set softtabstop=4
+set splitright
+set tabstop=4
+set wildignore+=*/node_modules/**
+set wildmenu
+
+let mapleader = " "
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <up> <nop>
+
+nnoremap <c-b> :NERDTreeToggle <cr>
+

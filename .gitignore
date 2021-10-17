@@ -1,0 +1,12 @@
+cache/*
+
+git/*
+!git/gitconfig
+!git/workconfig
+
+ssh/*
+!ssh/config
+
+zsh/.zshrc
+
+**/*secret*

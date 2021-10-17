@@ -1,0 +1,16 @@
+# Go to the root of a git tree
+#
+# Author: Charles Moscofian <charlesmoscofian@hotmail.com>
+function f_groot() {
+	git rev-parse --is-inside-work-tree &> /dev/null
+	if [ $? -eq 0 ]; then
+		while [ ! -d .git ]; do
+			cd ..
+		done
+		return 0
+	else
+		echo "Not a git directory"
+		return 1
+	fi
+}
+

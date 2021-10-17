@@ -1,0 +1,16 @@
+autoload -U colors; colors
+
+# Set suffix to display number of nested shells
+function() {
+	__suffix=$(printf '\$%.0s' {1..$LVL})
+
+	if [[ -n "$TMUX" ]]; then
+		local LVL=$(($SHLVL - 1))
+	else
+		local LVL=$SHLVL
+	fi
+
+	export PS1="@%F{108}%1/%f %F{167}%B%(1j.*.)%(?..!)%b%f%B${__suffix}%b "
+	export RPROMPT="\${vcs_info_msg_0_}%F{72}%~%f"
+}
+

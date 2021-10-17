@@ -1,0 +1,48 @@
+# A dynamic JAVA selection function based on `/usr/libexec/java_home`.
+# It searches the available versions and sets it as the current version
+# based on the users selection.
+#
+# Author: Charles Moscofian <charlesmoscofian@hotmail.com>
+function f_javav() {
+	local __red='\033[31m'
+	local __green='\033[32m'
+	local __yellow='\033[33m'
+	local __cyan='\033[36m'
+	local __default='\033[0m'
+
+	local __success="${__green}[ok]${__default}:"
+	local __warning="${__yellow}[warning]${__default}:"
+	local __error="${__red}[error]${__default}:"
+
+	local __columns=$COLUMNS
+	COLUMNS=5
+
+	local __versions=$(/usr/libexec/java_home -V 2>&1 | grep "  " | awk '{print $1}')
+
+	if [ ! -z $__versions ]; then
+		echo -e "Select the JAVA version, or 0 to exit:"
+
+		local __version
+		select __version in $(/usr/libexec/java_home -V 2>&1 | grep "  " | awk '{print $1}'); do
+			if [ $REPLY -eq 0 ]; then
+				echo "Exiting..."
+				break
+			fi
+
+			if [ -z $__version ]; then
+				echo -e "${__error} Invalid option, please select a version from the menu"
+			else
+				export JAVA_HOME="$(/usr/libexec/java_home -v $__version)"
+				break
+			fi
+		done
+
+	else
+		echo -e "${__warning} There are no JAVA SDK versions available."
+	fi
+
+	echo -e "${__success} Version ${__cyan}$(java -version 2>&1 | sed s:\"::gi | grep 'version' | awk '{print $3}')${__default} set!"
+
+	COLUMNS=$__columns
+}
+

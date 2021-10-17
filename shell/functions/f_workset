@@ -1,0 +1,31 @@
+# Set meli projects environment variables 
+# USAGE: f_workset [path]
+# 
+# Author: Charles Moscofian <charlesmoscofian@hotmail.com>
+function f_workset() {
+	local __path=$PWD
+
+	if [ $# -lt 1 ]; then
+		echo "You must provide a path to map the workspace"
+		return 1
+	fi
+
+	if [ ! -d $1 ]; then
+		echo "Not a valid workspace directory"
+		return 1
+	fi
+
+	local __workspace=$1
+
+	cd $__workspace
+
+	local __project
+	for __project in $(ls); do
+		[ ! -d $__project ] && continue
+		local __n_project="$(echo -e "$__project" | sed s:-:_:g)"
+		export "$__n_project"="$__workspace/$__project"
+	done
+
+	cd $__path
+}
+

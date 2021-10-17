@@ -1,0 +1,16 @@
+[submodule "vim/pack/plugins/start/gitgutter"]
+	path = vim/pack/plugins/start/gitgutter
+	url = github:airblade/vim-gitgutter
+	shallow = true
+[submodule "vim/pack/plugins/start/gruvbox"]
+	path = vim/pack/plugins/start/gruvbox
+	url = github:morhetz/gruvbox
+	shallow = true
+[submodule "vim/pack/plugins/start/nerdtree"]
+	path = vim/pack/plugins/start/nerdtree
+	url = github:preservim/nerdtree
+	shallow = true
+[submodule "vim/pack/plugins/start/vim-go"]
+	path = vim/pack/plugins/start/vim-go
+	url = github:fatih/vim-go
+	shallow = true

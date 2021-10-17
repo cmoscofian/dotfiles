@@ -1,0 +1,75 @@
+[user]
+	name = Charles Moscofian
+	email = charlesmoscofian@hotmail.com
+	signinKey = charlesmoscofian@hotmail.com
+
+[init]
+	defaultBranch = main
+
+[alias]
+	br = branch
+	ck = checkout
+	ct = commit
+	dev = switch develop
+	ft = fetch
+	pl = pull
+	ps = push
+	rs = reset
+	st = status
+	sw = switch
+	unstage = reset HEAD
+
+[core]
+	editor = vimdiff
+
+[url "github:"]
+	insteadOf = https://github.com
+
+[color]
+	ui = auto
+
+[remote]
+	pushDefault = origin
+	pullDefault = origin
+
+[commit]
+	verbose = true
+	gpgSign = true
+
+[tag]
+	gpgSign = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+
+[pull]
+	ff = true
+
+[push]
+	default = current
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+	trustExitCode = true
+
+[merge]
+	tool = vimdiff
+
+[mergetool]
+	prompt = false
+	trustExitCode = true
+	keepBackup = false
+
+[include]
+	path = ~/.dotfiles/git/workconfig
+

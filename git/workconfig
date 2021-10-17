@@ -1,0 +1,2 @@
+[includeIf "gitdir:~/Workspace/meli/"]
+	path = ~/.dotfiles/git/meliconfig
