@@ -4,6 +4,7 @@ export CACHEDIR="$DOTDIR/cache"
 export GITDIR="$DOTDIR/git"
 export SHELLDIR="$DOTDIR/shell"
 export SSHDIR="$DOTDIR/ssh"
+export UTILSDIR="$DOTDIR/utils"
 export VIMDIR="$DOTDIR/vim"
 export ZDOTDIR="$DOTDIR/zsh"
 

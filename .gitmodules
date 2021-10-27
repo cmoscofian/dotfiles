@@ -10,7 +10,3 @@
 	path = vim/pack/plugins/start/nerdtree
 	url = github:preservim/nerdtree
 	shallow = true
-[submodule "vim/pack/plugins/start/vim-go"]
-	path = vim/pack/plugins/start/vim-go
-	url = github:fatih/vim-go
-	shallow = true

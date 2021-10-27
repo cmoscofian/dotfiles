@@ -1,7 +1,7 @@
 # A simple function to generate a local go coverage report
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f_gocov() {
+function f::gocov() {
 	local __t="/tmp/go-cover.$$.tmp" 
 	go test -coverprofile=$__t -coverpkg=./... $@ ./... && go tool cover -html=$__t && unlink $__t
 }

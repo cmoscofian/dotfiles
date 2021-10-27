@@ -3,17 +3,7 @@
 # based on the users selection.
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f_javav() {
-	local __red='\033[31m'
-	local __green='\033[32m'
-	local __yellow='\033[33m'
-	local __cyan='\033[36m'
-	local __default='\033[0m'
-
-	local __success="${__green}[ok]${__default}:"
-	local __warning="${__yellow}[warning]${__default}:"
-	local __error="${__red}[error]${__default}:"
-
+function f::javav() {
 	local __columns=$COLUMNS
 	COLUMNS=5
 
@@ -25,12 +15,11 @@ function f_javav() {
 		local __version
 		select __version in $(/usr/libexec/java_home -V 2>&1 | grep "  " | awk '{print $1}'); do
 			if [ $REPLY -eq 0 ]; then
-				echo "Exiting..."
 				break
 			fi
 
 			if [ -z $__version ]; then
-				echo -e "${__error} Invalid option, please select a version from the menu"
+				print::error "invalid option, please select a version from the menu"
 			else
 				export JAVA_HOME="$(/usr/libexec/java_home -v $__version)"
 				break
@@ -38,10 +27,10 @@ function f_javav() {
 		done
 
 	else
-		echo -e "${__warning} There are no JAVA SDK versions available."
+		print::warning "there are no JAVA SDK versions available."
 	fi
 
-	echo -e "${__success} Version ${__cyan}$(java -version 2>&1 | sed s:\"::gi | grep 'version' | awk '{print $3}')${__default} set!"
+	print::info "version $(java -version 2>&1 | sed s:\"::gi | grep 'version' | awk '{print $3}') set!"
 
 	COLUMNS=$__columns
 }

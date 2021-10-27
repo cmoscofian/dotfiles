@@ -2,8 +2,8 @@ export HISTFILE="$CACHEDIR/.zhistory"
 export HISTSIZE=12000
 export SAVEHIST=10000
 
-[[ -f "$ZDOTDIR/zsh-functions" ]] && source "$ZDOTDIR/zsh-functions"
-[[ -f "$SHELLDIR/shell-functions" ]] && source "$SHELLDIR/shell-functions"
+[[ -f "$UTILSDIR/common" ]] && source "$UTILSDIR/common"
+common::add_folder "$UTILSDIR"
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
@@ -15,13 +15,13 @@ _comp_options+=(globdots) # Complete hidden files
 
 autoload -U add-zsh-hook
 
-add_file "$SHELLDIR/shell-aliases"
-add_file "$SHELLDIR/shell-secrets"
-add_folder "$SHELLDIR/functions"
-zsh_add_file "zsh-options"
-zsh_add_file "zsh-vcs"
-zsh_add_file "zsh-vim"
-zsh_add_file "zsh-prompt"
+common::add_folder "$SHELLDIR/functions"
+common::add_file "$SHELLDIR/shell-aliases"
+common::add_file "$SHELLDIR/shell-secrets"
+zsh::add_file "zsh-options"
+zsh::add_file "zsh-vcs"
+zsh::add_file "zsh-vim"
+zsh::add_file "zsh-prompt"
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -31,5 +31,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "$HOME/.nvm" || prin
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Set all meli cloned projects as environment variables
-f_workset $MELI_PROJECTS
+f::workset $MELI_PROJECTS
 

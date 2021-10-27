@@ -8,7 +8,6 @@ let &t_SI.="\e[5 q"
 let &t_SR.="\e[3 q"
 let &t_EI.="\e[2 q"
 
-" set noshowmode
 set autoindent
 set autoread
 set background=dark
@@ -28,9 +27,12 @@ set nocompatible
 set noswapfile
 set nowrap
 set number relativenumber
+set omnifunc=syntaxcomplete#Complete
 set path=.,**
+set runtimepath+=/usr/local/opt/fzf
 set scrolloff=5
 set shiftwidth=4
+set showcmd
 set smartcase
 set smartindent
 set softtabstop=4
@@ -38,6 +40,7 @@ set splitright
 set tabstop=4
 set wildignore+=*/node_modules/**
 set wildmenu
+set efm=%A%f:%l:\ %m,%+Z%p^,%+C%.%#,%-G%.%#
 
 let mapleader = " "
 
@@ -49,5 +52,9 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <up> <nop>
 
-nnoremap <c-b> :NERDTreeToggle <cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)kk
 
+nnoremap <c-b> :NERDTreeToggle <cr>

@@ -2,16 +2,16 @@
 # USAGE: f_workset [path]
 # 
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f_workset() {
+function f::workset() {
 	local __path=$PWD
 
 	if [ $# -lt 1 ]; then
-		echo "You must provide a path to map the workspace"
+		print::error "you must provide a path to map the workspace"
 		return 1
 	fi
 
 	if [ ! -d $1 ]; then
-		echo "Not a valid workspace directory"
+		print::error "not a valid workspace directory"
 		return 1
 	fi
 
