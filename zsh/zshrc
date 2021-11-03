@@ -8,6 +8,7 @@ common::add_folder "$UTILSDIR"
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
+zstyle ':completion::complete:*' cache-path "${CACHEDIR}/.zcompcache"
 
 zmodload zsh/complist
 compinit -d "$CACHEDIR/.zcompdump"
@@ -22,14 +23,17 @@ zsh::add_file "zsh-options"
 zsh::add_file "zsh-vcs"
 zsh::add_file "zsh-vim"
 zsh::add_file "zsh-prompt"
+common::add_file "~/.fzf.zsh"
+common::add_file "/usr/local/opt/fzf/shell/completion.zsh"
+common::add_file "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "$HOME/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$NVMDIR"
+[[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ]] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Set all meli cloned projects as environment variables
 f::workset $MELI_PROJECTS
-

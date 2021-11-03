@@ -8,14 +8,19 @@ tap 'homebrew/core'
 tap 'homebrew/services'
 
 # Binaries
-brew 'ctags'
+brew 'universal-ctags'
+brew 'fzf'
 brew 'gnupg'
 brew 'go'
 brew 'htop'
+brew 'neovim'
+brew 'nvm'
 brew 'pinentry-mac'
 brew 'protobuf'
 brew 'python'
+brew 'ripgrep'
 brew 'sqlite'
+brew 'tmux'
 
 # Casks
 cask 'brave-browser'

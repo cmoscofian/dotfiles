@@ -11,7 +11,7 @@ function() {
 
 	__suffix=$(printf '\$%.0s' {1..$__level})
 
-	export PS1="[@%F{108}%1/%f\${vcs_info_msg_0_}]%F{167}%(1j.*.)%(?..!)%f${__suffix}: "
-	export RPROMPT="%F{72}%~%f"
+	export PS1="[@%F{12}%1/%f\${vcs_info_msg_0_}]%F{1}%(1j.*.)%(?..!)%f${__suffix}: "
+	export RPROMPT="%F{4}%~%f"
 }
 

@@ -7,17 +7,9 @@
 	defaultBranch = main
 
 [alias]
-	br = branch
-	ck = checkout
-	ct = commit
 	dev = switch develop
-	ft = fetch
-	pl = pull
-	ps = push
-	rs = reset
-	st = status
-	sw = switch
-	unstage = reset HEAD
+	unstage = restore --staged .
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
 [core]
 	editor = vimdiff

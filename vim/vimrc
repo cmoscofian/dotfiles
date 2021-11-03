@@ -2,8 +2,6 @@ syntax on
 filetype plugin on
 filetype indent on
 
-colorscheme gruvbox
-
 let &t_SI.="\e[5 q"
 let &t_SR.="\e[3 q"
 let &t_EI.="\e[2 q"
@@ -20,14 +18,13 @@ set hidden
 set ignorecase
 set incsearch
 set laststatus=2
+set lazyredraw
 set linebreak
 set mouse=a
 set nobackup
-set nocompatible
 set noswapfile
 set nowrap
 set number relativenumber
-set omnifunc=syntaxcomplete#Complete
 set path=.,**
 set runtimepath+=/usr/local/opt/fzf
 set scrolloff=5
@@ -38,11 +35,11 @@ set smartindent
 set softtabstop=4
 set splitright
 set tabstop=4
-set wildignore+=*/node_modules/**
 set wildmenu
-set efm=%A%f:%l:\ %m,%+Z%p^,%+C%.%#,%-G%.%#
 
-let mapleader = " "
+colorscheme nord
+
+let mapleader = "\<space>"
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -52,9 +49,14 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <up> <nop>
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)kk
+" FZF specific bindinds and settings
+nnoremap <leader>ff :FZF<cr>
 
-nnoremap <c-b> :NERDTreeToggle <cr>
+" NERDTree specific bindings and settings
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+
+let g:NERDTreeDirArrowExpandable = '▹'
+let g:NERDTreeDirArrowCollapsible = '▿'
+
+nnoremap <expr> <c-b> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'

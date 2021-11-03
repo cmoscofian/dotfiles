@@ -1,12 +1,23 @@
+configstore/*
+
 cache/*
+!cache/.gitkeep
 
 git/*
 !git/gitconfig
 !git/workconfig
 
+nvm/*
+!nvm/.gitkeep
+
 ssh/*
 !ssh/config
+
+xdg/*
 
 zsh/.zshrc
 
 **/*secret*
+**.lock**
+.DS_Store
+.netrwhist

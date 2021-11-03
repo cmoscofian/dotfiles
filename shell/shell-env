@@ -2,11 +2,18 @@
 export BDOTDIR="$DOTDIR/bin"
 export CACHEDIR="$DOTDIR/cache"
 export GITDIR="$DOTDIR/git"
+export NVMDIR="$DOTDIR/nvm"
 export SHELLDIR="$DOTDIR/shell"
 export SSHDIR="$DOTDIR/ssh"
 export UTILSDIR="$DOTDIR/utils"
 export VIMDIR="$DOTDIR/vim"
 export ZDOTDIR="$DOTDIR/zsh"
+
+# Set XDG path variables
+export XDG_CACHE_HOME="$CACHEDIR"
+export XDG_CONFIG_HOME="$DOTDIR"
+export XDG_DATA_HOME="$DOTDIR/xdg/data"
+export XDG_STATE_HOME="$DOTDIR/xdg/state"
 
 # Set general usage variables
 export BROWSER="brave"
@@ -18,11 +25,20 @@ export VISUAL=vim
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 
+# Set python env variables
+export PYBIN="$HOME/Library/Python/3.9/bin"
+
+# Set jdtls env variable
+export JDTLS_HOME="/Users/cmoscofian/Desktop/eclipse.jdt.ls-1.5.0/org.eclipse.jdt.ls.product/target/repository"
+
 # Set path for golang executables
 export PATH="$GOBIN:/usr/local/bin/go:$PATH"
 
 # Set path for python executables
-export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+export PATH="$PYBIN:$PATH"
+#
+# Set path for node executables
+export PATH="$NVM_BIN:$PATH"
 
 # Set path to enable MPLab 8bit compiler
 export PATH="/Applications/microchip/xc8/v2.32/bin:$PATH"
@@ -45,7 +61,4 @@ export PRIVATE_SCRIPTS="$PRIVATE/scripts"
 export MELI="$WORKSPACE/meli"
 export MELI_PROJECTS="$MELI/projects"
 export MELI_SCRIPTS="$MELI/scripts"
-
-# Set default Java version Java-8
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/"
 
