@@ -1,21 +1,28 @@
+local lspkind = require("lspkind")
 local status, cmp = pcall(require, "cmp")
 if not status then
-	return
+    return
 end
 
 cmp.setup {
-	mapping = {
-		["<enter>"] = cmp.mapping.confirm {
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
-		},
-	},
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "buffer", keyword_length = 5 },
-	},
-	experimental = {
-		native_menu = false,
-		ghost_text = true,
-	},
+    mapping = {
+        ["<enter>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        },
+    },
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer", keyword_length = 5 },
+    },
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
+    },
+    formatting = {
+        format = lspkind.cmp_format {
+            with_text = false,
+            maxwidth = 50,
+        }
+    },
 }

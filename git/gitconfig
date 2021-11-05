@@ -8,7 +8,7 @@
 
 [alias]
 	dev = switch develop
-	unstage = restore --staged .
+	unstage = restore --staged
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
 [core]

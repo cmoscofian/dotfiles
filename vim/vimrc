@@ -14,12 +14,15 @@ set belloff=all
 set clipboard=unnamed
 set colorcolumn=120
 set completeopt=menuone,noinsert,noselect
+set expandtab
 set hidden
 set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
 set linebreak
+set list
+set listchars=tab:▸\ ,trail:.
 set mouse=a
 set nobackup
 set noswapfile
@@ -35,14 +38,15 @@ set smartindent
 set softtabstop=4
 set splitright
 set tabstop=4
-set wildmenu
+set wildignore=**/node_modules/**/*,$XDG_DATA_HOME,$XDG_CACHE_HOME
+set wildmode=longest:full,full
 
 colorscheme nord
 
 let mapleader = "\<space>"
 
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
 
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -56,7 +60,7 @@ nnoremap <leader>ff :FZF<cr>
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 
-let g:NERDTreeDirArrowExpandable = '▹'
-let g:NERDTreeDirArrowCollapsible = '▿'
+let g:NERDTreeDirArrowExpandable = "▹"
+let g:NERDTreeDirArrowCollapsible = "▿"
 
-nnoremap <expr> <c-b> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
+nnoremap <expr> <c-b> g:NERDTree.IsOpen() ? ":NERDTreeClose<CR>" : @% == "" ? ":NERDTree<CR>" : ":NERDTreeFind<CR>"
