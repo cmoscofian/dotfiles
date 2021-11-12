@@ -10,17 +10,18 @@ local on_attach = function(client, bufnr)
     set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     local opts = { noremap = true, silent = true }
-    set_keybind("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
     set_keybind("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+    set_keybind("n", "gD", "<cmd>Lspsaga preview_definition<cr>", opts)
     set_keybind("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
     set_keybind("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-    set_keybind("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-    set_keybind("n", "ga", "<cmd>Telescope lsp_code_actions<cr>", opts) 
-    set_keybind("n", "gr", "<cmd>Telescope lsp_references<cr>", opts) 
-    set_keybind("i", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-    set_keybind("n", "<c-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", opts)
-    set_keybind("n", "<c-n>", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", opts)
-    set_keybind("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    set_keybind("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+    set_keybind("n", "ga", "<cmd>Lspsaga code_action<cr>", opts)
+    set_keybind("n", "gr", "<cmd>Lspsaga lsp_finder<cr>", opts)
+    set_keybind("i", "<c-k>", "<cmd>Lspsaga signature_help<cr>", opts)
+    set_keybind("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostic<cr>", opts)
+    set_keybind("n", "<c-p>", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+    set_keybind("n", "<c-n>", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+    set_keybind("n", "<leader>r", "<cmd>Lspsaga rename<cr>", opts)
 end
 
 lspconfig.gopls.setup {

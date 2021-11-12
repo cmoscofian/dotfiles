@@ -2,19 +2,24 @@ syntax on
 filetype plugin on
 filetype indent on
 
+colorscheme nord
+
 let &t_SI.="\e[5 q"
 let &t_SR.="\e[3 q"
 let &t_EI.="\e[2 q"
 
+" Options {{{
 set autoindent
 set autoread
 set background=dark
 set backspace=eol,indent,start
 set belloff=all
-set clipboard=unnamed
+set clipboard=unnamedplus
 set colorcolumn=120
 set completeopt=menuone,noinsert,noselect
 set expandtab
+set foldmethod=indent
+set nofoldenable
 set hidden
 set ignorecase
 set incsearch
@@ -38,11 +43,11 @@ set smartindent
 set softtabstop=4
 set splitright
 set tabstop=4
-set wildignore=**/node_modules/**/*,$XDG_DATA_HOME,$XDG_CACHE_HOME
+set wildignore=**/node_modules/**/*
 set wildmode=longest:full,full
+"}}}
 
-colorscheme nord
-
+" Remaps {{{
 let mapleader = "\<space>"
 
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
@@ -52,15 +57,17 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <up> <nop>
+" }}}
 
+" Plugins {{{
 " FZF specific bindinds and settings
 nnoremap <leader>ff :FZF<cr>
 
 " NERDTree specific bindings and settings
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-
+let g:NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrowExpandable = "▹"
 let g:NERDTreeDirArrowCollapsible = "▿"
 
 nnoremap <expr> <c-b> g:NERDTree.IsOpen() ? ":NERDTreeClose<CR>" : @% == "" ? ":NERDTree<CR>" : ":NERDTreeFind<CR>"
+"}}}

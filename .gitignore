@@ -3,9 +3,15 @@ configstore/*
 cache/*
 !cache/.gitkeep
 
+dlv/*
+
 git/*
 !git/gitconfig
 !git/workconfig
+
+htop/*
+
+jgit/*
 
 nvm/*
 !nvm/.gitkeep
