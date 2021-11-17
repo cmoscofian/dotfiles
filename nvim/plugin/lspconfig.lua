@@ -3,6 +3,11 @@ if not status then
     return
 end
 
+local status, util = pcall(require, "lspconfig.util")
+if not status then
+    return
+end
+
 local on_attach = function(client, bufnr)
     local function set_keybind(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -39,4 +44,11 @@ lspconfig.gopls.setup {
 
 lspconfig.tsserver.setup {
     on_attach = on_attach,
+}
+
+lspconfig.jdtls.setup {
+    on_attach = on_attach,
+    cmd = {"jdtls"},
+    filetypes = {"java"},
+    root_dir = vim.loop.cwd,
 }

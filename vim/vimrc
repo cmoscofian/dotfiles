@@ -19,7 +19,6 @@ set colorcolumn=120
 set completeopt=menuone,noinsert,noselect
 set expandtab
 set foldmethod=indent
-set nofoldenable
 set hidden
 set ignorecase
 set incsearch
@@ -30,6 +29,7 @@ set list
 set listchars=tab:▸\ ,trail:.
 set mouse=a
 set nobackup
+set nofoldenable
 set noswapfile
 set nowrap
 set number relativenumber
@@ -60,9 +60,6 @@ nnoremap <up> <nop>
 " }}}
 
 " Plugins {{{
-" FZF specific bindinds and settings
-nnoremap <leader>ff :FZF<cr>
-
 " NERDTree specific bindings and settings
 let g:NERDTreeShowHidden=1
 let g:NERDTreeMinimalUI=1

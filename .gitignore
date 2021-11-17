@@ -9,12 +9,13 @@ git/*
 !git/gitconfig
 !git/workconfig
 
+gnupg/*
+!gnupg/*.conf
+
 htop/*
-
 jgit/*
-
 nvm/*
-!nvm/.gitkeep
+sdk/*
 
 ssh/*
 !ssh/config

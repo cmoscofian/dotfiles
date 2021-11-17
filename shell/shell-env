@@ -2,7 +2,6 @@
 export BDOTDIR="$DOTDIR/bin"
 export CACHEDIR="$DOTDIR/cache"
 export GITDIR="$DOTDIR/git"
-export NVMDIR="$DOTDIR/nvm"
 export SHELLDIR="$DOTDIR/shell"
 export SSHDIR="$DOTDIR/ssh"
 export UTILSDIR="$DOTDIR/utils"
@@ -20,6 +19,11 @@ export BROWSER="brave"
 export EDITOR=vim
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist nonu noma nornu' -\""
 export VISUAL=vim
+
+# Set application specific env variables
+export NVM_DIR="$DOTDIR/nvm"
+export SDKMAN_DIR="$DOTDIR/sdk"
+export GNUPGHOME="$DOTDIR/gnupg"
 
 # Set golang env variables
 export GOPATH="$HOME/go"
@@ -47,6 +51,7 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="$BDOTDIR:$PATH"
 
 # Set java env variable
+export JDTLS_HOME="$XDG_CACHE_HOME/lsp/jdtls"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home"
 
 # Set path to workspace
@@ -61,4 +66,3 @@ export PRIVATE_SCRIPTS="$PRIVATE/scripts"
 export MELI="$WORKSPACE/meli"
 export MELI_PROJECTS="$MELI/projects"
 export MELI_SCRIPTS="$MELI/scripts"
-

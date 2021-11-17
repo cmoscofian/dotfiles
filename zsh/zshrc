@@ -26,14 +26,9 @@ zsh::add_file "zsh-prompt"
 common::add_file "~/.fzf.zsh"
 common::add_file "/usr/local/opt/fzf/shell/completion.zsh"
 common::add_file "/usr/local/opt/fzf/shell/key-bindings.zsh"
-
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-export NVM_DIR="$NVMDIR"
-[[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ]] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh"
+common::add_file "/usr/local/opt/nvm/nvm.sh" # This loads nvm
+common::add_file "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # Set all meli cloned projects as environment variables
 f::workset $MELI_PROJECTS
