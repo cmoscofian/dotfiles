@@ -29,6 +29,8 @@ local on_attach = function(client, bufnr)
     set_keybind("n", "<leader>r", "<cmd>Lspsaga rename<cr>", opts)
 end
 
+lspconfig.clangd.setup {}
+
 lspconfig.gopls.setup {
     on_attach = on_attach,
     cmd = {"gopls", "serve"},
@@ -39,16 +41,20 @@ lspconfig.gopls.setup {
             },
             staticcheck = true,
         }
-    }
-}
-
-lspconfig.tsserver.setup {
-    on_attach = on_attach,
+    },
+    single_file_support = true,
 }
 
 lspconfig.jdtls.setup {
     on_attach = on_attach,
     cmd = {"jdtls"},
-    filetypes = {"java"},
+    filetypes = {"java", "groovy", "kotlin"},
     root_dir = vim.loop.cwd,
 }
+
+lspconfig.tsserver.setup {
+    on_attach = on_attach,
+    root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git", "*.js"),
+    single_file_support = true,
+}
+
