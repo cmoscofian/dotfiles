@@ -23,10 +23,9 @@ zsh::add_file "zsh-options"
 zsh::add_file "zsh-vcs"
 zsh::add_file "zsh-vim"
 zsh::add_file "zsh-prompt"
-common::add_file "~/.fzf.zsh"
 common::add_file "/usr/local/opt/fzf/shell/completion.zsh"
 common::add_file "/usr/local/opt/fzf/shell/key-bindings.zsh"
-common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh"
+common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh" # This loads sdkman
 common::add_file "/usr/local/opt/nvm/nvm.sh" # This loads nvm
 common::add_file "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 

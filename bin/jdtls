@@ -13,4 +13,4 @@ java \
   -Xmx2G \
   -jar $(echo "$JAR") \
   -configuration "$XDG_CACHE_HOME/lsp/jdtls/config_mac" \
-  -data "$1"
+  -data "$XDG_CACHE_HOME/lsp"

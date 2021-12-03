@@ -1,5 +1,5 @@
-const spotify = Application("Spotify");
-const music = Application("Music");
+const spotify = Application('Spotify');
+const music = Application('Music');
 
 let output;
 
@@ -12,5 +12,7 @@ if (spotify.running()) {
 output;
 
 function getSongString(application) {
-  return `" ${application.currentTrack.name()} - ${application.currentTrack.artist()}`.substr(0, 50);
+  const song = application.currentTrack.name().slice(0, 30);
+  const artist = application.currentTrack.artist().slice(0, 25);
+  return `' ${song} - ${artist}, `;
 }
