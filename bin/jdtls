@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-JAR="/Users/cmoscofian/.dotfiles/cache/lsp/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
+JAR="$XDG_CACHE_HOME/lsp/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
 
 java \
   -Declipse.application=org.eclipse.jdt.ls.core.id1 \
@@ -13,4 +13,4 @@ java \
   -Xmx2G \
   -jar $(echo "$JAR") \
   -configuration "$XDG_CACHE_HOME/lsp/jdtls/config_mac" \
-  -data "$XDG_CACHE_HOME/lsp"
+  -data "$XDG_CACHE_HOME/lsp/workspace/$1"

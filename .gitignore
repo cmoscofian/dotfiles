@@ -19,6 +19,7 @@ sdk/*
 
 ssh/*
 !ssh/config
+!ssh/keys/.gitkeep
 
 xdg/*
 

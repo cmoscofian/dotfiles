@@ -8,6 +8,7 @@ treesitter.setup({
         enable = true,
     },
     ensure_installed = {
+        "c",
         "bash",
         "go",
         "java",

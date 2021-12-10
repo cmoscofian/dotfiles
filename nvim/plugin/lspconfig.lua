@@ -8,6 +8,8 @@ if not status then
     return
 end
 
+local project_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+
 local on_attach = function(client, bufnr)
     local function set_keybind(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -29,7 +31,9 @@ local on_attach = function(client, bufnr)
     set_keybind("n", "<leader>r", "<cmd>Lspsaga rename<cr>", opts)
 end
 
-lspconfig.clangd.setup {}
+lspconfig.clangd.setup {
+    on_attach = on_attach,
+}
 
 lspconfig.gopls.setup {
     on_attach = on_attach,
@@ -47,9 +51,9 @@ lspconfig.gopls.setup {
 
 lspconfig.jdtls.setup {
     on_attach = on_attach,
-    cmd = {"jdtls"},
+    cmd = {"jdtls", project_dir},
     filetypes = {"java", "groovy", "kotlin"},
-    root_dir = vim.loop.cwd,
+    root_dir = util.root_pattern(".git", "gradlew"),
 }
 
 lspconfig.tsserver.setup {
