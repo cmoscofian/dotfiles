@@ -1,0 +1,27 @@
+function tmux::it() {
+    local __session="main"
+    local __window="project"
+    local __path="$PWD"
+
+    local __opt
+
+    while getopts "s:w:p:" __opt; do
+        case $__opt in
+            s) __session=$OPTARG;;
+            w) __window=$OPTARG;;
+            p) __path=$OPTARG;;
+            \?) ;;
+        esac
+        echo "arg: $OPTARG"
+    done
+    shift $(( OPTIND - 1 ))
+
+    tmux new-session -d -s $__session -c $__path
+    tmux rename-window -t $__session:1 $__window
+    tmux send-keys "vim ." C-m
+    tmux split-window -v
+    tmux send-keys "cd $__path" C-m
+    tmux resize-pane -y 15
+    tmux select-pane -t $__session:1 -U
+    tmux attach -t $__session
+}

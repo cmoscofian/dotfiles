@@ -3,7 +3,7 @@ if not status then
     return
 end
 
-treesitter.setup({
+treesitter.setup {
     highlight = {
         enable = true,
     },
@@ -16,4 +16,4 @@ treesitter.setup({
         "json",
         "toml",
     },
-})
+}

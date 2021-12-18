@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
     set_keybind("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
     set_keybind("n", "gD", "<cmd>Lspsaga preview_definition<cr>", opts)
     set_keybind("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-    set_keybind("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+    set_keybind("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
     set_keybind("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
     set_keybind("n", "ga", "<cmd>Lspsaga code_action<cr>", opts)
     set_keybind("n", "gr", "<cmd>Lspsaga lsp_finder<cr>", opts)
@@ -33,6 +33,7 @@ end
 
 lspconfig.clangd.setup {
     on_attach = on_attach,
+    single_file_support = true,
 }
 
 lspconfig.gopls.setup {
@@ -49,16 +50,10 @@ lspconfig.gopls.setup {
     single_file_support = true,
 }
 
-lspconfig.jdtls.setup {
-    on_attach = on_attach,
-    cmd = {"jdtls", project_dir},
-    filetypes = {"java", "groovy", "kotlin"},
-    root_dir = util.root_pattern(".git", "gradlew"),
-}
-
 lspconfig.tsserver.setup {
     on_attach = on_attach,
-    root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git", "*.js"),
+    filetypes = {"javascript", "typescript", "javascriptreact", "typescriptreact"},
+    root_dir = util.root_pattern("package.json", "tsconfig.json", ".git"),
     single_file_support = true,
 }
 

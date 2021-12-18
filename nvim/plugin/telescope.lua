@@ -6,10 +6,9 @@ end
 telescope.setup {
     defaults = {
         file_ignore_patterns = {
-            "node_modules",
-            "test",
-        }
-    }
+            "node_modules/",
+        },
+    },
 }
 
 local opts = { noremap = true, silent = true }

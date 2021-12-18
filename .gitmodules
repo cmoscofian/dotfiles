@@ -16,6 +16,9 @@
 [submodule "nvim/pack/plugins/start/nvim-gitsigns"]
 	path = nvim/pack/plugins/start/nvim-gitsigns
 	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "nvim/pack/plugins/start/nvim-jdtls"]
+	path = nvim/pack/plugins/start/nvim-jdtls
+	url = https://github.com/mfussenegger/nvim-jdtls
 [submodule "nvim/pack/plugins/start/nvim-lspconfig"]
 	path = nvim/pack/plugins/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
@@ -25,7 +28,6 @@
 [submodule "nvim/pack/plugins/start/nvim-lspsaga"]
 	path = nvim/pack/plugins/start/nvim-lspsaga
 	url = https://github.com/tami5/lspsaga.nvim
-	branch = nvim51
 [submodule "nvim/pack/plugins/start/nvim-lualine"]
 	path = nvim/pack/plugins/start/nvim-lualine
 	url = https://github.com/nvim-lualine/lualine.nvim

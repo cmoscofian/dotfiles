@@ -57,7 +57,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export JDTLS_HOME="$XDG_CACHE_HOME/lsp/jdtls"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home"
 
-# Set path to workspace
+# Set workspace
 export WORKSPACE="$HOME/Workspace"
 
 # Set private workspace
