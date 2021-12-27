@@ -19,11 +19,12 @@ set colorcolumn=120
 set completeopt=menuone,noinsert,noselect
 set encoding=utf-8
 set expandtab
-set fileencoding+=utf-8
+set fileencoding=utf-8
 set foldmethod=indent
 set hidden
 set ignorecase
 set incsearch
+set iskeyword+=-
 set laststatus=2
 set lazyredraw
 set linebreak
@@ -37,7 +38,8 @@ set nowrap
 set number relativenumber
 set path=.,**
 set runtimepath+=/usr/local/opt/fzf
-set scrolloff=5
+set scrolloff=8
+set sidescrolloff=8
 set shiftwidth=4
 set showcmd
 set smartcase
@@ -52,13 +54,26 @@ set wildmode=longest:full,full
 " Remaps {{{
 let mapleader = "\<space>"
 
+" Edit and source vimrc
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
+" Disable arrow keys
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <up> <nop>
+
+" Window navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+" Visual mode utils
+vnoremap < <gv
+vnoremap > >gv
+vnoremap p "_dP
 " }}}
 
 " Plugins {{{

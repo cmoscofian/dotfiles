@@ -16,12 +16,9 @@ brew 'llvm'
 brew 'neovim'
 brew 'nvm'
 brew 'pinentry-mac'
-brew 'protobuf'
 brew 'python'
 brew 'ripgrep'
-brew 'sqlite'
 brew 'tmux'
-brew 'universal-ctags'
 
 # Casks
 cask 'brave-browser'
@@ -40,4 +37,3 @@ cask 'whatsapp'
 
 # Fonts
 cask 'font-iosevka-nerd-font'
-

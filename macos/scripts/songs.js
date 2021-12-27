@@ -14,5 +14,5 @@ output;
 function getSongString(application) {
   const song = application.currentTrack.name().slice(0, 30);
   const artist = application.currentTrack.artist().slice(0, 25);
-  return `' ${song} - ${artist}, `;
+  return ` ${song} - ${artist}, `;
 }

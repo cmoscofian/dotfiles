@@ -55,7 +55,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # Set java env variable
 export JDTLS_HOME="$XDG_CACHE_HOME/lsp/jdtls"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home"
 
 # Set workspace
 export WORKSPACE="$HOME/Workspace"
