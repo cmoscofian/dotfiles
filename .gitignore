@@ -29,3 +29,5 @@ zsh/.zshrc
 **.lock**
 .DS_Store
 .netrwhist
+
+**/scratch/*

@@ -15,14 +15,16 @@ local on_attach = function(client, bufnr)
     setup.on_attach(client, bufnr)
 
     -- Specific jdtls key bindings
-    set_keybind("n", "goi", "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
-    set_keybind("n", "gv", "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
-    set_keybind("v", "gv", "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
-    set_keybind("n", "gc", "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
-    set_keybind("v", "gc", "<esc><cmd>lua require('jdtls').extract_constant(true)<cr>", opts)
-    set_keybind("n", "gm", "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
-    set_keybind("v", "gm", "<esc><cmd>lua require('jdtls').extract_method(true)<cr>", opts)
+    local opts = { noremap = true, silent = true }
+    vim.api.nvim_buf_set_keymap("n", "goi", "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
+    vim.api.nvim_buf_set_keymap("n", "gv", "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
+    vim.api.nvim_buf_set_keymap("v", "gv", "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
+    vim.api.nvim_buf_set_keymap("n", "gc", "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
+    vim.api.nvim_buf_set_keymap("v", "gc", "<esc><cmd>lua require('jdtls').extract_constant(true)<cr>", opts)
+    vim.api.nvim_buf_set_keymap("n", "gm", "<cmd>lua require('jdtls').extract_method()<cr>", opts)
+    vim.api.nvim_buf_set_keymap("v", "gm", "<esc><cmd>lua require('jdtls').extract_method(true)<cr>", opts)
 end
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     on_attach = on_attach,

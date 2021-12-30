@@ -14,6 +14,7 @@ treesitter.setup {
         "java",
         "javascript",
         "json",
+        "lua",
         "toml",
     },
 }

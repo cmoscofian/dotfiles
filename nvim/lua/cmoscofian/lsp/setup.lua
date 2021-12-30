@@ -59,17 +59,18 @@ local function set_keybinds_and_options(bufnr)
     set_keybind("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
     set_keybind("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
     set_keybind("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-    set_keybind("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
     set_keybind("i", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
     set_keybind("n", "<leader>d", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", opts)
     set_keybind("n", "<c-n>", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
     set_keybind("n", "<c-p>", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-    set_keybind("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    set_keybind("n", "<leader>r", "<cmd>lua require('cmoscofian.lsp.handlers').on_rename()<cr>", opts)
 
     if __telescope_status then
+        set_keybind("n", "ga", "<cmd>Telescope lsp_code_actions theme=cursor<cr>", opts)
         set_keybind("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
         set_keybind("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
     else
+        set_keybind("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         set_keybind("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
         set_keybind("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
     end
