@@ -1,8 +1,8 @@
-local __telescope_status, _ = pcall(require, "telescope")
+local telescope_status, _ = pcall(require, "telescope")
 
 local M = {}
 
-local function set_diagnostics()
+local set_diagnostics = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
         { name = "DiagnosticSignWarn", text = "" },
@@ -31,12 +31,12 @@ local function set_diagnostics()
     vim.diagnostic.config(diagnostic_config)
 end
 
-local function set_hover_handlers()
+local set_hover_handlers = function()
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 end
 
-local function set_highlight_document(client)
+local set_highlight_document = function(client)
     if client.resolved_capabilities.document_highlight then
         vim.api.nvim_exec(
         [[
@@ -49,7 +49,7 @@ local function set_highlight_document(client)
     end
 end
 
-local function set_keybinds_and_options(bufnr)
+local set_keybinds_and_options = function(bufnr)
     local function set_keybind(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     local opts = { noremap = true, silent = true }
@@ -63,9 +63,10 @@ local function set_keybinds_and_options(bufnr)
     set_keybind("n", "<leader>d", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", opts)
     set_keybind("n", "<c-n>", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
     set_keybind("n", "<c-p>", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-    set_keybind("n", "<leader>r", "<cmd>lua require('cmoscofian.lsp.handlers').on_rename()<cr>", opts)
+    set_keybind("n", "<leader>r", "<cmd>RenameHandler<cr>", opts)
+    set_keybind("n", "<leader>R", "<cmd>RenameHandler true<cr>", opts)
 
-    if __telescope_status then
+    if telescope_status then
         set_keybind("n", "ga", "<cmd>Telescope lsp_code_actions theme=cursor<cr>", opts)
         set_keybind("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
         set_keybind("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
@@ -88,10 +89,10 @@ local capabilities = function()
     return cmp.update_capabilities(std_capabilities)
 end
 
-
 M.capabilities = capabilities()
 
 M.on_attach = function(client, bufnr)
+    vim.cmd("command! -buffer -nargs=* RenameHandler lua require('cmoscofian.lsp.handlers').on_rename(<args>)")
     set_diagnostics()
     set_highlight_document(client)
     set_hover_handlers()
