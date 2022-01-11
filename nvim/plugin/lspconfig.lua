@@ -1,12 +1,5 @@
-local status, lspconfig = pcall(require, "lspconfig")
-if not status then
-    return
-end
-
-local status, setup = pcall(require, "cmoscofian.lsp.setup")
-if not status then
-    return
-end
+local lspconfig = require("lspconfig")
+local setup = require("cmoscofian.lsp.setup")
 
 lspconfig.clangd.setup {
     capabilities = setup.capabilities,
