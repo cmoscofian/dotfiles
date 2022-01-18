@@ -49,7 +49,7 @@ local set_highlight_document = function(client)
     end
 end
 
-local set_keybinds_and_options = function(bufnr)
+local set_keybinds_and_options = function(client, bufnr)
     local function set_keybind(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     local opts = { noremap = true, silent = true }
@@ -66,14 +66,21 @@ local set_keybinds_and_options = function(bufnr)
     set_keybind("n", "<leader>R", "<cmd>RenameHandler true<cr>", opts)
 
     if telescope_status then
+        set_keybind("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
         set_keybind("n", "ga", "<cmd>Telescope lsp_code_actions theme=cursor<cr>", opts)
         set_keybind("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+        set_keybind("n", "gs", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
         set_keybind("n", "gr", "<cmd>ReferencesHandler<cr>", opts)
         set_keybind("n", "gR", "<cmd>ReferencesHandler true<cr>", opts)
     else
+        set_keybind("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
         set_keybind("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
         set_keybind("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
         set_keybind("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+    end
+
+    if client.name == "jdt.ls" then
+        set_keybind("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
     end
 
     set_keybind("n", "gh", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
@@ -97,7 +104,7 @@ M.on_attach = function(client, bufnr)
     set_diagnostics()
     set_highlight_document(client)
     set_hover_handlers()
-    set_keybinds_and_options(bufnr)
+    set_keybinds_and_options(client, bufnr)
 end
 
 return M

@@ -4,6 +4,7 @@ local actions = require("telescope.actions")
 
 telescope.setup {
     defaults = {
+        initial_mode = "normal",
         path_display = function(_, path)
             local tail = utils.path_tail(path)
             return string.format("%s (%s)", tail, path)
@@ -12,7 +13,6 @@ telescope.setup {
         selection_caret = "▹ ",
         file_ignore_patterns = {
             "node_modules/",
-            "test/",
         },
         mappings = {
             i = {
@@ -28,29 +28,29 @@ telescope.setup {
         },
     },
     pickers = {
-        lsp_code_actions = {
-            initial_mode = "normal",
+        find_files = {
+            initial_mode = "insert",
         },
-        lsp_references = {
-            initial_mode = "normal",
+        live_grep = {
+            initial_mode = "insert",
         },
-        lsp_implementations = {
-            initial_mode = "normal",
+        help_tags = {
+            initial_mode = "insert",
         },
-        buffers = {
-            initial_mode = "normal",
-        },
-        quickfix = {
-            initial_mode = "normal",
-        },
+        lsp_dynamic_workspace_symbols = {
+            initial_mode = "insert",
+        }
     },
 }
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Telescope git_files<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>G", "<cmd>Telescope live_grep<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>Telescope help_tags<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>Telescope quickfix<cr>", opts)
-
+vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>lua require('telescope.builtin').quickfix()<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>s", "<cmd>lua require('telescope.builtin').git_status()<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>de", "<cmd>Telescope diagnostics severity=error<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dw", "<cmd>Telescope diagnostics severity=warn<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>di", "<cmd>Telescope diagnostics severity=info<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>dh", "<cmd>Telescope diagnostics severity=hint<cr>", opts)

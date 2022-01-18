@@ -33,15 +33,16 @@ set listchars=tab:▸\ ,trail:.
 set mouse=a
 set nobackup
 set nofoldenable
+set nohlsearch
 set noswapfile
 set nowrap
 set number relativenumber
 set path=.,**
 set runtimepath+=/usr/local/opt/fzf
 set scrolloff=8
-set sidescrolloff=8
 set shiftwidth=4
 set showcmd
+set sidescrolloff=8
 set smartcase
 set smartindent
 set softtabstop=4
@@ -54,7 +55,7 @@ set wildmode=longest:full,full
 " Remaps {{{
 let mapleader = "\<space>"
 
-" Edit and source vimrc
+" Edit and source $MYVIMRC
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
