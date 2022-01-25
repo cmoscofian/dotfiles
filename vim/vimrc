@@ -29,7 +29,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:▸\ ,trail:.
+set listchars=tab:▸\ ,nbsp:~,trail:.
 set mouse=a
 set nobackup
 set nofoldenable

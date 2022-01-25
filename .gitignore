@@ -7,7 +7,6 @@ dlv/*
 
 git/*
 !git/gitconfig
-!git/workconfig
 
 gnupg/*
 !gnupg/*.conf

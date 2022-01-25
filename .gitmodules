@@ -25,6 +25,12 @@
 [submodule "nvim/pack/plugins/start/nvim-lualine"]
 	path = nvim/pack/plugins/start/nvim-lualine
 	url = https://github.com/nvim-lualine/lualine.nvim
+[submodule "nvim/pack/plugins/start/nvim-luasnip"]
+	path = nvim/pack/plugins/start/nvim-luasnip
+	url = https://github.com/L3MON4D3/LuaSnip
+[submodule "nvim/pack/plugins/start/nvim-luasnip-cmp"]
+	path = nvim/pack/plugins/start/nvim-luasnip-cmp
+	url = https://github.com/saadparwaiz1/cmp_luasnip
 [submodule "nvim/pack/plugins/start/nvim-plenary"]
 	path = nvim/pack/plugins/start/nvim-plenary
 	url = https://github.com/nvim-lua/plenary.nvim
@@ -34,9 +40,3 @@
 [submodule "nvim/pack/plugins/start/nvim-treesitter"]
 	path = nvim/pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
-[submodule "nvim/pack/plugins/start/nvim-luasnip"]
-	path = nvim/pack/plugins/start/nvim-luasnip
-	url = https://github.com/L3MON4D3/LuaSnip
-[submodule "nvim/pack/plugins/start/nvim-luasnip-cmp"]
-	path = nvim/pack/plugins/start/nvim-luasnip-cmp
-	url = https://github.com/saadparwaiz1/cmp_luasnip

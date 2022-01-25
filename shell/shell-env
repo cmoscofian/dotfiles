@@ -65,7 +65,12 @@ export PRIVATE="$WORKSPACE/private"
 export PRIVATE_PROJECTS="$PRIVATE/projects"
 export PRIVATE_SCRIPTS="$PRIVATE/scripts"
 
-# Set meli workspace
-export MELI="$WORKSPACE/meli"
-export MELI_PROJECTS="$MELI/projects"
-export MELI_SCRIPTS="$MELI/scripts"
+# Set work workspace
+export WORK="$WORKSPACE/work"
+export WORK_PROJECTS="$WORK/projects"
+export WORK_SCRIPTS="$WORK/scripts"
+
+# Set open-source workspace
+export OPEN_SOURCE="$WORKSPACE/open-source"
+export OPEN_SOURCE_PROJECTS="$WORK/projects"
+export OPEN_SOURCE_SCRIPTS="$WORK/scripts"

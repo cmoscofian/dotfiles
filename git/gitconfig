@@ -63,6 +63,6 @@
 	trustExitCode = true
 	keepBackup = false
 
-[include]
+[includeIf "gitdir:~/Workspace/work/"]
 	path = ~/.dotfiles/git/workconfig
 

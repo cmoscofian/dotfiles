@@ -29,5 +29,5 @@ common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh" # This loads sdkman
 common::add_file "/usr/local/opt/nvm/nvm.sh" # This loads nvm
 common::add_file "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
-# Set all meli cloned projects as environment variables
-f::workset $MELI_PROJECTS
+# Set all work cloned projects as environment variables
+f::workset $WORK_PROJECTS
