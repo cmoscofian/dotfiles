@@ -61,6 +61,7 @@ M.on_rename = function(use_placeholder)
         end
 
         vim.fn.setqflist(entries, "r")
+        vim.cmd("wa")
     end
 
     local on_confirm = function(input)
@@ -132,8 +133,8 @@ M.on_reference = function(find_tests)
         for i, item in ipairs(items) do
             items[i].text = utils.trim(item.text)
         end
-        local reference = vim.fn.expand("<cword>")
 
+        local reference = vim.fn.expand("<cword>")
         pickers.new({
             finder = finders.new_table {
                 entry_maker = make_entry.gen_from_quickfix(),

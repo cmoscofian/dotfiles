@@ -1,15 +1,15 @@
 local lspconfig = require("lspconfig")
-local setup = require("cmoscofian.lsp.setup")
+local config = require("cmoscofian.lsp").config
 
 lspconfig.clangd.setup {
-    capabilities = setup.capabilities,
-    on_attach = setup.on_attach,
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
     single_file_support = true,
 }
 
 lspconfig.gopls.setup {
-    capabilities = setup.capabilities,
-    on_attach = setup.on_attach,
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
     cmd = {"gopls", "serve"},
     settings = {
         gopls = {
@@ -27,8 +27,8 @@ lspconfig.gopls.setup {
 }
 
 lspconfig.tsserver.setup {
-    capabilities = setup.capabilities,
-    on_attach = setup.on_attach,
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
     single_file_support = true,
     init_options = {
         preferences = {
@@ -39,14 +39,14 @@ lspconfig.tsserver.setup {
 }
 
 lspconfig.jsonls.setup {
-    capabilities = setup.capabilities,
-    on_attach = setup.on_attach,
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
     single_file_support = true,
 }
 
 lspconfig.sumneko_lua.setup {
-    capabilities = setup.capabilities,
-    on_attach = setup.on_attach,
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
     cmd = {"lua-language-server"},
     settings = {
         Lua = {

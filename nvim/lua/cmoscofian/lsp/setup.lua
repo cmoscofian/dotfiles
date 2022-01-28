@@ -1,5 +1,3 @@
-local telescope_status, _ = pcall(require, "telescope")
-
 local M = {}
 
 local set_diagnostics = function()
@@ -65,7 +63,7 @@ local set_keybinds_and_options = function(client, bufnr)
     set_keybind("n", "<leader>r", "<cmd>RenameHandler<cr>", opts)
     set_keybind("n", "<leader>R", "<cmd>RenameHandler true<cr>", opts)
 
-    if telescope_status then
+    if pcall(require, "telescope") then
         set_keybind("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
         set_keybind("n", "ga", "<cmd>Telescope lsp_code_actions theme=cursor<cr>", opts)
         set_keybind("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
@@ -86,7 +84,7 @@ local set_keybinds_and_options = function(client, bufnr)
     set_keybind("n", "gh", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 end
 
-local capabilities = function()
+M.set_capabilities = function()
     local std_capabilities = vim.lsp.protocol.make_client_capabilities()
     local status, cmp = pcall(require, "cmp_nvim_lsp")
     if not status then
@@ -95,8 +93,6 @@ local capabilities = function()
 
     return cmp.update_capabilities(std_capabilities)
 end
-
-M.capabilities = capabilities()
 
 M.on_attach = function(client, bufnr)
     vim.cmd("command! -buffer -nargs=* RenameHandler lua require('cmoscofian.lsp.handlers').on_rename(<args>)")

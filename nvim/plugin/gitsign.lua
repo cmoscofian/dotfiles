@@ -1,7 +1,4 @@
-local status, gitsigns = pcall(require, "gitsigns")
-if not status then
-    return
-end
+local gitsigns = require("gitsigns")
 
 gitsigns.setup {
     preview_config = {

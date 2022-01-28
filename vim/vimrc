@@ -48,6 +48,7 @@ set smartindent
 set softtabstop=4
 set splitright
 set tabstop=4
+set updatetime=1000
 set wildignore=**/node_modules/**/*
 set wildmode=longest:full,full
 "}}}

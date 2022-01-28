@@ -1,18 +1,11 @@
-local status, jdtls = pcall(require, "jdtls")
-if not status then
-    return
-end
-
-local status, setup = pcall(require, "cmoscofian.lsp.setup")
-if not status then
-    return
-end
+local jdtls = require("jdtls")
+local config = require("cmoscofian.lsp").config
 
 local project_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local on_attach = function(client, bufnr)
     jdtls.setup.add_commands()
-    setup.on_attach(client, bufnr)
+    config.on_attach(client, bufnr)
 
     -- Specific jdtls key bindings
     local opts = { noremap = true, silent = true }
@@ -28,7 +21,7 @@ end
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     on_attach = on_attach,
-    capabilities = setup.capabilities,
+    capabilities = config.capabilities,
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
     cmd = {"jdtls", project_dir},
