@@ -21,7 +21,7 @@ local set_diagnostics = function()
         float = {
             border = "rounded",
             focusable = false,
-            header = { " Diagnostics", "WildMenu" },
+            header = { " Diagnostics", "Title" },
             prefix = "",
             source = "always",
         },

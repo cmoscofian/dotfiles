@@ -3,7 +3,9 @@ local lualine = require("lualine")
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = "nord",
+        -- This hack depends on creating a new theme called "nibble" inside the
+        -- lualine themes folder.
+        theme = "nibble",
         component_separators = { left = "", right = ""},
         section_separators = { left = "", right = ""},
     },
@@ -11,8 +13,18 @@ lualine.setup {
         lualine_c = {
             {
                 "filename",
-                file_status = true,
                 path = 1,
+                symbols= {
+                    readonly = "[RO]",
+                    unnamed = "[NO NAME]",
+                },
+            },
+        },
+        lualine_x = {
+            {
+                "filetype",
+                colored = false,
+                padding = 3,
             },
         },
     },

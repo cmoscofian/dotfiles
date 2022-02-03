@@ -1,68 +1,68 @@
 [user]
-	name = Charles Moscofian
-	email = charlesmoscofian@hotmail.com
-	signinKey = charlesmoscofian@hotmail.com
+    name = Charles Moscofian
+    email = charlesmoscofian@hotmail.com
+    signinKey = charlesmoscofian@hotmail.com
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [alias]
-	dev = switch develop
-	unstage = restore --staged
-	lg = log --graph --pretty=format:'%Cred%h%Creset - %s [%Cblue%an%Creset, %Cgreen%ar%Creset, %C(yellow)%G?%Creset] %C(magenta)%d%Creset'
+    dev = switch develop
+    unstage = restore --staged
+    lg = log --graph --pretty=format:'%Cred%h%Creset - %s [%Cblue%an%Creset, %Cgreen%ar%Creset, %C(yellow)%G?%Creset] %C(magenta)%d%Creset'
 
 [core]
-	autocrlf = input
-	editor = vimdiff
+    autocrlf = input
+    editor = vimdiff
 
 [url "github:"]
-	insteadOf = https://github.com
+    insteadOf = https://github.com
 
 [color]
-	ui = auto
+    ui = auto
 
 [remote]
-	pushDefault = origin
-	pullDefault = origin
+    pushDefault = origin
+    pullDefault = origin
 
 [commit]
-	verbose = true
-	gpgSign = true
+    verbose = true
+    gpgSign = true
 
 [tag]
-	gpgSign = true
+    gpgSign = true
 
 [fetch]
-	prune = true
-	pruneTags = true
+    prune = true
+    pruneTags = true
 
 [pull]
-	ff = true
+    ff = true
 
 [push]
-	default = current
+    default = current
 
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
 
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 
 [difftool]
-	prompt = false
-	trustExitCode = true
+    prompt = false
+    trustExitCode = true
 
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 
 [mergetool]
-	prompt = false
-	trustExitCode = true
-	keepBackup = false
+    prompt = false
+    trustExitCode = true
+    keepBackup = false
 
 [includeIf "gitdir:~/Workspace/work/"]
-	path = ~/.dotfiles/git/workconfig
+    path = ~/.dotfiles/git/workconfig
 

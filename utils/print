@@ -5,28 +5,28 @@ __blue="\033[1;34m"
 __purple="\033[1;35m"
 __cyan="\033[1;36m"
 __grey="\033[1;38;5;243m"
-__default='\033[0m'
+__default="\033[0m"
 
 
 function print::title() {
-	echo -e "${__purple}$1${__default}"
-	echo -e "${__grey}==============================${__default}"
+    echo -e "${__purple}$1${__default}"
+    echo -e "${__grey}==============================${__default}"
 }
 
 function print::error() {
-	echo -e "${__red}[error]${__default}: $1"
+    echo -e "${__red}[error]${__default}: $1"
 }
 
 function print::warning() {
-	echo -e "${__yellow}[warning]${__default}: $1"
+    echo -e "${__yellow}[warning]${__default}: $1"
 }
 
 function print::info() {
-	echo -e "${__blue}[info]${__default}: $1"
+    echo -e "${__blue}[info]${__default}: $1"
 }
 
 function print::success() {
-	echo -e "${__green}[success]${__default}: $1"
+    echo -e "${__green}[success]${__default}: $1"
 }
 
 function print::colors() {

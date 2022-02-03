@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local config = {
+local jdtls_config = {
     on_attach = on_attach,
     capabilities = config.capabilities,
     -- The command that starts the language server
@@ -61,4 +61,4 @@ local config = {
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-jdtls.start_or_attach(config)
+jdtls.start_or_attach(jdtls_config)

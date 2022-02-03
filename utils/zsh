@@ -3,7 +3,7 @@ function zsh::add_file() {
 }
 
 function zsh::add_plugin() {
-	local __plugin_name
+    local __plugin_name
     __plugin_name=$(echo $1 | cut -d "/" -f 2)
 
     if [ -d "$ZDOTDIR/plugins/$__plugin_name" ]; then 
@@ -15,21 +15,21 @@ function zsh::add_plugin() {
 }
 
 function zsh::add_completion() {
-	local __plugin_name
+    local __plugin_name
     __plugin_name=$(echo $1 | cut -d "/" -f 2)
 
     if [ -d "$ZDOTDIR/plugins/$__plugin_name" ]; then 
-		completion_file_path=$(ls $ZDOTDIR/plugins/$__plugin_name/_*)
-		fpath+="$(dirname "${completion_file_path}")"
+        completion_file_path=$(ls $ZDOTDIR/plugins/$__plugin_name/_*)
+        fpath+="$(dirname "${completion_file_path}")"
         zsh::add_file "plugins/$__plugin_name/$__plugin_name.plugin.zsh"
     else
         git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$__plugin_name"
-		fpath+=$(ls $ZDOTDIR/plugins/$__plugin_name/_*)
+        fpath+=$(ls $ZDOTDIR/plugins/$__plugin_name/_*)
         [ -f $ZDOTDIR/.zccompdump ] && $ZDOTDIR/.zccompdump
     fi
 
-	completion_file="$(basename "${completion_file_path}")"
+    completion_file="$(basename "${completion_file_path}")"
 
-	if [ "$2" = true ] && compinit "${completion_file:1}"
+    if [ "$2" = true ] && compinit "${completion_file:1}"
 }
 
