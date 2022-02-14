@@ -10,6 +10,11 @@ lualine.setup {
         section_separators = { left = "", right = ""},
     },
     sections = {
+        lualine_b = {
+            { "branch", padding = 2 },
+            { "diff", padding = 2 },
+            { "diagnostics", padding = 1 },
+        },
         lualine_c = {
             {
                 "filename",

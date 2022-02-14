@@ -4,6 +4,8 @@ local config = require("cmoscofian.lsp").config
 lspconfig.clangd.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
+    cmd = {"clangd", "--background-index","--suggest-missing-includes"},
+    filetypes = {"c", "cc", "cpp", "h", "hpp", "objc", "objcpp"},
     single_file_support = true,
 }
 
@@ -14,6 +16,7 @@ lspconfig.gopls.setup {
     settings = {
         gopls = {
             analyses = {
+                fieldalignment = true,
                 nilness = true,
                 shadow = true,
                 unusedparams = true,
