@@ -10,10 +10,11 @@ telescope.setup {
             local tail = utils.path_tail(path)
             return string.format("%s (%s)", tail, path)
         end,
-        prompt_prefix = " ",
+        prompt_prefix = "? ",
         selection_caret = "▹ ",
         file_ignore_patterns = {
             "node_modules/",
+            "test/",
         },
         mappings = {
             i = {
