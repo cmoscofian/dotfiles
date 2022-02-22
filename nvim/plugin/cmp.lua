@@ -6,34 +6,6 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-local icons = {
-    Text = "",
-    Method = "",
-    Function = "",
-    Constructor = "",
-    Field = "ﰠ",
-    Variable = "",
-    Class = "ﴯ",
-    Interface = "",
-    Module = "",
-    Property = "ﰠ",
-    Unit = "塞",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "פּ",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
-}
-
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -76,7 +48,7 @@ cmp.setup {
     formatting = {
         fields = { "abbr", "kind", "menu" },
         format = function(entry, item)
-            item.kind = string.format("%s %s", icons[item.kind], item.kind)
+            item.kind = string.format("%s", item.kind)
             item.menu = ({
                 nvim_lsp = "[LSP]",
                 luasnip = "[Snippet]",

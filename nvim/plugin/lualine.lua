@@ -11,26 +11,30 @@ lualine.setup {
     },
     sections = {
         lualine_b = {
-            { "branch", padding = 2 },
-            { "diff", padding = 2 },
-            { "diagnostics", padding = 1 },
+            { "branch" },
+            { "diff" },
+            {
+                "diagnostics",
+                symbols = {
+                    error = "e:",
+                    warn = "w:",
+                    info = "i:",
+                    hint = "h:"
+                },
+            },
         },
         lualine_c = {
             {
                 "filename",
                 path = 1,
-                symbols= {
+                symbols = {
                     readonly = "[RO]",
                     unnamed = "[NO NAME]",
                 },
             },
         },
         lualine_x = {
-            {
-                "filetype",
-                colored = false,
-                padding = 3,
-            },
+            { "filetype", colored = false, padding = 3 },
         },
     },
 }

@@ -5,8 +5,8 @@ add-zsh-hook precmd vcs_info
 # zstyle ':vcs_info:*' debug true
 zstyle ':vcs_info:*' enable git 
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%F{46}●%f'
-zstyle ':vcs_info:*' unstagedstr '%F{160}●%f'
+zstyle ':vcs_info:*' stagedstr '%F{46}*%f'
+zstyle ':vcs_info:*' unstagedstr '%F{160}*%f'
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-stashed
 zstyle ':vcs_info:git+post-backend:*' hooks git-remote-tracking
@@ -16,7 +16,7 @@ zstyle ':vcs_info:git*:*' actionformats ', %c%u%F{201}%.7i%f@%F{201}%b%f|%F{201}
 function +vi-git-untracked() {
     emulate -L zsh
     if [[ $(git status --porcelain 2> /dev/null | grep '^??' | wc -l) -ne 0 ]]; then
-        hook_com[unstaged]+='%F{226}●%f'
+        hook_com[unstaged]+='%F{226}*%f'
     fi
     return 0
 }

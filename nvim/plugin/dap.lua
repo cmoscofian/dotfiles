@@ -54,17 +54,17 @@ ui.setup {
 vim.fn.sign_define {
     {
         name = "DapBreakpoint",
-        text = "●",
+        text = "*",
         texthl = "DapBreakpoint"
     },
     {
         name = "DapBreakpointCondition",
-        text = "●",
+        text = "*",
         texthl = "DapBreakpointCondition"
     },
     {
         name = "DapBreakpointRejected",
-        text = "●",
+        text = "✕",
         texthl = "DapBreakpointRejected",
         linehl = "DapBreakpointRejectedLine"
     },

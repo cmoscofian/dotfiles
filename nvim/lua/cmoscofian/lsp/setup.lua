@@ -3,10 +3,10 @@ local M = {}
 
 local set_diagnostics = function()
     local signs = {
-        { name = "DiagnosticSignError", text = "" },
-        { name = "DiagnosticSignWarn", text = "" },
-        { name = "DiagnosticSignHint", text = "" },
-        { name = "DiagnosticSignInfo", text = "" },
+        { name = "DiagnosticSignError", text = "e" },
+        { name = "DiagnosticSignWarn", text = "w" },
+        { name = "DiagnosticSignHint", text = "h" },
+        { name = "DiagnosticSignInfo", text = "i" },
     }
 
     for _, sign in ipairs(signs) do
@@ -22,7 +22,7 @@ local set_diagnostics = function()
         float = {
             border = "rounded",
             focusable = false,
-            header = { " Diagnostics", "Title" },
+            header = { "Diagnostics", "Title" },
             prefix = "",
             source = "always",
         },
