@@ -41,12 +41,6 @@ lspconfig.tsserver.setup {
     },
 }
 
-lspconfig.jsonls.setup {
-    capabilities = config.capabilities,
-    on_attach = config.on_attach,
-    single_file_support = true,
-}
-
 lspconfig.sumneko_lua.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
@@ -72,4 +66,19 @@ lspconfig.sumneko_lua.setup {
             },
         },
     },
+}
+
+lspconfig.cssls.setup {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
+}
+
+lspconfig.html.setup {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
+}
+
+lspconfig.jsonls.setup {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
 }

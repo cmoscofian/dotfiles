@@ -81,6 +81,7 @@ vnoremap p "_dP
 
 " Plugins {{{
 " NERDTree specific bindings and settings
+let g:NERDTreeCascadeSingleChildDir=0
 let g:NERDTreeDirArrowCollapsible = "▿"
 let g:NERDTreeDirArrowExpandable = "▹"
 let g:NERDTreeHighlightCursorline=0

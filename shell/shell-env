@@ -17,7 +17,7 @@ export XDG_STATE_HOME="$DOTDIR/xdg/state"
 # Set general usage variables
 export BROWSER="brave"
 export EDITOR=vim
-export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist nonu noma nornu' -\""
+export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=4 sts=4 nomod nolist nonu noma nornu cc=0' -\""
 export VISUAL=vim
 
 # Set application specific env variables
@@ -37,7 +37,7 @@ export PATH="$GOBIN:/usr/local/bin/go:$PATH"
 
 # Set path for python executables
 export PATH="$PYBIN:$PATH"
-#
+
 # Set path for node executables
 export PATH="$NVM_BIN:$PATH"
 

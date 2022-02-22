@@ -1,6 +1,6 @@
-# Set meli projects environment variables 
+# Set meli projects environment variables
 # USAGE: f_workset [path]
-# 
+#
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
 function f::workset() {
     local __path=$PWD

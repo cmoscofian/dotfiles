@@ -1,6 +1,6 @@
-# A dynamic JAVA selection function based on `/usr/libexec/java_home`.
-# It searches the available versions and sets it as the current version
-# based on the users selection.
+# A dynamic JAVA selection function based on `/usr/libexec/java_home`, it
+# searches the available versions and sets it as the current version based on
+# the users selection
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
 function f::javav() {

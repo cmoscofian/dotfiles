@@ -1,9 +1,9 @@
-# A simple function to fetch and update all git projects at once
-# based on a branch and a remote.
-# 
+# A simple function to fetch and update all git projects at once based on a
+# branch and a remote
+#
 # USAGE: f_workupt [-b branch] [-r remote] [-h] path
 #
-# [path]: Path to the workspace directory where all git projects reside.
+# [path]: Path to the workspace directory where all git projects reside
 # [branch]: Branch to switch into and fast-forward agains. Default: "develop"
 # [remote]: Remote from which all changes will be fetched. Default: "origin"
 #
