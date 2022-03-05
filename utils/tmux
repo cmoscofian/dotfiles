@@ -16,8 +16,7 @@ function tmux::it() {
     done
     shift $(( OPTIND - 1 ))
 
-    tmux new-session -d -s $__session -c $__path
-    tmux rename-window -t $__session:1 $__window
+    tmux new-session -d -s $__session -c $__path -n $__window
     tmux send-keys "vim ." C-m
     tmux split-window -v
     tmux send-keys "cd $__path" C-m
