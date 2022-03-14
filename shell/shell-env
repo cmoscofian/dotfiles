@@ -17,13 +17,14 @@ export XDG_STATE_HOME="$DOTDIR/xdg/state"
 # Set general usage variables
 export BROWSER="brave"
 export EDITOR=vim
+export LANG=en_US.UTF-8
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=4 sts=4 nomod nolist nonu noma nornu cc=0' -\""
 export VISUAL=vim
 
 # Set application specific env variables
+export GNUPGHOME="$DOTDIR/gnupg"
 export NVM_DIR="$DOTDIR/nvm"
 export SDKMAN_DIR="$DOTDIR/sdk"
-export GNUPGHOME="$DOTDIR/gnupg"
 
 # Set golang env variables
 export GOPATH="$HOME/go"
