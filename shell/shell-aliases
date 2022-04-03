@@ -20,6 +20,5 @@ alias gradd="f::groot && git add"
 alias gsh="git show --pretty=oneline"
 alias gst="git status"
 alias gsw="git switch"
-alias python=python3
 alias pip=pip3
 alias vim=nvim
