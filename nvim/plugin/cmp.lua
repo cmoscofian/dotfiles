@@ -43,7 +43,7 @@ cmp.setup {
     mapping = {
         ["<c-k>"] = cmp.mapping.select_prev_item(),
         ["<c-j>"] = cmp.mapping.select_next_item(),
-        ["<c-space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+        ["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         ["<cr>"] = cmp.mapping.confirm { select = true },
         ["<tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -89,8 +89,8 @@ cmp.setup {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
     },
-    documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    window = {
+        documentation = "native",
     },
     experimental = {
         native_menu = false,

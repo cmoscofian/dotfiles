@@ -9,7 +9,7 @@ bindkey -M menuselect "l" vi-forward-char
 bindkey -M menuselect "j" vi-down-line-or-history
 
 # Change cursor shape for different vi modes
-function zle-keymap-select () {
+function zle-keymap-select() {
     case $KEYMAP in
         viins|main) echo -n "\e[5 q";;  # beam
         vicmd) echo -n "\e[1 q";;       # block

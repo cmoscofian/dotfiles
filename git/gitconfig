@@ -7,9 +7,7 @@
     defaultBranch = main
 
 [alias]
-    dev = switch develop
     unstage = restore --staged
-    lg = log --graph --pretty=format:'%Cred%h%Creset - %s [%Cblue%an%Creset, %Cgreen%ar%Creset, %C(yellow)%G?%Creset] %C(magenta)%d%Creset'
 
 [core]
     autocrlf = input
