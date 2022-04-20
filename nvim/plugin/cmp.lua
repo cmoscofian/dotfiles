@@ -89,9 +89,6 @@ cmp.setup {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
     },
-    window = {
-        documentation = "native",
-    },
     experimental = {
         native_menu = false,
         ghost_text = true,

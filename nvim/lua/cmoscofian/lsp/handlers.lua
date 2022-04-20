@@ -37,7 +37,7 @@ M.on_rename = function(use_placeholder)
             return
         end
 
-        vim.lsp.util.apply_workspace_edit(workspace_edit)
+        vim.lsp.util.apply_workspace_edit(workspace_edit, "utf-16")
 
         local entries = {}
         if workspace_edit.changes then
