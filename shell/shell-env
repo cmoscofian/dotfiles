@@ -73,5 +73,5 @@ export WORK_SCRIPTS="$WORK/scripts"
 
 # Set open-source workspace
 export OPEN_SOURCE="$WORKSPACE/open-source"
-export OPEN_SOURCE_PROJECTS="$WORK/projects"
-export OPEN_SOURCE_SCRIPTS="$WORK/scripts"
+export OPEN_SOURCE_PROJECTS="$OPEN_SOURCE/projects"
+export OPEN_SOURCE_SCRIPTS="$OPEN_SOURCE/scripts"

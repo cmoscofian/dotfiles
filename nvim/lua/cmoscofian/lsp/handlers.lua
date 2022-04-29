@@ -75,7 +75,7 @@ M.on_rename = function(use_placeholder)
     end
 
     local opts = {
-        prompt = "Rename: ",
+        prompt = "New name: ",
         default = nil,
     }
 
