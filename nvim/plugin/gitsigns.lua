@@ -11,9 +11,9 @@ gitsigns.setup {
 }
 
 
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "[c", "<cmd>Gitsigns prev_hunk<cr>", opts)
-vim.api.nvim_set_keymap("n", "]c", "<cmd>Gitsigns next_hunk<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>ph", "<cmd>Gitsigns preview_hunk<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>rh", "<cmd>Gitsigns reset_hunk<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>rb", "<cmd>Gitsigns reset_buffer<cr>", opts)
+local opts = { silent = true }
+vim.keymap.set("n", "[c", gitsigns.prev_hunk, opts)
+vim.keymap.set("n", "]c", gitsigns.next_hunk, opts)
+vim.keymap.set("n", "<leader>ph", gitsigns.preview_hunk, opts)
+vim.keymap.set("n", "<leader>rh", gitsigns.reset_hunk, opts)
+vim.keymap.set("n", "<leader>rb", gitsigns.reset_buffer, opts)

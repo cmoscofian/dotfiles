@@ -8,14 +8,11 @@ local on_attach = function(client, bufnr)
     config.on_attach(client, bufnr)
 
     -- Specific jdtls key bindings
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap("n", "goi", "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
-    vim.api.nvim_buf_set_keymap("n", "gv", "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
-    vim.api.nvim_buf_set_keymap("v", "gv", "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
-    vim.api.nvim_buf_set_keymap("n", "gc", "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
-    vim.api.nvim_buf_set_keymap("v", "gc", "<esc><cmd>lua require('jdtls').extract_constant(true)<cr>", opts)
-    vim.api.nvim_buf_set_keymap("n", "gm", "<cmd>lua require('jdtls').extract_method()<cr>", opts)
-    vim.api.nvim_buf_set_keymap("v", "gm", "<esc><cmd>lua require('jdtls').extract_method(true)<cr>", opts)
+    local opts = { silent = true }
+    vim.keymap.set("n", "goi", jdtls.organize_imports, opts)
+    vim.keymap.set("n", "gv", jdtls.extract_variable, opts)
+    vim.keymap.set("n", "gc", jdtls.extract_constant, opts)
+    vim.keymap.set("n", "gm", jdtls.extract_method, opts)
 end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
@@ -24,10 +21,10 @@ local jdtls_config = {
     capabilities = config.capabilities,
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-    cmd = {"jdtls", project_dir},
+    cmd = { "jdtls", project_dir },
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
-    root_dir = jdtls.setup.find_root({".git", "mvnw", "gradlew", "build.gradle", "pom.xml"}),
+    root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew", "build.gradle", "pom.xml" }),
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options

@@ -1,6 +1,7 @@
 local telescope = require("telescope")
 local utils = require("telescope.utils")
 local actions = require("telescope.actions")
+local handlers = require("telescope.builtin")
 
 telescope.setup {
     defaults = {
@@ -43,15 +44,15 @@ telescope.setup {
     },
 }
 
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>c", "<cmd>lua require('telescope.builtin').git_commits()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>lua require('telescope.builtin').quickfix()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>s", "<cmd>lua require('telescope.builtin').git_status()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>de", "<cmd>Telescope diagnostics severity=error<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>dw", "<cmd>Telescope diagnostics severity=warn<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>di", "<cmd>Telescope diagnostics severity=info<cr>", opts)
-vim.api.nvim_set_keymap("n", "<leader>dh", "<cmd>Telescope diagnostics severity=hint<cr>", opts)
+local opts = { silent = true }
+vim.keymap.set("n", "<leader>b", handlers.buffers, opts)
+vim.keymap.set("n", "<leader>c", handlers.git_commits, opts)
+vim.keymap.set("n", "<leader>f", handlers.find_files, opts)
+vim.keymap.set("n", "<leader>g", handlers.live_grep, opts)
+vim.keymap.set("n", "<leader>h", handlers.help_tags, opts)
+vim.keymap.set("n", "<leader>q", handlers.quickfix, opts)
+vim.keymap.set("n", "<leader>s", handlers.git_status, opts)
+vim.keymap.set("n", "<leader>de", function() handlers.diagnostics({ severity = "error" }) end, opts)
+vim.keymap.set("n", "<leader>dw", function() handlers.diagnostics({ severity = "warn" }) end, opts)
+vim.keymap.set("n", "<leader>di", function() handlers.diagnostics({ severity = "info" }) end, opts)
+vim.keymap.set("n", "<leader>dh", function() handlers.diagnostics({ severity = "hint" }) end, opts)
