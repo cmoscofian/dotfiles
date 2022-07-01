@@ -24,6 +24,7 @@ export VISUAL=vim
 # Set application specific env variables
 export GNUPGHOME="$DOTDIR/gnupg"
 export NVM_DIR="$DOTDIR/nvm"
+export RUSTUP_HOME="$DOTDIR/rust/rustup"
 export SDKMAN_DIR="$DOTDIR/sdk"
 
 # Set golang env variables
@@ -33,14 +34,21 @@ export GOBIN="$GOPATH/bin"
 # Set python env variables
 export PYBIN="$HOME/Library/Python/3.9/bin"
 
+# Set rust env variables
+export CARGO_HOME="$DOTDIR/rust/cargo"
+export RUSTBIN="$CARGO_HOME/bin"
+
 # Set path for golang executables
 export PATH="$GOBIN:/usr/local/bin/go:$PATH"
+
+# Set path for node executables
+export PATH="$NVM_BIN:$PATH"
 
 # Set path for python executables
 export PATH="$PYBIN:$PATH"
 
-# Set path for node executables
-export PATH="$NVM_BIN:$PATH"
+# Set path for rust executables
+export PATH="$RUSTBIN:$PATH"
 
 # Set path to enable MPLab 8bit compiler
 export PATH="/Applications/microchip/xc8/v2.32/bin:$PATH"

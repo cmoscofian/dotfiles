@@ -13,7 +13,9 @@ gnupg/*
 
 htop/*
 jgit/*
+mutt/*
 nvm/*
+rust/*
 sdk/*
 
 ssh/*

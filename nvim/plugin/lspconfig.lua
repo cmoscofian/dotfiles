@@ -82,3 +82,19 @@ lspconfig.jsonls.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
 }
+
+lspconfig.rust_analyzer.setup {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
+    single_file_support = true,
+    settings = {
+        ["rust-analyzer"] = {
+            inlayHints = {
+                lifetimeElisionHints = {
+                    enable = true,
+                    useParameterNames = true
+                },
+            },
+        },
+    },
+}

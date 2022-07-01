@@ -14,11 +14,13 @@ brew 'go'
 brew 'htop'
 brew 'llvm'
 brew 'lua'
+brew 'mutt'
 brew 'neovim'
 brew 'nvm'
 brew 'pinentry-mac'
 brew 'python'
 brew 'ripgrep'
+brew 'rust-analyzer'
 brew 'tmux'
 
 # Casks
