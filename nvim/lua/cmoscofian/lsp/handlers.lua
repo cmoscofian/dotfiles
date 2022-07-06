@@ -9,13 +9,13 @@ local build_qf_item = function(uri, range)
     local bufnr = vim.uri_to_bufnr(uri)
     local filename = vim.uri_to_fname(uri)
     local line_number = range.start.line
-    local texts = vim.api.nvim_buf_get_lines(bufnr, line_number, line_number+1, false)
+    local texts = vim.api.nvim_buf_get_lines(bufnr, line_number, line_number + 1, false)
 
     return {
         bufnr = bufnr,
         filename = filename,
-        lnum = line_number+1,
-        col = range.start.character+1,
+        lnum = line_number + 1,
+        col = range.start.character + 1,
         text = utils.trim(texts[1]),
     }
 end
@@ -100,7 +100,7 @@ M.on_reference = function(find_tests)
             return
         end
 
-        if vim.tbl_isempty(locations) then
+        if locations == nil or vim.tbl_isempty(locations) then
             return
         end
 
@@ -125,7 +125,7 @@ M.on_reference = function(find_tests)
             end
         end
 
-        local items = vim.lsp.util.locations_to_items(locations)
+        local items = vim.lsp.util.locations_to_items(locations, "utf-16")
         if vim.tbl_isempty(items) then
             return
         end
