@@ -6,8 +6,8 @@ lualine.setup {
         -- This hack depends on creating a new theme called "nibble" inside the
         -- lualine themes folder.
         theme = "nibble",
-        component_separators = { left = "", right = ""},
-        section_separators = { left = "", right = ""},
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
     },
     sections = {
         lualine_b = {

@@ -8,4 +8,3 @@ M.trim = function(s)
 end
 
 return M
-
