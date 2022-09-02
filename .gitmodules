@@ -13,6 +13,12 @@
 [submodule "nvim/pack/plugins/start/nvim-cmp-lsp"]
     path = nvim/pack/plugins/start/nvim-cmp-lsp
     url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "nvim/pack/plugins/start/nvim-dap"]
+	path = nvim/pack/plugins/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap
+[submodule "nvim/pack/plugins/start/nvim-dapui"]
+	path = nvim/pack/plugins/start/nvim-dapui
+	url = https://github.com/rcarriga/nvim-dap-ui
 [submodule "nvim/pack/plugins/start/nvim-gitsigns"]
     path = nvim/pack/plugins/start/nvim-gitsigns
     url = https://github.com/lewis6991/gitsigns.nvim
