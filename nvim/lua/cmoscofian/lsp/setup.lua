@@ -1,3 +1,4 @@
+local handlers = require("cmoscofian.lsp.handlers")
 local M = {}
 
 local set_diagnostics = function()
@@ -35,20 +36,23 @@ local set_hover_handlers = function()
 end
 
 local set_highlight_document = function(client)
-    if client.resolved_capabilities.document_highlight then
-        vim.api.nvim_exec([[
-            augroup lsp_document_highlight
-                autocmd! * <buffer>
-                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-            augroup END
-        ]], false)
+    if client.server_capabilities.documentHighlightProvider then
+        local group_name = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
+        vim.api.nvim_create_autocmd("CursorHold", {
+            group = group_name,
+            buffer = 0,
+            callback = vim.lsp.buf.document_highlight,
+        })
+        vim.api.nvim_create_autocmd("CursorMoved", {
+            group = group_name,
+            buffer = 0,
+            callback = vim.lsp.buf.clear_references,
+        })
     end
 end
 
 local set_keybinds_and_options = function(bufnr)
     local opts = { silent = true }
-    local handlers = require("cmoscofian.lsp.handlers")
 
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -61,7 +65,7 @@ local set_keybinds_and_options = function(bufnr)
     vim.keymap.set("n", "<c-p>", vim.diagnostic.goto_prev, opts)
     vim.keymap.set("n", "<leader>r", handlers.on_rename, opts)
     vim.keymap.set("n", "<leader>R", function() handlers.on_rename(true) end, opts)
-    vim.keymap.set("n", "gh", vim.lsp.buf.formatting, opts)
+    vim.keymap.set("n", "gh", vim.lsp.buf.format, opts)
 
     local status, telescope = pcall(require, "telescope.builtin")
     if status then
