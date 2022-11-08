@@ -90,7 +90,7 @@ M.set_capabilities = function()
         return std_capabilities
     end
 
-    return cmp.update_capabilities(std_capabilities)
+    return cmp.default_capabilities(std_capabilities)
 end
 
 M.on_attach = function(client, bufnr)

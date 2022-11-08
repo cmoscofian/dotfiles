@@ -1,0 +1,16 @@
+export DOTDIR="$HOME/.dotfiles"
+export SHELL_SESSIONS_DISABLE=1
+
+[ -f "$DOTDIR/shell/shell-env" ] && source "$DOTDIR/shell/shell-env"
+[ -f "$UTILSDIR/common" ] && source "$UTILSDIR/common"
+
+common::add_folder "$UTILSDIR"
+
+common::add_folder "$SHELLDIR/functions"
+common::add_file "$SHELLDIR/shell-aliases"
+common::add_file "$SHELLDIR/shell-secrets"
+common::add_file "/usr/local/opt/fzf/shell/completion.bash"
+common::add_file "/usr/local/opt/fzf/shell/key-bindings.bash"
+common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh" # This loads sdkman
+common::add_file "/usr/local/opt/nvm/nvm.sh" # This loads nvm
+common::add_file "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
