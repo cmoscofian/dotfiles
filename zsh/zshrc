@@ -19,16 +19,17 @@ autoload -U add-zsh-hook
 common::add_folder "$SHELLDIR/functions"
 common::add_file "$SHELLDIR/shell-aliases"
 common::add_file "$SHELLDIR/shell-secrets"
+common::add_file "$SHELLDIR/shell-work"
 common::add_file "$ZDOTDIR/zsh-utils"
 zsh::add_file "zsh-options"
 zsh::add_file "zsh-vcs"
 zsh::add_file "zsh-vim"
 zsh::add_file "zsh-prompt"
-common::add_file "/usr/local/opt/fzf/shell/completion.zsh"
-common::add_file "/usr/local/opt/fzf/shell/key-bindings.zsh"
+common::add_file "/usr/share/fzf/completion.zsh"
+common::add_file "/usr/share/fzf/key-bindings.zsh"
 common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh" # This loads sdkman
-common::add_file "/usr/local/opt/nvm/nvm.sh" # This loads nvm
+common::add_file "$NVM_DIR/nvm.sh" # This loads nvm
 common::add_file "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # Set all work cloned projects as environment variables
-f::workset $WORK_PROJECTS
+# f::workset $WORK_PROJECTS

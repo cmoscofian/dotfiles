@@ -22,7 +22,7 @@ function print::warning() {
 }
 
 function print::info() {
-    echo -e "${__blue}[info]${__default}: $1"
+    echo -e "${__cyan}[info]${__default}: $1"
 }
 
 function print::success() {

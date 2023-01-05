@@ -85,6 +85,8 @@ function f::workupt() {
                     cd ..
                     continue
                 fi
+
+                git gc --prune --aggressive &> /dev/null
             fi
             print::success "${__msg}"
             cd ..

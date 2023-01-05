@@ -36,17 +36,9 @@ local jdtls_config = {
             configuration = {
                 runtimes = {
                     {
-                        name = "JavaSE-1.7",
-                        path = "/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home",
-                    },
-                    {
-                        name = "JavaSE-1.8",
-                        path = "/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home",
+                        name = "Java-11",
+                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/11.0.17-amzn",
                         default = true,
-                    },
-                    {
-                        name = "JavaSE-11",
-                        path = "/Library/Java/JavaVirtualMachines/jdk-11.0.9.jdk/Contents/Home/",
                     },
                 },
             },
