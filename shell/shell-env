@@ -14,6 +14,10 @@ export XDG_CONFIG_HOME="$DOTDIR"
 export XDG_DATA_HOME="$DOTDIR/xdg/data"
 export XDG_STATE_HOME="$DOTDIR/xdg/state"
 
+# Set X-session variables
+export XAUTHORITY="$CACHEDIR/.xauthority"
+export XINITRC="/home/cmoscofian/.dotfiles/x/client/init"
+
 # Set general usage variables
 export BROWSER="firefox"
 export EDITOR="vim"
@@ -62,7 +66,7 @@ export PATH="$BDOTDIR:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # Set java env variable
-export JDTLS_HOME="$XDG_CACHE_HOME/lsp/jdtls"
+export JDTLS_HOME="$CACHEDIR/lsp/jdtls"
 
 # Set workspace
 export WORKSPACE="$HOME/Workspace"
