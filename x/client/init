@@ -1,2 +1,0 @@
-picom &
-exec dwm

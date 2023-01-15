@@ -16,12 +16,11 @@ export XDG_STATE_HOME="$DOTDIR/xdg/state"
 
 # Set X-session variables
 export XAUTHORITY="$CACHEDIR/.xauthority"
-export XINITRC="/home/cmoscofian/.dotfiles/x/client/init"
+export XINITRC="/home/cmoscofian/.dotfiles/x/client/xinitrc"
 
 # Set general usage variables
 export BROWSER="firefox"
 export EDITOR="vim"
-export GPG_TTY="$(tty)"
 export LANG="en_US.UTF-8"
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=4 sts=4 nomod nolist nonu noma nornu cc=0' -\""
 export TERMINAL="st"
@@ -32,6 +31,10 @@ export GNUPGHOME="$DOTDIR/gnupg"
 export NVM_DIR="$DOTDIR/nvm"
 export RUSTUP_HOME="$DOTDIR/rust/rustup"
 export SDKMAN_DIR="$DOTDIR/sdk"
+
+# Set pass env variables
+export PASSWORD_STORE_CLIP_TIME="30"
+export PASSWORD_STORE_DIR="$DOTDIR/pass"
 
 # Set golang env variables
 export GOPATH="$HOME/go"
