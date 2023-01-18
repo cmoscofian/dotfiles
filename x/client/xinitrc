@@ -5,4 +5,4 @@
 /usr/bin/picom -b &
 
 # Start the window manager (dwm)
-exec /usr/local/bin/dwm
+exec /usr/local/bin/dwm > $CACHEDIR/dwm.log

@@ -1,18 +1,25 @@
-configstore
-
-cache/
+# configruation folders and/ or files that should never be ignored
+!bin/
 !cache/.gitkeep
-
-dlv/
-
-git/
 !git/gitconfig
-
-gnupg/
 !gnupg/*.conf
+!macos/
+!nvim/
+!shell/
+!ssh/config
+!ssh/keys/.gitkeep
+!tmux/
+!utils/
+!vim/
+!x/
+!zsh/
 
+# configuration folders that should be ignored by default
+cache/
+dlv/
+git/
+gnupg/
 htop/
-jgit/
 mutt/
 neofetch/
 nvm/
@@ -21,22 +28,17 @@ procps/
 pulse/
 rust/
 sdk/
-
-shell/shell-work
-
 ssh/
-!ssh/config
-!ssh/keys/.gitkeep
-
 xdg/
 
+# configuration files that should always be ignored
+**.lock**
+**/*secret*
+**/scratch/*
+.DS_Store
+.netrwhist
 .zcompdump
 .zprofile
 .zshrc
-
-**/*secret*
-**.lock**
-.DS_Store
-.netrwhist
-
-**/scratch/*
+configstore
+shell-work
