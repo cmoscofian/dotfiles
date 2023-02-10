@@ -36,8 +36,7 @@ local jdtls_config = {
             configuration = {
                 runtimes = {
                     {
-                        name = "Java-11",
-                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/11.0.17-amzn",
+                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/current/",
                         default = true,
                     },
                 },

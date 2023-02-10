@@ -1,0 +1,50 @@
+env:
+  TERM: xterm-256color
+
+window:
+  class:
+    instance: alacritty
+    instance: alacritty
+
+  padding:
+    y: 1
+    x: 1
+
+font:
+  normal:
+    family: Unifont
+    style: Regular
+
+  size: 15
+
+
+colors:
+  primary:
+    background: "#000080"
+    foreground: "#c0c0c0"
+
+  normal:
+    black: "#404040"
+    red: "#800000"
+    green: "#008000"
+    yellow: "#808000"
+    blue: "#000080"
+    magenta: "#800080"
+    cyan: "#008080"
+    white: "#c0c0c0"
+
+  bright:
+    black: "#000000"
+    red: "#ff0000"
+    green: "#00ff00"
+    yellow: "#ffff00"
+    blue: "#0000ff"
+    magenta: "#ff00ff"
+    cyan: "#00ffff"
+    white: "#ffffff"
+
+selection:
+  save_to_clipboard: true
+
+shell:
+  program: /usr/bin/zsh
