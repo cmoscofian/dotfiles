@@ -6,6 +6,7 @@ export SHELLDIR="$DOTDIR/shell"
 export SSHDIR="$DOTDIR/ssh"
 export UTILSDIR="$DOTDIR/utils"
 export VIMDIR="$DOTDIR/vim"
+export XDIR="$DOTDIR/x"
 export ZDOTDIR="$DOTDIR/zsh"
 
 # Set XDG path variables
@@ -16,7 +17,7 @@ export XDG_STATE_HOME="$DOTDIR/xdg/state"
 
 # Set X-session variables
 export XAUTHORITY="$CACHEDIR/.xauthority"
-export XINITRC="/home/cmoscofian/.dotfiles/x/client/xinitrc"
+export XINITRC="$XDIR/client/xinitrc"
 
 # Set general usage variables
 export BROWSER="firefox"

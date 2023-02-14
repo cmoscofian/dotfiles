@@ -41,7 +41,7 @@ lspconfig.tsserver.setup {
     },
 }
 
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
     cmd = { "lua-language-server" },
