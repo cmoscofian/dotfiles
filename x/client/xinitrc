@@ -1,8 +1,11 @@
 # Start the notification daemon (dunst)
-/usr/bin/dunst &
+exec /usr/bin/dunst &
 
-# Start the compositor manager (picom)
-/usr/bin/picom -b &
+# start the compositor manager (picom)
+exec /usr/bin/picom -b &
+
+# start the network manager applet (nm-applet)
+exec /usr/bin/nm-applet --sm-disable &
 
 # Start the window manager (dwm)
 exec /usr/local/bin/dwm > $CACHEDIR/dwm.log
