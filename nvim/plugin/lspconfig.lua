@@ -87,6 +87,9 @@ lspconfig.rust_analyzer.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
     single_file_support = true,
+    cmd = {
+        "rustup", "run", "stable", "rust-analyzer",
+    },
     settings = {
         ["rust-analyzer"] = {
             inlayHints = {
