@@ -52,9 +52,11 @@ M.on_rename = function(use_placeholder)
         if workspace_edit.documentChanges then
             if not workspace_edit.documentChanges.kind then
                 for _, changes in ipairs(workspace_edit.documentChanges) do
-                    for _, text_edit in ipairs(changes.edits) do
-                        local item = build_qf_item(changes.textDocument.uri, text_edit.range)
-                        table.insert(entries, item)
+                    if changes.edits then
+                        for _, text_edit in ipairs(changes.edits) do
+                            local item = build_qf_item(changes.textDocument.uri, text_edit.range)
+                            table.insert(entries, item)
+                        end
                     end
                 end
             end
