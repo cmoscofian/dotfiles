@@ -22,6 +22,7 @@ gnupg/
 htop/
 mutt/
 neofetch/
+*js*/
 nvm/
 pass/
 procps/

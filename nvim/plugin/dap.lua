@@ -64,7 +64,7 @@ vim.fn.sign_define {
     },
     {
         name = "DapBreakpointRejected",
-        text = "✕",
+        text = "x",
         texthl = "DapBreakpointRejected",
         linehl = "DapBreakpointRejectedLine"
     },

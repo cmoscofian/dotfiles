@@ -36,7 +36,7 @@
     offset = 10x50
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 2
+    scale = 0
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 0
@@ -90,7 +90,7 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#c0c0c0"
+    frame_color = "#000080"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -118,7 +118,7 @@
 
     ### Text ###
 
-    font = Unifont 24
+    font = Unifont 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -229,7 +229,7 @@
     dmenu = /usr/local/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/xdg-open
+    browser = /usr/bin/firefox
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -308,20 +308,20 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#000080"
-    foreground = "#c0c0c0"
+    background = "#c0c0c0"
+    foreground = "#000080"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#0000ff"
-    foreground = "#c0c0c0"
+    background = "#c0c0c0"
+    foreground = "#000080"
     timeout = 5
 
 [urgency_critical]
     background = "#800000"
-    foreground = "#ffffff"
+    foreground = "#c0c0c0"
     timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to

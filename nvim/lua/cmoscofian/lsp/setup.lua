@@ -4,9 +4,9 @@ local M = {}
 local set_diagnostics = function()
     local signs = {
         { name = "DiagnosticSignError", text = "e" },
-        { name = "DiagnosticSignWarn", text = "w" },
-        { name = "DiagnosticSignHint", text = "h" },
-        { name = "DiagnosticSignInfo", text = "i" },
+        { name = "DiagnosticSignWarn",  text = "w" },
+        { name = "DiagnosticSignHint",  text = "h" },
+        { name = "DiagnosticSignInfo",  text = "i" },
     }
 
     for _, sign in ipairs(signs) do
@@ -49,6 +49,8 @@ local set_highlight_document = function(client)
             callback = vim.lsp.buf.clear_references,
         })
     end
+
+    client.server_capabilities.semanticTokensProvider = nil
 end
 
 local set_keybinds_and_options = function(bufnr)
@@ -80,7 +82,6 @@ local set_keybinds_and_options = function(bufnr)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     end
-
 end
 
 M.set_capabilities = function()
