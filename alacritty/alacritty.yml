@@ -15,8 +15,7 @@ font:
     family: Unifont
     style: Regular
 
-  size: 15
-
+  size: 14
 
 colors:
   primary:

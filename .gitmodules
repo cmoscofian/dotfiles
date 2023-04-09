@@ -1,18 +1,18 @@
 [submodule "vim/pack/plugins/start/nerdtree"]
-    path = vim/pack/plugins/start/nerdtree
-    url = https://github.com/preservim/nerdtree
+	path = vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree
 [submodule "vim/pack/themes/start/nibble"]
-    path = vim/pack/themes/start/nibble
-    url = https://github.com/cmoscofian/nibble-vim
+	path = vim/pack/themes/start/nibble
+	url = https://github.com/cmoscofian/nibble-vim
 [submodule "nvim/pack/plugins/start/nvim-cmp"]
-    path = nvim/pack/plugins/start/nvim-cmp
-    url = https://github.com/hrsh7th/nvim-cmp
+	path = nvim/pack/plugins/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
 [submodule "nvim/pack/plugins/start/nvim-cmp-buffer"]
-    path = nvim/pack/plugins/start/nvim-cmp-buffer
-    url = https://github.com/hrsh7th/cmp-buffer
+	path = nvim/pack/plugins/start/nvim-cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer
 [submodule "nvim/pack/plugins/start/nvim-cmp-lsp"]
-    path = nvim/pack/plugins/start/nvim-cmp-lsp
-    url = https://github.com/hrsh7th/cmp-nvim-lsp
+	path = nvim/pack/plugins/start/nvim-cmp-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
 [submodule "nvim/pack/plugins/start/nvim-dap"]
 	path = nvim/pack/plugins/start/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap
@@ -20,29 +20,29 @@
 	path = nvim/pack/plugins/start/nvim-dapui
 	url = https://github.com/rcarriga/nvim-dap-ui
 [submodule "nvim/pack/plugins/start/nvim-gitsigns"]
-    path = nvim/pack/plugins/start/nvim-gitsigns
-    url = https://github.com/lewis6991/gitsigns.nvim
+	path = nvim/pack/plugins/start/nvim-gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim
 [submodule "nvim/pack/plugins/start/nvim-jdtls"]
-    path = nvim/pack/plugins/start/nvim-jdtls
-    url = https://github.com/mfussenegger/nvim-jdtls
+	path = nvim/pack/plugins/start/nvim-jdtls
+	url = https://github.com/mfussenegger/nvim-jdtls
 [submodule "nvim/pack/plugins/start/nvim-lspconfig"]
-    path = nvim/pack/plugins/start/nvim-lspconfig
-    url = https://github.com/neovim/nvim-lspconfig
+	path = nvim/pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
 [submodule "nvim/pack/plugins/start/nvim-lualine"]
-    path = nvim/pack/plugins/start/nvim-lualine
-    url = https://github.com/nvim-lualine/lualine.nvim
+	path = nvim/pack/plugins/start/nvim-lualine
+	url = https://github.com/nvim-lualine/lualine.nvim
 [submodule "nvim/pack/plugins/start/nvim-luasnip"]
-    path = nvim/pack/plugins/start/nvim-luasnip
-    url = https://github.com/L3MON4D3/LuaSnip
+	path = nvim/pack/plugins/start/nvim-luasnip
+	url = https://github.com/L3MON4D3/LuaSnip
 [submodule "nvim/pack/plugins/start/nvim-luasnip-cmp"]
-    path = nvim/pack/plugins/start/nvim-luasnip-cmp
-    url = https://github.com/saadparwaiz1/cmp_luasnip
+	path = nvim/pack/plugins/start/nvim-luasnip-cmp
+	url = https://github.com/saadparwaiz1/cmp_luasnip
 [submodule "nvim/pack/plugins/start/nvim-plenary"]
-    path = nvim/pack/plugins/start/nvim-plenary
-    url = https://github.com/nvim-lua/plenary.nvim
+	path = nvim/pack/plugins/start/nvim-plenary
+	url = https://github.com/nvim-lua/plenary.nvim
 [submodule "nvim/pack/plugins/start/nvim-telescope"]
-    path = nvim/pack/plugins/start/nvim-telescope
-    url = https://github.com/nvim-telescope/telescope.nvim
+	path = nvim/pack/plugins/start/nvim-telescope
+	url = https://github.com/nvim-telescope/telescope.nvim
 [submodule "nvim/pack/plugins/start/nvim-treesitter"]
-    path = nvim/pack/plugins/start/nvim-treesitter
-    url = https://github.com/nvim-treesitter/nvim-treesitter
+	path = nvim/pack/plugins/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
