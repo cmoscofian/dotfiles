@@ -8,6 +8,7 @@
 !shell/
 !ssh/config
 !ssh/keys/.gitkeep
+!rust/cargo/config.toml
 !tmux/
 !utils/
 !vim/
@@ -17,6 +18,7 @@
 # configuration folders that should be ignored by default
 cache/
 dlv/
+GIMP/
 git/
 gnupg/
 htop/
