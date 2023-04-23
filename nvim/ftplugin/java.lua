@@ -29,19 +29,28 @@ local jdtls_config = {
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
     settings = {
-        codeLens = {
-            enabled = true,
-        },
         java = {
             configuration = {
                 runtimes = {
                     {
-                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/current/",
+                        name = "JavaSE-11",
+                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/11.0.12-open/",
                         default = true,
                     },
                 },
             },
+            errors = {
+                incompleteClasspath = {
+                    severity = "error",
+                },
+            },
+            implementationCodeLens = {
+                enabled = true,
+            },
             referencesCodeLens = {
+                enabled = true,
+            },
+            signatureHelp = {
                 enabled = true,
             },
         },

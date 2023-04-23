@@ -59,7 +59,7 @@ vim.fn.sign_define {
     },
     {
         name = "DapBreakpointCondition",
-        text = "*",
+        text = "#",
         texthl = "DapBreakpointCondition"
     },
     {

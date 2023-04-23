@@ -1,5 +1,5 @@
 # Set meli projects environment variables
-# USAGE: f_workset [path]
+# USAGE: f::workset [path]
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
 function f::workset() {
