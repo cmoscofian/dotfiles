@@ -7,6 +7,7 @@ export SSHDIR="$DOTDIR/ssh"
 export UTILSDIR="$DOTDIR/utils"
 export VIMDIR="$DOTDIR/vim"
 export XDIR="$DOTDIR/x"
+export ZSHDIR="$DOTDIR/zsh"
 
 # Set XDG path variables
 export XDG_CACHE_HOME="$DOTDIR/xdg/cache"
