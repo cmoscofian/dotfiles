@@ -8,4 +8,4 @@ exec /usr/bin/picom -b &
 exec /usr/bin/nm-applet --sm-disable &
 
 # Start the ssh-agent and the window manager (dwm)
-exec /usr/bin/ssh-agent /usr/local/bin/dwm > $CACHEDIR/dwm.log
+exec /usr/bin/ssh-agent /usr/local/bin/dwm > $XDG_STATE_HOME/dwm.log

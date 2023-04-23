@@ -1,4 +1,4 @@
-export HISTFILE="$CACHEDIR/.zhistory"
+export HISTFILE="$XDG_STATE_HOME/.zhistory"
 export HISTSIZE=12000
 export SAVEHIST=10000
 export GPG_TTY="$TTY"
@@ -9,10 +9,10 @@ common::add_folder "$UTILSDIR"
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ''
-zstyle ':completion::complete:*' cache-path "${CACHEDIR}/.zcompcache"
+zstyle ':completion::complete:*' cache-path "$XDG_CACHE_HOME/.zcompcache"
 
 zmodload zsh/complist
-compinit -d "$CACHEDIR/.zcompdump"
+compinit -d "$XDG_STATE_HOME/.zcompdump"
 _comp_options+=(globdots) # Complete hidden files
 
 autoload -U add-zsh-hook

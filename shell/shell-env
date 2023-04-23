@@ -7,16 +7,18 @@ export SSHDIR="$DOTDIR/ssh"
 export UTILSDIR="$DOTDIR/utils"
 export VIMDIR="$DOTDIR/vim"
 export XDIR="$DOTDIR/x"
-export ZDOTDIR="$DOTDIR/zsh"
 
 # Set XDG path variables
-export XDG_CACHE_HOME="$CACHEDIR"
-export XDG_CONFIG_HOME="$DOTDIR"
+export XDG_CACHE_HOME="$DOTDIR/xdg/cache"
+export XDG_CONFIG_HOME="$DOTDIR/xdg/config"
 export XDG_DATA_HOME="$DOTDIR/xdg/data"
 export XDG_STATE_HOME="$DOTDIR/xdg/state"
 
+# Set zsh variables
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 # Set X-session variables
-export XAUTHORITY="$CACHEDIR/.xauthority"
+export XAUTHORITY="$XDG_STATE_HOME/.xauthority"
 export XINITRC="$XDIR/client/xinitrc"
 
 # Set general usage variables
@@ -70,7 +72,7 @@ export PATH="$BDOTDIR:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # Set java env variable
-export JDTLS_HOME="$CACHEDIR/lsp/jdtls"
+export JDTLS_HOME="$XDG_DATA_HOME/lsp/jdtls"
 
 # Set workspace
 export WORKSPACE="$HOME/Workspace"

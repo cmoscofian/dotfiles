@@ -1,6 +1,5 @@
 # configruation folders and/ or files that should never be ignored
 !bin/
-!cache/.gitkeep
 !git/gitconfig
 !gnupg/*.conf
 !macos/
@@ -13,6 +12,7 @@
 !utils/
 !vim/
 !x/
+!xdg/*/.gitkeep
 !zsh/
 
 # configuration folders that should be ignored by default
@@ -40,8 +40,5 @@ xdg/
 **/scratch/*
 .DS_Store
 .netrwhist
-.zcompdump
-.zprofile
-.zshrc
 configstore
 shell-work
