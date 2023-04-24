@@ -16,21 +16,11 @@
 !zsh/
 
 # configuration folders that should be ignored by default
-cache/
-dlv/
-GIMP/
 git/
 gnupg/
-htop/
-mutt/
-neofetch/
-*js*/
 nvm/
 pass/
-procps/
-pulse/
 rust/
-sdk/
 ssh/
 xdg/
 

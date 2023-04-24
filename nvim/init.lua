@@ -1,6 +1,6 @@
-vim.opt.runtimepath:append("~/.vim")
-vim.opt.packpath:append("~/.vim")
-vim.cmd("source ~/.vim/vimrc")
+vim.opt.runtimepath:append("$DOTDIR/vim")
+vim.opt.packpath:append("$DOTDIR/vim")
+vim.cmd("source $DOTDIR/vim/vimrc")
 
 vim.opt.showmode = false
 vim.opt.laststatus = 3
