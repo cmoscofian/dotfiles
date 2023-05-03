@@ -23,4 +23,4 @@ JAVA_HOME="$SDKMAN_DIR/candidates/java/current" java \
     -data "$XDG_CACHE_HOME/lsp/workspace/$1" \
     --add-modules=ALL-SYSTEM \
     --add-opens java.base/java.util=ALL-UNNAMED \
-    --add-opens java.base/java.lang=ALL-UNNAMED 2> $XDG_STATE_HOME/lsp/jdtls.log
+    --add-opens java.base/java.lang=ALL-UNNAMED 2> $XDG_STATE_HOME/jdtls.log

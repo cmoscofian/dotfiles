@@ -4,7 +4,7 @@ env:
 window:
   class:
     instance: alacritty
-    instance: alacritty
+    general: alacritty
 
   padding:
     y: 1

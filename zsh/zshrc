@@ -31,6 +31,3 @@ common::add_file "/usr/share/fzf/key-bindings.zsh"
 common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh" # This loads sdkman
 common::add_file "$NVM_DIR/nvm.sh" # This loads nvm
 common::add_file "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# Set all work cloned projects as environment variables
-# f::workset $WORK_PROJECTS

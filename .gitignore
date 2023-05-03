@@ -1,6 +1,6 @@
 # configruation folders and/ or files that should never be ignored
 !bin/
-!git/gitconfig
+!git/config
 !gnupg/*.conf
 !macos/
 !nvim/
@@ -21,6 +21,7 @@ gnupg/
 nvm/
 pass/
 rust/
+sdk/
 ssh/
 xdg/
 

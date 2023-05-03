@@ -33,6 +33,11 @@ local jdtls_config = {
             configuration = {
                 runtimes = {
                     {
+                        name = "JavaSE-1.8",
+                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/8.0.302-open/",
+                        default = false,
+                    },
+                    {
                         name = "JavaSE-11",
                         path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/11.0.12-open/",
                         default = true,
