@@ -24,11 +24,11 @@ export XINITRC="$XDIR/client/xinitrc"
 
 # Set general usage variables
 export BROWSER="firefox"
-export EDITOR="vim"
+export EDITOR="nvim"
 export LANG="en_US.UTF-8"
 export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=4 sts=4 nomod nolist nonu noma nornu cc=0' -\""
-export TERMINAL="st"
-export VISUAL="vim"
+export TERMINAL="alacritty"
+export VISUAL="nvim"
 
 # Set application specific env variables
 export GNUPGHOME="$DOTDIR/gnupg"

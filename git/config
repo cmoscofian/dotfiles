@@ -62,5 +62,5 @@
     keepBackup = false
 
 [includeIf "gitdir:~/Workspace/work/"]
-    path = ~/.dotfiles/git/workconfig
+    path = ./work/config
 
