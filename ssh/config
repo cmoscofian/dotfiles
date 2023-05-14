@@ -7,8 +7,3 @@ Host github
     HostName github.com
     User git
     IdentityFile ~/.ssh/keys/github
-
-Host githome
-    HostName homeserver.com
-    User git
-    IdentityFile ~/.ssh/keys/home
