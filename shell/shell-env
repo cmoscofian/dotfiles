@@ -44,6 +44,11 @@ export PASSWORD_STORE_DIR="$DOTDIR/pass"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 
+# Set python env variables
+export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
+export PIPX_HOME="$XDG_DATA_HOME/pipx"
+export PIPX_BIN_DIR="$XDG_DATA_HOME/pipx/bin"
+
 # Set rust env variables
 export CARGO_HOME="$DOTDIR/rust/cargo"
 export RUSTBIN="$CARGO_HOME/bin"
@@ -55,13 +60,10 @@ export PATH="$GOBIN:/usr/local/bin/go:/usr/local/go/bin:$PATH"
 export PATH="$NVM_BIN:$PATH"
 
 # Set path for python executables
-export PATH="$PYBIN:$PATH"
+export PATH="$PIPX_BIN_DIR:$PATH"
 
 # Set path for rust executables
 export PATH="$RUSTBIN:$PATH"
-
-# Set path to enable MPLab 8bit compiler
-export PATH="/Applications/microchip/xc8/v2.32/bin:$PATH"
 
 # Set path to enable gettext
 export PATH="/usr/local/opt/gettext/bin:$PATH"
