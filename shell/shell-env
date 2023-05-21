@@ -71,6 +71,9 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 # Set dotfile functions
 export PATH="$BDOTDIR:$PATH"
 
+# Set local executables
+export PATH="$HOME/.local/bin:$PATH"
+
 # Set path to enable clangd
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 

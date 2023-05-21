@@ -1,4 +1,4 @@
-local languages = { "go" }
+local languages = { "go", "python" }
 
 local adapters = function()
     local T = {}
