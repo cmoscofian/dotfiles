@@ -46,16 +46,13 @@ function f::branches() {
 
         if git::is_worktree; then
             local __dangling=$(git branch | grep -v "$__branch" | wc -l)
-            if [ "$__dangling" -ne 0 ]; then
+            if [ $__dangling -ne 0 ]; then
                 print::error "$__msg has $__dangling branches"
-                cd ..
-                continue
             fi
-            cd ..
         else
             print::error "$__i_workspace is not a git directory"
-            cd ..
         fi
+        cd ..
     done
 
     cd $__path

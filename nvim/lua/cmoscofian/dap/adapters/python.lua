@@ -1,6 +1,5 @@
 return function(callback, config)
     local xdg = os.getenv("XDG_DATA_HOME")
-    P(xdg)
     callback({
         type = "executable",
         command = xdg .. "/venv/debugpy/bin/python",
