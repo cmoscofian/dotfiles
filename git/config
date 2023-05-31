@@ -54,6 +54,7 @@
     trustExitCode = true
 
 [merge]
+    ff = only
     tool = vimdiff
 
 [mergetool]

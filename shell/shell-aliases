@@ -1,5 +1,4 @@
 # Set personal aliases for a full list of active aliases, run `alias`
-alias fgtk="fury get-token | sed '\$!D;s:.*\n::' | tr -d '[:space:]' | tee >(pbcopy)"
 alias gradd="f::groot && git add"
 alias pip=pip3
 alias vim=nvim

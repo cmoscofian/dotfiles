@@ -6,7 +6,6 @@ treesitter.setup {
     },
     ensure_installed = {
         "bash",
-        "c",
         "cpp",
         "css",
         "go",
@@ -14,7 +13,6 @@ treesitter.setup {
         "java",
         "javascript",
         "json",
-        "lua",
         "markdown",
         "python",
         "rust",
