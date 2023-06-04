@@ -48,6 +48,7 @@ export GOBIN="$GOPATH/bin"
 export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
 export PIPX_HOME="$XDG_DATA_HOME/pipx"
 export PIPX_BIN_DIR="$XDG_DATA_HOME/pipx/bin"
+export POETRY_HOME="$XDG_DATA_HOME/pypoetry"
 
 # Set rust env variables
 export CARGO_HOME="$DOTDIR/rust/cargo"
@@ -60,7 +61,7 @@ export PATH="$GOBIN:/usr/local/bin/go:/usr/local/go/bin:$PATH"
 export PATH="$NVM_BIN:$PATH"
 
 # Set path for python executables
-export PATH="$PIPX_BIN_DIR:$PATH"
+export PATH="$POETRY_HOME/bin:$PIPX_BIN_DIR:$PATH"
 
 # Set path for rust executables
 export PATH="$RUSTBIN:$PATH"

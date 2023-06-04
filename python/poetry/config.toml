@@ -1,0 +1,2 @@
+[virtualenvs]
+path = "{cache-dir}/venvs"  # /path/to/cache/directory/venvs
