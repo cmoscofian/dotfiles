@@ -7,5 +7,8 @@ exec /usr/bin/picom -b &
 # start the network manager applet (nm-applet)
 exec /usr/bin/nm-applet --sm-disable &
 
+# start the window manager status bar (dwmblocks)
+exec /usr/local/bin/dwmblocks &
+
 # Start the ssh-agent and the window manager (dwm)
 exec /usr/bin/ssh-agent /usr/local/bin/dwm > $XDG_STATE_HOME/dwm.log
