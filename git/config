@@ -46,6 +46,9 @@
     required = true
     smudge = git-lfs smudge -- %f
 
+[log]
+    graphColors = white,yellow,cyan
+
 [diff]
     tool = vimdiff
 
