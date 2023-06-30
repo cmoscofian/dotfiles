@@ -27,7 +27,6 @@ local python_path = function()
     return "/usr/bin/python3"
 end
 
-
 return {
     {
         type = "python",

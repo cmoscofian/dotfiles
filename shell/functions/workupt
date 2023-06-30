@@ -30,6 +30,11 @@ function f::workupt() {
         return 0
     fi
 
+    if [ $# -lt 1 ]; then
+        print::error "you must provide at least one path to map the workspace"
+        return 1
+    fi
+
     local __path=$PWD
     local __workspace
     local __i_workspace
