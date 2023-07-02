@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-JAR="$XDG_CACHE_HOME/lsp/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
-LOMBOK_PATH="$XDG_CACHE_HOME/lsp/jdtls/lombok.jar"
+JAR="$XDG_DATA_HOME/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
+LOMBOK_PATH="$XDG_DATA_HOME/java/lombok.jar"
 PLATFORM="linux"
 
 if [[ $(uname) -ne "Linux" ]]; then
@@ -19,8 +19,8 @@ JAVA_HOME="$SDKMAN_DIR/candidates/java/current" java \
     -javaagent:"$LOMBOK_PATH" \
     -Xbootclasspath/a:"$LOMBOK_PATH" \
     -jar "$(echo $JAR)" \
-    -configuration "$XDG_CACHE_HOME/lsp/jdtls/config_$PLATFORM" \
-    -data "$XDG_CACHE_HOME/lsp/workspace/$1" \
+    -configuration "$XDG_DATA_HOME/java/jdtls/config_$PLATFORM" \
+    -data "$XDG_STATE_HOME/java/workspace/$1" \
     --add-modules=ALL-SYSTEM \
     --add-opens java.base/java.util=ALL-UNNAMED \
     --add-opens java.base/java.lang=ALL-UNNAMED 2> $XDG_STATE_HOME/jdtls.log

@@ -1,4 +1,4 @@
-# configruation folders and/ or files that should never be ignored
+# configuration folders and/or files that should never be ignored
 !bin/
 !git/config
 !gnupg/*.conf
@@ -18,10 +18,7 @@
 # configuration folders that should be ignored by default
 git/
 gnupg/
-nvm/
 pass/
-rust/
-sdk/
 ssh/
 xdg/
 

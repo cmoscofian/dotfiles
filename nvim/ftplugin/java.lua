@@ -34,12 +34,17 @@ local jdtls_config = {
                 runtimes = {
                     {
                         name = "JavaSE-1.8",
-                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/8.0.302-open/",
+                        path = "/home/cmoscofian/.dotfiles/xdg/runtime/java/sdk/candidates/java/8.0.302-open/",
                         default = false,
                     },
                     {
                         name = "JavaSE-11",
-                        path = "/home/cmoscofian/.dotfiles/sdk/candidates/java/11.0.12-open/",
+                        path = "/home/cmoscofian/.dotfiles/xdg/runtime/java/sdk/candidates/java/11.0.12-open/",
+                        default = false,
+                    },
+                    {
+                        name = "JavaSE-17",
+                        path = "/home/cmoscofian/.dotfiles/xdg/runtime/java/sdk/candidates/java/17.0.7-tem/",
                         default = true,
                     },
                 },

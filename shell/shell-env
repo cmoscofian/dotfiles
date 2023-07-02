@@ -1,6 +1,5 @@
 # Set dotfiles path variables
 export BDOTDIR="$DOTDIR/bin"
-export CACHEDIR="$DOTDIR/cache"
 export GITDIR="$DOTDIR/git"
 export SHELLDIR="$DOTDIR/shell"
 export SSHDIR="$DOTDIR/ssh"
@@ -13,6 +12,7 @@ export ZSHDIR="$DOTDIR/zsh"
 export XDG_CACHE_HOME="$DOTDIR/xdg/cache"
 export XDG_CONFIG_HOME="$DOTDIR/xdg/config"
 export XDG_DATA_HOME="$DOTDIR/xdg/data"
+export XDG_RUNTIME_HOME="$DOTDIR/xdg/runtime"
 export XDG_STATE_HOME="$DOTDIR/xdg/state"
 
 # Set zsh variables
@@ -32,27 +32,32 @@ export VISUAL="nvim"
 
 # Set application specific env variables
 export GNUPGHOME="$DOTDIR/gnupg"
-export NVM_DIR="$DOTDIR/nvm"
-export RUSTUP_HOME="$DOTDIR/rust/rustup"
-export SDKMAN_DIR="$DOTDIR/sdk"
 
 # Set pass env variables
 export PASSWORD_STORE_CLIP_TIME="30"
-export PASSWORD_STORE_DIR="$DOTDIR/pass"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
 # Set golang env variables
-export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
+export GOPATH="$XDG_RUNTIME_HOME/go"
+export GOBIN="$XDG_RUNTIME_HOME/go/bin"
+
+# Set java env variables
+export JDTLS_HOME="$XDG_DATA_HOME/lsp/jdtls"
+export SDKMAN_DIR="$XDG_RUNTIME_HOME/java/sdk"
+
+# Set node env variables
+export NVM_DIR="$XDG_RUNTIME_HOME/node/nvm"
 
 # Set python env variables
-export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
-export PIPX_HOME="$XDG_DATA_HOME/pipx"
-export PIPX_BIN_DIR="$XDG_DATA_HOME/pipx/bin"
-export POETRY_HOME="$XDG_DATA_HOME/pypoetry"
+export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/python/pip/pip.conf"
+export PIPX_HOME="$XDG_RUNTIME_HOME/python/pipx"
+export PIPX_BIN_DIR="$XDG_RUNTIME_HOME/python/pipx/bin"
+export POETRY_HOME="$XDG_RUNTIME_HOME/python/pypoetry"
 
 # Set rust env variables
-export CARGO_HOME="$DOTDIR/rust/cargo"
-export RUSTBIN="$CARGO_HOME/bin"
+export RUSTUP_HOME="$XDG_RUNTIME_HOME/rust/rustup"
+export CARGO_HOME="$XDG_RUNTIME_HOME/rust/cargo"
+export CARGO_BIN="$XDG_RUNTIME_HOME/rust/cargo/bin"
 
 # Set path for golang executables
 export PATH="$GOBIN:/usr/local/bin/go:/usr/local/go/bin:$PATH"
@@ -64,22 +69,13 @@ export PATH="$NVM_BIN:$PATH"
 export PATH="$POETRY_HOME/bin:$PIPX_BIN_DIR:$PATH"
 
 # Set path for rust executables
-export PATH="$RUSTBIN:$PATH"
-
-# Set path to enable gettext
-export PATH="/usr/local/opt/gettext/bin:$PATH"
+export PATH="$CARGO_BIN:$PATH"
 
 # Set dotfile functions
 export PATH="$BDOTDIR:$PATH"
 
 # Set local executables
 export PATH="$HOME/.local/bin:$PATH"
-
-# Set path to enable clangd
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-
-# Set java env variable
-export JDTLS_HOME="$XDG_DATA_HOME/lsp/jdtls"
 
 # Set workspace
 export WORKSPACE="$HOME/Workspace"
