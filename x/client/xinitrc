@@ -1,4 +1,4 @@
-# Start the notification daemon (dunst)
+# start the notification daemon (dunst)
 exec /usr/bin/dunst &
 
 # start the compositor manager (picom)
@@ -10,5 +10,5 @@ exec /usr/bin/nm-applet --sm-disable &
 # start the window manager status bar (dwmblocks)
 exec /usr/local/bin/dwmblocks &
 
-# Start the ssh-agent and the window manager (dwm)
+# start the ssh-agent and the window manager (dwm)
 exec /usr/bin/ssh-agent /usr/local/bin/dwm > $XDG_STATE_HOME/dwm.log
