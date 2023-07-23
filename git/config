@@ -11,7 +11,7 @@
 
 [core]
     autocrlf = input
-    editor = vimdiff
+    editor = nvim
 
 [url "github:"]
     insteadOf = https://github.com
@@ -67,4 +67,3 @@
 
 [includeIf "gitdir:~/Workspace/work/"]
     path = ./work/config
-
