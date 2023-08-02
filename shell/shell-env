@@ -26,7 +26,7 @@ export XINITRC="$XDIR/client/xinitrc"
 export BROWSER="firefox"
 export EDITOR="nvim"
 export LANG="en_US.UTF-8"
-export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=4 sts=4 nomod nolist nonu noma nornu cc=0' -\""
+export MANPAGER="vim +MANPAGER --not-a-term -"
 export TERMINAL="alacritty"
 export VISUAL="nvim"
 
