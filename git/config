@@ -19,6 +19,10 @@
 [color]
     ui = auto
 
+[color "interactive"]
+    prompt = cyan bold
+    help = yellow
+
 [remote]
     pushDefault = origin
     pullDefault = origin
