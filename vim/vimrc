@@ -50,7 +50,7 @@ set splitright
 set tabstop=4
 set textwidth=80
 set updatetime=1000
-set wildignore=**/node_modules/**/*
+set wildignore+=**/node_modules/**/*,*.lock,**/target/**/*
 set wildmode=longest:full,full
 "}}}
 

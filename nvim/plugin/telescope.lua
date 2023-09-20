@@ -15,6 +15,7 @@ telescope.setup {
         file_ignore_patterns = {
             "node_modules/",
             "target/",
+            "%.lock",
         },
         mappings = {
             i = {
