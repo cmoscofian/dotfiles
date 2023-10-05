@@ -4,10 +4,6 @@ filetype indent on
 
 colorscheme nibble
 
-let &t_SI.="\e[5 q"
-let &t_SR.="\e[3 q"
-let &t_EI.="\e[2 q"
-
 " Options {{{
 set autoindent
 set autoread
@@ -21,6 +17,7 @@ set encoding=utf-8
 set expandtab
 set fileencoding=utf-8
 set foldmethod=indent
+set guicursor=i-r-ci-cr:blinkwait300-blinkon200-blinkoff150,a:block
 set hidden
 set ignorecase
 set incsearch

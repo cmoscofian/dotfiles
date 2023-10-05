@@ -33,9 +33,11 @@ telescope.setup {
     pickers = {
         find_files = {
             initial_mode = "insert",
+            hidden = true,
         },
         live_grep = {
             initial_mode = "insert",
+            hidden = true,
         },
         help_tags = {
             initial_mode = "insert",

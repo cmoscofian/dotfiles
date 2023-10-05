@@ -108,7 +108,9 @@ M.on_reference = function(find_tests)
 
         if not find_tests then
             local filtered_result = {}
-            local ft = vim.api.nvim_buf_get_option(ctx.bufnr, "filetype")
+            local ft = vim.api.nvim_get_option_value("filetype", {
+                buf = ctx.bufnr,
+            })
 
             if ft == "go" then
                 filtered_result = vim.tbl_filter(function(f)

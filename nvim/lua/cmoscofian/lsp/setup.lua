@@ -56,7 +56,9 @@ end
 local set_keybinds_and_options = function(bufnr)
     local opts = { silent = true }
 
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", {
+        buf = bufnr,
+    })
 
     vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
