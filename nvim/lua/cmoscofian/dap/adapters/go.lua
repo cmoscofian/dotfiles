@@ -1,5 +1,5 @@
 return function(callback, config)
-    local stdout = vim.loop.new_pipe(false)
+    local stdout = vim.uv.new_pipe(false)
     local host = config.host or "127.0.0.1"
     local port = config.port or "38697"
     local addr = string.format("%s:%s", host, port)
@@ -11,7 +11,7 @@ return function(callback, config)
     }
 
     local handler = nil
-    handler, err = vim.loop.spawn("dlv", opts, function(code)
+    handler, err = vim.uv.spawn("dlv", opts, function(code)
         stdout:close()
         handler:close()
         if code ~= 0 then

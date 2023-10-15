@@ -12,7 +12,7 @@ lspconfig.clangd.setup {
 lspconfig.gopls.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
-    cmd = { "gopls", "serve" },
+    cmd = { "gopls", "-rpc.trace", "-logfile=/tmp/gopls", "serve", "--debug=localhost:6060" },
     settings = {
         gopls = {
             analyses = {
@@ -20,7 +20,9 @@ lspconfig.gopls.setup {
                 nilness = true,
                 shadow = true,
                 unusedparams = true,
+                unusedvariables = true,
                 unusedwrite = true,
+                useany = true,
             },
             staticcheck = true,
             usePlaceholders = true,

@@ -15,6 +15,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "gm", jdtls.extract_method, opts)
 end
 
+local sdkdir = os.getenv("SDKMAN_DIR")
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local jdtls_config = {
     on_attach = on_attach,
@@ -34,17 +35,17 @@ local jdtls_config = {
                 runtimes = {
                     {
                         name = "JavaSE-1.8",
-                        path = "/home/cmoscofian/.dotfiles/xdg/runtime/java/sdk/candidates/java/8.0.302-open/",
+                        path = sdkdir ..  "/candidates/java/8.0.302-open/",
                         default = false,
                     },
                     {
                         name = "JavaSE-11",
-                        path = "/home/cmoscofian/.dotfiles/xdg/runtime/java/sdk/candidates/java/11.0.12-open/",
+                        path = sdkdir ..  "/candidates/java/11.0.12-open/",
                         default = false,
                     },
                     {
                         name = "JavaSE-17",
-                        path = "/home/cmoscofian/.dotfiles/xdg/runtime/java/sdk/candidates/java/17.0.7-tem/",
+                        path = sdkdir ..  "/candidates/java/17.0.7-tem/",
                         default = true,
                     },
                 },
