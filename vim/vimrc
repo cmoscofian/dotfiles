@@ -37,6 +37,7 @@ set number relativenumber
 set path=.,**
 set runtimepath+=/usr/local/opt/fzf
 set scrolloff=8
+set shiftround
 set shiftwidth=4
 set showcmd
 set sidescrolloff=8

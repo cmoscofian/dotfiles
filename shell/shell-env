@@ -80,22 +80,27 @@ export PATH="$HOME/.local/bin:$PATH"
 # Set workspace
 export WORKSPACE="$HOME/Workspace"
 
+# Set open-source workspace
+export OPEN_SOURCE="$WORKSPACE/open-source"
+export OPEN_SOURCE_PROJECTS="$OPEN_SOURCE/projects"
+export OPEN_SOURCE_SCRIPTS="$OPEN_SOURCE/scripts"
+
 # Set private workspace
 export PRIVATE="$WORKSPACE/private"
 export PRIVATE_PROJECTS="$PRIVATE/projects"
 export PRIVATE_SCRIPTS="$PRIVATE/scripts"
+
+# Set study workspace
+export STUDY="$WORKSPACE/study"
+export STUDY_PROJECTS="$STUDY/projects"
+export STUDY_SCRIPTS="$STUDY/scripts"
 
 # Set work workspace
 export WORK="$WORKSPACE/work"
 export WORK_PROJECTS="$WORK/projects"
 export WORK_SCRIPTS="$WORK/scripts"
 
-# Set open-source workspace
-export OPEN_SOURCE="$WORKSPACE/open-source"
-export OPEN_SOURCE_PROJECTS="$OPEN_SOURCE/projects"
-export OPEN_SOURCE_SCRIPTS="$OPEN_SOURCE/scripts"
-
-# Set study workspace
-export STUDY="$WORKSPACE/study"
-export STUDY_PROJECTS="$STUDY/projects"
-export STUDY_SCRIPTS="$STUDY/scripts"
+export CDPATH="$OPEN_SOURCE_PROJECTS:$CDPATH"
+export CDPATH="$PRIVATE_PROJECTS:$CDPATH"
+export CDPATH="$STUDY_PROJECTS:$CDPATH"
+export CDPATH="$WORK_PROJECTS:$CDPATH"
