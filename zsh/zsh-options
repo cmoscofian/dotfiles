@@ -1,6 +1,7 @@
 setopt autocd               # .. is shortcut for cd .. (etc)
 setopt autoparamslash       # tab completing directory appends a slash
 setopt autopushd            # cd automatically pushes old dir onto dir stack
+setopt cd_silent            # never print the working directory when using cdpath
 setopt clobber              # allow clobbering with >, no need to use >!
 setopt histignorealldups    # filter duplicates from history
 setopt histignorespace      # don't record commands starting with a space

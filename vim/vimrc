@@ -17,7 +17,7 @@ set encoding=utf-8
 set expandtab
 set fileencoding=utf-8
 set foldmethod=indent
-set guicursor=i-r-ci-cr:blinkwait300-blinkon200-blinkoff150,a:block
+set guicursor=i-r-ci-cr:blinkon500-blinkoff500,a:block
 set hidden
 set ignorecase
 set incsearch
