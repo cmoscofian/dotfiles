@@ -1,0 +1,54 @@
+[colors.bright]
+black = "#000000"
+blue = "#0000ff"
+cyan = "#00ffff"
+green = "#00ff00"
+magenta = "#ff00ff"
+red = "#ff0000"
+white = "#ffffff"
+yellow = "#ffff00"
+
+[colors.normal]
+black = "#404040"
+blue = "#000080"
+cyan = "#008080"
+green = "#008000"
+magenta = "#800080"
+red = "#800000"
+white = "#c0c0c0"
+yellow = "#808000"
+
+[colors.primary]
+background = "#000080"
+foreground = "#c0c0c0"
+
+[cursor]
+blink_interval = 350
+blink_timeout = 0
+
+[cursor.style]
+blinking = "on"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14
+
+[font.normal]
+family = "Unifont"
+style = "Regular"
+
+[selection]
+save_to_clipboard = true
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window.class]
+general = "alacritty"
+instance = "alacritty"
+
+[window.padding]
+x = 1
+y = 1
