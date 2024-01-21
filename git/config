@@ -71,3 +71,6 @@
 
 [includeIf "gitdir:~/Workspace/work/"]
     path = ./work/config
+
+[submodule]
+    recurse = true
