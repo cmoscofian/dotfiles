@@ -31,6 +31,9 @@
 [submodule "nvim/pack/plugins/start/nvim-luasnip-cmp"]
 	path = nvim/pack/plugins/start/nvim-luasnip-cmp
 	url = https://github.com/saadparwaiz1/cmp_luasnip
+[submodule "nvim/pack/plugins/start/nvim-nio"]
+	path = nvim/pack/plugins/start/nvim-nio
+	url = https://github.com/nvim-neotest/nvim-nio
 [submodule "nvim/pack/plugins/start/nvim-plenary"]
 	path = nvim/pack/plugins/start/nvim-plenary
 	url = https://github.com/nvim-lua/plenary.nvim

@@ -3,16 +3,22 @@ local config = require("cmoscofian.lsp").config
 
 lspconfig.clangd.setup {
     capabilities = config.capabilities,
-    on_attach = config.on_attach,
     cmd = { "clangd", "--background-index", "--suggest-missing-includes" },
     filetypes = { "c", "cc", "cpp", "h", "hpp", "objc", "objcpp" },
+    on_attach = config.on_attach,
+    single_file_support = true,
+}
+
+lspconfig.cssls.setup {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
     single_file_support = true,
 }
 
 lspconfig.gopls.setup {
     capabilities = config.capabilities,
-    on_attach = config.on_attach,
     cmd = { "gopls", "-rpc.trace", "-logfile=/tmp/gopls", "serve", "--debug=localhost:6060" },
+    on_attach = config.on_attach,
     settings = {
         gopls = {
             analyses = {
@@ -31,22 +37,28 @@ lspconfig.gopls.setup {
     single_file_support = true,
 }
 
-lspconfig.tsserver.setup {
+lspconfig.html.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
     single_file_support = true,
-    init_options = {
-        preferences = {
-            includeCompletionsWithSnippetText = true,
-            includeCompletionsForImportStatements = true,
-        },
-    },
+}
+
+lspconfig.jsonls.setup {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
+    single_file_support = true,
+}
+
+lspconfig.kotlin_language_server.setup {
+    capabilities = config.capabilities,
+    on_attach = config.on_attach,
+    single_file_support = true,
 }
 
 lspconfig.lua_ls.setup {
     capabilities = config.capabilities,
-    on_attach = config.on_attach,
     cmd = { "lua-language-server" },
+    on_attach = config.on_attach,
     settings = {
         Lua = {
             completion = {
@@ -68,46 +80,12 @@ lspconfig.lua_ls.setup {
             },
         },
     },
-}
-
-lspconfig.cssls.setup {
-    capabilities = config.capabilities,
-    on_attach = config.on_attach,
-}
-
-lspconfig.html.setup {
-    capabilities = config.capabilities,
-    on_attach = config.on_attach,
-}
-
-lspconfig.jsonls.setup {
-    capabilities = config.capabilities,
-    on_attach = config.on_attach,
-}
-
-lspconfig.rust_analyzer.setup {
-    capabilities = config.capabilities,
-    on_attach = config.on_attach,
     single_file_support = true,
-    cmd = {
-        "rust-analyzer",
-    },
-    settings = {
-        ["rust-analyzer"] = {
-            inlayHints = {
-                lifetimeElisionHints = {
-                    enable = true,
-                    useParameterNames = true
-                },
-            },
-        },
-    },
 }
 
 lspconfig.pyright.setup {
     capabilities = config.capabilities,
     on_attach = config.on_attach,
-    single_file_support = true,
     settings = {
         python = {
             disableOrganizeImports = false,
@@ -119,4 +97,36 @@ lspconfig.pyright.setup {
             },
         },
     },
+    single_file_support = true,
+}
+
+lspconfig.rust_analyzer.setup {
+    capabilities = config.capabilities,
+    cmd = {
+        "rust-analyzer",
+    },
+    on_attach = config.on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            inlayHints = {
+                lifetimeElisionHints = {
+                    enable = true,
+                    useParameterNames = true
+                },
+            },
+        },
+    },
+    single_file_support = true,
+}
+
+lspconfig.tsserver.setup {
+    capabilities = config.capabilities,
+    init_options = {
+        preferences = {
+            includeCompletionsWithSnippetText = true,
+            includeCompletionsForImportStatements = true,
+        },
+    },
+    on_attach = config.on_attach,
+    single_file_support = true,
 }
