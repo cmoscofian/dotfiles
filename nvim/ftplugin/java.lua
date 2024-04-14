@@ -4,7 +4,6 @@ local config = require("cmoscofian.lsp").config
 local project_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local on_attach = function(client, bufnr)
-    jdtls.setup.add_commands()
     config.on_attach(client, bufnr)
 
     -- Specific jdtls key bindings
@@ -34,19 +33,14 @@ local jdtls_config = {
             configuration = {
                 runtimes = {
                     {
-                        name = "JavaSE-1.8",
-                        path = sdkdir ..  "/candidates/java/8.0.302-open/",
-                        default = false,
-                    },
-                    {
-                        name = "JavaSE-11",
-                        path = sdkdir ..  "/candidates/java/11.0.12-open/",
-                        default = false,
-                    },
-                    {
                         name = "JavaSE-17",
-                        path = sdkdir ..  "/candidates/java/17.0.7-tem/",
+                        path = sdkdir .. "/candidates/java/17.0.10-graal/",
                         default = true,
+                    },
+                    {
+                        name = "JavaSE-21",
+                        path = sdkdir .. "/candidates/java/21.0.2-graal/",
+                        default = false,
                     },
                 },
             },
