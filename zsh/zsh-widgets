@@ -1,31 +1,31 @@
 function tmux::new-window-widget() {
-    local __sources=( work private study )
-    local __source
     local __project
     local __name
 
-    if [[ -z $TMUX ]]; then
-        zle reset-prompt
-        print::error "This needs to be run inside of a tmux session"
+    if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
+        zle -M "A new window can only be generated within a TMUX session"
         return
     fi
 
-    __source=$(echo $__sources | tr ' ' '\n' | fzf --reverse --ansi --height 15)
-    case $__source in
-        study) __source=$STUDY_PROJECTS;;
-        private) __source=$PRIVATE_PROJECTS;;
-        *) __source=$WORK_PROJECTS;;
-    esac
-
-    __project=$(find $__source -mindepth 1 -maxdepth 1 -type d 2> /dev/null | fzf --reverse --ansi --height 15)
+    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | \
+        fzf --ansi \
+            --cycle \
+            --height 50% \
+            --info inline-right \
+            --keep-right \
+            --padding 1% \
+            --pointer "▹" \
+            --reverse \
+            --preview "ls -la {}" \
+            --color "fg:-1,bg:-1,preview-fg:-1,preview-bg:-1,fg+:bright-green:regular,bg+:-1,hl:magenta:regular,hl+:bright-magenta:regular,gutter:-1,pointer:bright-cyan:regular,info:bright-black:regular:dim,border:bright-black:regular:dim,query:white:regular:dim,prompt:bright-black:regular:dim")
     if [[ -z $__project ]]; then
         zle reset-prompt
         return
     fi
 
     __name=$(basename $__project | tr . _)
-    tmux new-window -c $__project -n $__name nvim .
-    zle redisplay
+    tmux new-window -c $__project -n $__name
+    zle reset-prompt
 }
 
 zle -N tmux::new-window-widget
