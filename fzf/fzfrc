@@ -1,0 +1,10 @@
+--ansi
+--color "fg:-1,bg:-1,preview-fg:-1,preview-bg:-1,fg+:bright-green:regular,bg+:-1,hl:magenta:regular,hl+:bright-magenta:regular,gutter:-1,pointer:bright-cyan:regular,info:bright-black:regular:dim,border:bright-black:regular:dim,query:white:regular:dim,prompt:bright-black:regular:dim"
+--cycle
+--info inline-right
+--keep-right
+--height -1
+--no-separator
+--padding 1%
+--pointer ▹
+--reverse

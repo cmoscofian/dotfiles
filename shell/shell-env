@@ -31,6 +31,7 @@ export TERMINAL="alacritty"
 export VISUAL="nvim"
 
 # Set application specific env variables
+export FZF_DEFAULT_OPTS_FILE="$DOTDIR/fzf/fzfrc"
 export GNUPGHOME="$DOTDIR/gnupg"
 
 # Set pass env variables

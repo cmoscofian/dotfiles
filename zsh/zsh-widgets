@@ -7,17 +7,7 @@ function tmux::new-window-widget() {
         return
     fi
 
-    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | \
-        fzf --ansi \
-            --cycle \
-            --height 50% \
-            --info inline-right \
-            --keep-right \
-            --padding 1% \
-            --pointer "▹" \
-            --reverse \
-            --preview "ls -la {}" \
-            --color "fg:-1,bg:-1,preview-fg:-1,preview-bg:-1,fg+:bright-green:regular,bg+:-1,hl:magenta:regular,hl+:bright-magenta:regular,gutter:-1,pointer:bright-cyan:regular,info:bright-black:regular:dim,border:bright-black:regular:dim,query:white:regular:dim,prompt:bright-black:regular:dim")
+    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | fzf --preview "ls -la {}")
     if [[ -z $__project ]]; then
         zle reset-prompt
         return
