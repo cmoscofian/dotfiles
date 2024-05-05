@@ -13,6 +13,7 @@ telescope.setup {
         prompt_prefix = "? ",
         selection_caret = "▹ ",
         file_ignore_patterns = {
+            ".git",
             "node_modules/",
             "target/",
             "%.lock",

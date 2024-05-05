@@ -7,7 +7,7 @@ function tmux::new-window-widget() {
         return
     fi
 
-    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | fzf --preview "ls -la {}")
+    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --cycle --preview "ls -la {}")
     if [[ -z $__project ]]; then
         zle reset-prompt
         return
