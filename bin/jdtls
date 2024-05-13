@@ -4,7 +4,9 @@ JAR="$XDG_DATA_HOME/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
 LOMBOK_PATH="$XDG_DATA_HOME/java/lombok.jar"
 PLATFORM="linux"
 
-if [[ $(uname) -ne "Linux" ]]; then
+shopt -s nocasematch
+
+if [[ $(uname) =~ ^Linux$ ]]; then
     PLATFORM="mac"
 fi
 

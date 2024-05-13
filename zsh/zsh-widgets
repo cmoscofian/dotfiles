@@ -2,23 +2,70 @@ function tmux::new-window-widget() {
     local __project
     local __name
 
-    if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
-        zle -M "A new window can only be generated within a TMUX session"
+    if [ -z "$TMUX" ]; then
+        print::warning "A new window can only be generated within a TMUX session"
+        zle .reset-prompt
         return
     fi
 
-    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --cycle --preview "ls -la {}")
-    if [[ -z $__project ]]; then
-        zle reset-prompt
+    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --cycle --preview "ls -la {}" --border-label "《 Create a new TMUX window 》")
+    if [ -z "$__project" ]; then
+        zle .reset-prompt
         return
     fi
 
     __name=$(basename $__project | tr . _)
     tmux new-window -c $__project -n $__name
-    zle reset-prompt
+    zle .reset-prompt
 }
 
 zle -N tmux::new-window-widget
 bindkey -M emacs "^K" tmux::new-window-widget
 bindkey -M vicmd "^K" tmux::new-window-widget
 bindkey -M viins "^K" tmux::new-window-widget
+
+function tmux::new-session-widget() {
+    local __name
+    local __project
+    local __session=$(comm -3 <(echo main "$TMUX_SESSIONS" | tr -s " " "\n" | sort -u) <(tmux list-sessions -F "#{session_name}" 2> /dev/null))
+    local __fzf_label="《 Create a new TMUX session 》"
+
+    if [ -z "$__session" ]; then
+        print::warning "No valid session to be launched"
+        zle .reset-prompt
+        return
+    fi
+
+    __session=$(echo $__session | fzf --border-label $__fzf_label)
+    if [ -z "$__session" ]; then
+        zle .reset-prompt
+        return
+    fi
+
+    if [ "$__session" = main ]; then
+        tmux new-session -d -s $__session -c $DOTDIR -n dotfiles
+        zle .reset-prompt
+        return
+    fi
+
+    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label $__fzf_label)
+    if [ -z "$__project" ]; then
+        zle .reset-prompt
+        return
+    fi
+
+    tmux has-session -t $__session 2> /dev/null
+    if [ $? -eq 0 ]; then
+        print::warning "Session already exists!"
+    fi
+
+    __session=$(basename $__session | tr . _)
+    __name=$(basename $__project | tr . _)
+    tmux new-session -d -s $__session -c $__project -n $__name
+
+    zle .reset-prompt
+}
+zle -N tmux::new-session-widget
+bindkey -M emacs "^S" tmux::new-session-widget
+bindkey -M vicmd "^S" tmux::new-session-widget
+bindkey -M viins "^S" tmux::new-session-widget

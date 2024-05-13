@@ -3,7 +3,7 @@ export HISTSIZE=12000
 export SAVEHIST=10000
 export GPG_TTY="$TTY"
 
-[[ -f "$UTILSDIR/common" ]] && source "$UTILSDIR/common"
+[ -f "$UTILSDIR/common" ] && source "$UTILSDIR/common"
 common::add_folder "$UTILSDIR"
 
 autoload -Uz compinit

@@ -5,8 +5,8 @@ function() {
     local __level=$SHLVL
     local __suffix
 
-    if [[ -n "$TMUX" ]]; then
-        __level=$(( __level - 1 ))
+    if [ -n "$TMUX" ]; then
+        __level=$(( $__level - 1 ))
     fi
 
     __suffix=$(printf '\$%.0s' {1..$__level})
