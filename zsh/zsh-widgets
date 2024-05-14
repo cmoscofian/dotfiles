@@ -1,6 +1,7 @@
 function tmux::new-window-widget() {
     local __project
     local __name
+    local __src=( $OPEN_SOURCE_PROJECTS $PRIVATE_PROJECTS $STUDY_PROJECTS $WORK_PROJECTS $ZSH_WIDGET_EXTRA_PROJECTS )
 
     if [ -z "$TMUX" ]; then
         print::warning "A new window can only be generated within a TMUX session"
@@ -8,7 +9,13 @@ function tmux::new-window-widget() {
         return
     fi
 
-    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --cycle --preview "ls -la {}" --border-label "《 Create a new TMUX window 》")
+    if [ -z "$__src" ]; then
+        print::warning "There are no projects for creating a new window"
+        zle .reset-prompt
+        return
+    fi
+
+    __project=$(find $__src -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label "《 Create a new TMUX window 》")
     if [ -z "$__project" ]; then
         zle .reset-prompt
         return
@@ -27,8 +34,9 @@ bindkey -M viins "^K" tmux::new-window-widget
 function tmux::new-session-widget() {
     local __name
     local __project
-    local __session=$(comm -3 <(echo main "$TMUX_SESSIONS" | tr -s " " "\n" | sort -u) <(tmux list-sessions -F "#{session_name}" 2> /dev/null))
+    local __session=$(comm -3 <(echo main "$ZSH_WIDGET_EXTRA_SESSIONS" | tr -s " " "\n" | sort -u) <(tmux list-sessions -F "#{session_name}" 2> /dev/null))
     local __fzf_label="《 Create a new TMUX session 》"
+    local __src=( $OPEN_SOURCE_PROJECTS $PRIVATE_PROJECTS $STUDY_PROJECTS $WORK_PROJECTS $ZSH_WIDGET_EXTRA_PROJECTS )
 
     if [ -z "$__session" ]; then
         print::warning "No valid session to be launched"
@@ -48,7 +56,7 @@ function tmux::new-session-widget() {
         return
     fi
 
-    __project=$(find $PRIVATE_PROJECTS $WORK_PROJECTS $STUDY_PROJECTS -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label $__fzf_label)
+    __project=$(find $__src -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label $__fzf_label)
     if [ -z "$__project" ]; then
         zle .reset-prompt
         return
