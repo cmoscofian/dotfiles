@@ -12,6 +12,7 @@
 [core]
     autocrlf = input
     editor = nvim
+    symlinks = false
 
 [url "github:"]
     insteadOf = https://github.com
@@ -42,6 +43,7 @@
     ff = only
 
 [push]
+    autoSetupRemote = true
     default = current
 
 [filter "lfs"]
