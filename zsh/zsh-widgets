@@ -25,7 +25,6 @@ function tmux::new-window-widget() {
     tmux new-window -c $__project -n $__name
     zle .reset-prompt
 }
-
 zle -N tmux::new-window-widget
 bindkey -M emacs "^K" tmux::new-window-widget
 bindkey -M vicmd "^K" tmux::new-window-widget

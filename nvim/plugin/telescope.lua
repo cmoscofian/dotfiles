@@ -14,8 +14,8 @@ telescope.setup {
         selection_caret = "▹ ",
         file_ignore_patterns = {
             ".git",
-            "node_modules/",
-            "target/",
+            "node_modules",
+            "target",
             "%.lock",
         },
         mappings = {
@@ -50,12 +50,13 @@ telescope.setup {
 }
 
 local opts = { silent = true }
+vim.keymap.set("n", "<leader>F", handlers.git_files, opts)
 vim.keymap.set("n", "<leader>b", handlers.buffers, opts)
 vim.keymap.set("n", "<leader>c", handlers.git_commits, opts)
-vim.keymap.set("n", "<leader>F", handlers.git_files, opts)
 vim.keymap.set("n", "<leader>f", handlers.find_files, opts)
 vim.keymap.set("n", "<leader>g", handlers.live_grep, opts)
 vim.keymap.set("n", "<leader>h", handlers.help_tags, opts)
+vim.keymap.set("n", "<leader>o", handlers.vim_options, opts)
 vim.keymap.set("n", "<leader>q", handlers.quickfix, opts)
 vim.keymap.set("n", "<leader>s", handlers.git_status, opts)
 vim.keymap.set("n", "<leader>de", function() handlers.diagnostics({ severity = "error" }) end, opts)
