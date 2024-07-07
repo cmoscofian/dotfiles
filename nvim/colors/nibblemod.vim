@@ -10,3 +10,11 @@ highlight! link LualineZ LualineA
 highlight! link LualineMode WarningMsg
 highlight! link LualineInactive StatusLineNC
 " }}}
+
+" Black background {{{
+" WARN: uncomment the lines below to have black background as a default instead
+" of the DOS blue
+" highlight! Normal guifg=#ffffff guibg=#000000 ctermfg=255 ctermbg=16 cterm=NONE
+" highlight! NormalFloat guifg=#ffffff guibg=#000000 ctermfg=255 ctermbg=16 cterm=NONE
+" highlight! NormalNC guifg=#ffffff guibg=#000000 ctermfg=255 ctermbg=16 cterm=NONE
+" }}}
