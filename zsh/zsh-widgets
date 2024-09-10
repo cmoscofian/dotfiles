@@ -1,7 +1,8 @@
 function tmux::new-window-widget() {
-    local __project
+    local __extra
     local __name
-    local __src=( $OPEN_SOURCE_PROJECTS $PRIVATE_PROJECTS $STUDY_PROJECTS $WORK_PROJECTS $ZSH_WIDGET_EXTRA_PROJECTS )
+    local __project
+    local __src
 
     if [ -z "$TMUX" ]; then
         print::warning "A new window can only be generated within a TMUX session"
@@ -9,13 +10,15 @@ function tmux::new-window-widget() {
         return
     fi
 
-    if [ -z "$__src" ]; then
+    read -A __extra <<< $ZSH_WIDGET_EXTRA_PROJECTS
+    __src=( $OPEN_SOURCE_PROJECTS $PRIVATE_PROJECTS $STUDY_PROJECTS $WORK_PROJECTS $__extra[@] )
+    if [ $#__src[@] -lt 1 ]; then
         print::warning "There are no projects for creating a new window"
         zle .reset-prompt
         return
     fi
 
-    __project=$(find $__src -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label "《 Create a new TMUX window 》")
+    __project=$(find $__src[@] -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label "《 Create a new TMUX window 》")
     if [ -z "$__project" ]; then
         zle .reset-prompt
         return
@@ -31,18 +34,21 @@ bindkey -M vicmd "^K" tmux::new-window-widget
 bindkey -M viins "^K" tmux::new-window-widget
 
 function tmux::new-session-widget() {
+    local __extra
+    local __fzf_label
     local __name
     local __project
-    local __session=$(comm -3 <(echo main "$ZSH_WIDGET_EXTRA_SESSIONS" | tr -s " " "\n" | sort -u) <(tmux list-sessions -F "#{session_name}" 2> /dev/null))
-    local __fzf_label="《 Create a new TMUX session 》"
-    local __src=( $OPEN_SOURCE_PROJECTS $PRIVATE_PROJECTS $STUDY_PROJECTS $WORK_PROJECTS $ZSH_WIDGET_EXTRA_PROJECTS )
+    local __session
+    local __src
 
+    __session=$(comm -3 <(echo main "$ZSH_WIDGET_EXTRA_SESSIONS" | tr -s " " "\n" | sort -u) <(tmux list-sessions -F "#{session_name}" 2> /dev/null))
     if [ -z "$__session" ]; then
         print::warning "No valid session to be launched"
         zle .reset-prompt
         return
     fi
 
+    __fzf_label="《 Create a new TMUX session 》"
     __session=$(echo $__session | fzf --border-label $__fzf_label)
     if [ -z "$__session" ]; then
         zle .reset-prompt
@@ -55,7 +61,9 @@ function tmux::new-session-widget() {
         return
     fi
 
-    __project=$(find $__src -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label $__fzf_label)
+    read -A __extra <<< $ZSH_WIDGET_EXTRA_PROJECTS
+    __src=( $OPEN_SOURCE_PROJECTS $PRIVATE_PROJECTS $STUDY_PROJECTS $WORK_PROJECTS $__extra[@] )
+    __project=$(find $__src[@] -mindepth 1 -maxdepth 1 -type d 2> /dev/null | sort -u | fzf --preview "ls -la {}" --border-label $__fzf_label)
     if [ -z "$__project" ]; then
         zle .reset-prompt
         return

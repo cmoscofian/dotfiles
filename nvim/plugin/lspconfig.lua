@@ -119,7 +119,7 @@ lspconfig.rust_analyzer.setup {
     single_file_support = true,
 }
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
     capabilities = config.capabilities,
     init_options = {
         preferences = {
