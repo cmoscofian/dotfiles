@@ -15,14 +15,21 @@ export XDG_DATA_HOME="$DOTDIR/xdg/data"
 export XDG_RUNTIME_HOME="$DOTDIR/xdg/runtime"
 export XDG_STATE_HOME="$DOTDIR/xdg/state"
 
-# Set zsh variables
+# Set zsh env variables
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export HISTFILE="$XDG_STATE_HOME/.zhistory"
+export HISTSIZE=12000
+export SAVEHIST=10000
 
-# Set X-session variables
+# Set less env variables
+export LESSHISTFILE="$XDG_STATE_HOME/.lesshistory"
+export LESSHISTSIZE=1000
+
+# Set X-session env variables
 export XAUTHORITY="$XDG_STATE_HOME/.xauthority"
 export XINITRC="$XDIR/client/xinitrc"
 
-# Set general usage variables
+# Set general usage env variables
 export BROWSER="firefox"
 export EDITOR="nvim"
 export LANG="en_US.UTF-8"
@@ -30,9 +37,12 @@ export MANPAGER="vim +MANPAGER --not-a-term -"
 export TERMINAL="alacritty"
 export VISUAL="nvim"
 
-# Set application specific env variables
+# Set fzf env variables
 export FZF_DEFAULT_OPTS_FILE="$DOTDIR/fzf/fzfrc"
+
+# Set gpg env variables
 export GNUPGHOME="$DOTDIR/gnupg"
+export GPG_TTY="$TTY"
 
 # Set pass env variables
 export PASSWORD_STORE_CLIP_TIME="30"
@@ -101,6 +111,7 @@ export WORK="$WORKSPACE/work"
 export WORK_PROJECTS="$WORK/projects"
 export WORK_SCRIPTS="$WORK/scripts"
 
+# Set cd-path env variables
 export CDPATH="$OPEN_SOURCE_PROJECTS:$CDPATH"
 export CDPATH="$PRIVATE_PROJECTS:$CDPATH"
 export CDPATH="$STUDY_PROJECTS:$CDPATH"
