@@ -17,6 +17,7 @@ treesitter.setup {
         "python",
         "rust",
         "typescript",
+        "tsx",
         "vim",
     },
 }
