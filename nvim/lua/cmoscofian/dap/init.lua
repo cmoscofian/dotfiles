@@ -5,9 +5,9 @@ local adapters = function()
     for _, lang in pairs(languages) do
         local path = string.format("cmoscofian.dap.adapters.%s", lang)
         local ok, module = pcall(require, path)
-        assert(ok)
-
-        T[lang] = module
+        if ok then
+            T[lang] = module
+        end
     end
     return T
 end
@@ -17,9 +17,9 @@ local configurations = function()
     for _, lang in pairs(languages) do
         local path = string.format("cmoscofian.dap.configurations.%s", lang)
         local ok, module = pcall(require, path)
-        assert(ok)
-
-        T[lang] = module
+        if ok then
+            T[lang] = module
+        end
     end
     return T
 end

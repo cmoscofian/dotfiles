@@ -148,7 +148,7 @@ M.on_reference = function(find_tests)
             previewer = previewers.vim_buffer_qflist.new({}),
             prompt_title = string.format("LSP References for: %s", reference),
             sorter = sorters.get_generic_fuzzy_sorter()
-        }):find()
+        }, {}):find()
     end)
 end
 
