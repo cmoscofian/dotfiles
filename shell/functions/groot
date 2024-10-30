@@ -1,15 +1,16 @@
 # Go to the root of a git tree
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f::groot() {
-    if git::is_worktree || git::is_repo; then
-        while [ ! -d .git ]; do
-            cd ..
-        done
-        return 0
-    else
-        print::error "not a git directory"
-        return 1
-    fi
+f::groot() {
+	if git::is_worktree || git::is_repo; then
+		while [ ! -d .git ]; do
+			cd ..
+		done
+		return 0
+	else
+		print::error "not a git directory"
+		return 1
+	fi
 }
 
+# vim: ft=bash

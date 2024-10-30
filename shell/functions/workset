@@ -2,28 +2,29 @@
 # USAGE: f::workset [...paths]
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f::workset() {
-    local __path=$PWD
+f::workset() {
+	local __path=$PWD
 
-    if [ $# -lt 1 ]; then
-        print::error "you must provide at least one path to map the workspace"
-        return 1
-    fi
+	if [ $# -lt 1 ]; then
+		print::error "you must provide at least one path to map the workspace"
+		return 1
+	fi
 
-    local __workspace
-    local __project
-    for __workspace in $@; do
-        ([ ! -d $__workspace ] || [ -z $__workspace ]) && continue
+	local __workspace
+	local __project
+	for __workspace in $@; do
+		([ ! -d $__workspace ] || [ -z $__workspace ]) && continue
 
-        cd $__workspace
+		cd $__workspace
 
-        for __project in $(ls); do
-        ([ ! -d $__project ] || [ -z $__project ]) && continue
-            local __n_project="$(echo -e "$__project" | sed s:-:_:g)"
-            export "$__n_project"="$__workspace/$__project"
-        done
-    done
+		for __project in $(ls); do
+		([ ! -d $__project ] || [ -z $__project ]) && continue
+			local __n_project="$(echo -e "$__project" | sed s:-:_:g)"
+			export "$__n_project"="$__workspace/$__project"
+		done
+	done
 
-    cd $__path
+	cd $__path
 }
 
+# vim: ft=bash

@@ -3,35 +3,36 @@
 # the users selection
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f::javav() {
-    local __columns=$COLUMNS
-    COLUMNS=5
+f::javav() {
+	local __columns=$COLUMNS
+	COLUMNS=5
 
-    local __versions=$(/usr/libexec/java_home -V 2>&1 | grep "  " | awk '{print $1}')
+	local __versions=$(/usr/libexec/java_home -V 2>&1 | grep "  " | awk '{print $1}')
 
-    if [ ! -z $__versions ]; then
-        echo -e "Select the JAVA version, or 0 to exit:"
+	if [ ! -z $__versions ]; then
+		echo -e "Select the JAVA version, or 0 to exit:"
 
-        local __version
-        select __version in $(/usr/libexec/java_home -V 2>&1 | grep "  " | awk '{print $1}'); do
-            if [ $REPLY -eq 0 ]; then
-                break
-            fi
+		local __version
+		select __version in $(/usr/libexec/java_home -V 2>&1 | grep "  " | awk '{print $1}'); do
+			if [ $REPLY -eq 0 ]; then
+				break
+			fi
 
-            if [ -z $__version ]; then
-                print::error "invalid option, please select a version from the menu"
-            else
-                export JAVA_HOME="$(/usr/libexec/java_home -v $__version)"
-                break
-            fi
-        done
+			if [ -z $__version ]; then
+				print::error "invalid option, please select a version from the menu"
+			else
+				export JAVA_HOME="$(/usr/libexec/java_home -v $__version)"
+				break
+			fi
+		done
 
-    else
-        print::warning "there are no JAVA SDK versions available."
-    fi
+	else
+		print::warning "there are no JAVA SDK versions available."
+	fi
 
-    print::info "version $(java -version 2>&1 | sed s:\"::gi | grep 'version' | awk '{print $3}') set!"
+	print::info "version $(java -version 2>&1 | sed s:\"::gi | grep 'version' | awk '{print $3}') set!"
 
-    COLUMNS=$__columns
+	COLUMNS=$__columns
 }
 
+# vim: ft=bash

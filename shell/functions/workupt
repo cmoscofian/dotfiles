@@ -8,100 +8,101 @@
 # [remote]: Remote from which all changes will be fetched. Default: "origin"
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f::workupt() {
-    local __branch="develop"
-    local __remote="origin"
+f::workupt() {
+	local __branch="develop"
+	local __remote="origin"
 
-    local __opt
-    local __help=0
+	local __opt
+	local __help=0
 
-    while getopts ":b:r:h" __opt; do
-        case $__opt in
-            b) __branch=$OPTARG;;
-            r) __remote=$OPTARG;;
-            h) __help=1;;
-            \?) ;;
-        esac
-    done
-    shift $(( OPTIND - 1 ))
+	while getopts ":b:r:h" __opt; do
+		case $__opt in
+			b) __branch=$OPTARG;;
+			r) __remote=$OPTARG;;
+			h) __help=1;;
+			\?) ;;
+		esac
+	done
+	shift $(( OPTIND - 1 ))
 
-    if [ $__help -eq 1 ]; then
-        echo -e "USAGE: $0 [-b branch] [-r remote] [-h] path\n"
-        return 0
-    fi
+	if [ $__help -eq 1 ]; then
+		echo -e "USAGE: $0 [-b branch] [-r remote] [-h] path\n"
+		return 0
+	fi
 
-    if [ $# -lt 1 ]; then
-        print::error "you must provide at least one path to map the workspace"
-        return 1
-    fi
+	if [ $# -lt 1 ]; then
+		print::error "you must provide at least one path to map the workspace"
+		return 1
+	fi
 
-    local __path=$PWD
-    local __workspace
-    local __i_workspace
-    print::info "updating against \"$__remote/$__branch\"..."
-    for __workspace in $@; do
-        ([ ! -d $__workspace ] || [ -z $__workspace ]) && continue
+	local __path=$PWD
+	local __workspace
+	local __i_workspace
+	print::info "updating against \"$__remote/$__branch\"..."
+	for __workspace in $@; do
+		([ ! -d $__workspace ] || [ -z $__workspace ]) && continue
 
-        cd $__workspace
-        print::title "checking into workspace $__workspace"
+		cd $__workspace
+		print::title "checking into workspace $__workspace"
 
-        for __i_workspace in $(ls); do
-            ([ ! -d $__i_workspace ] || [ -z $__i_workspace ]) && continue
+		for __i_workspace in $(ls); do
+			([ ! -d $__i_workspace ] || [ -z $__i_workspace ]) && continue
 
-            cd $__i_workspace
-            local __msg="project $__i_workspace"
+			cd $__i_workspace
+			local __msg="project $__i_workspace"
 
-            if git::is_worktree; then
-                git switch --no-guess $__branch &> /dev/null
-                if [ $? -ne 0 ]; then
-                    print::error "${__msg} unable to switch to branch $__branch"
-                    cd ..
-                    continue
-                fi
+			if git::is_worktree; then
+				git switch --no-guess $__branch &> /dev/null
+				if [ $? -ne 0 ]; then
+					print::error "${__msg} unable to switch to branch $__branch"
+					cd ..
+					continue
+				fi
 
-                if [ ! -z $__remote ]; then
-                    git fetch $__remote &> /dev/null
-                    if [ $? -ne 0 ]; then
-                        print::error "${__msg} unable to fetch from remote $__remote"
-                        cd ..
-                        continue
-                    fi
+				if [ ! -z $__remote ]; then
+					git fetch $__remote &> /dev/null
+					if [ $? -ne 0 ]; then
+						print::error "${__msg} unable to fetch from remote $__remote"
+						cd ..
+						continue
+					fi
 
-                    git pull $__remote $_branch &> /dev/null
-                    if [ $? -ne 0 ]; then
-                        print::error "${__msg} unable to pull from remote $__remote into branch $__branch"
-                        cd ..
-                        continue
-                    fi
-                else
-                    git fetch --all &> /dev/null
-                    if [ $? -ne 0 ]; then
-                        print::error "${__msg} unable to fetch from ANY remote"
-                        cd ..
-                        continue
-                    fi
+					git pull $__remote $_branch &> /dev/null
+					if [ $? -ne 0 ]; then
+						print::error "${__msg} unable to pull from remote $__remote into branch $__branch"
+						cd ..
+						continue
+					fi
+				else
+					git fetch --all &> /dev/null
+					if [ $? -ne 0 ]; then
+						print::error "${__msg} unable to fetch from ANY remote"
+						cd ..
+						continue
+					fi
 
-                    git pull origin $__branch &> /dev/null
-                    if [ $? -ne 0 ]; then
-                        print::error "${__msg} unable to pull from remote origin into branch $__branch"
-                        cd ..
-                        continue
-                    fi
+					git pull origin $__branch &> /dev/null
+					if [ $? -ne 0 ]; then
+						print::error "${__msg} unable to pull from remote origin into branch $__branch"
+						cd ..
+						continue
+					fi
 
-                fi
+				fi
 
-                git gc --prune --aggressive &> /dev/null
-                print::success "${__msg}"
-                cd ..
-            else
-                print::error "$__i_workspace is not a git directory"
-                cd ..
-            fi
-        done
-    done
+				git gc --prune --aggressive &> /dev/null
+				print::success "${__msg}"
+				cd ..
+			else
+				print::error "$__i_workspace is not a git directory"
+				cd ..
+			fi
+		done
+	done
 
-    cd $__path
+	cd $__path
 
-    return 0
+	return 0
 }
 
+# vim: ft=bash

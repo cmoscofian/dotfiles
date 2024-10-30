@@ -1,35 +1,35 @@
 function zsh::add_file() {
-    [ -f "$ZSHDIR/$1" ] && source "$ZSHDIR/$1"
+	[ -f "$ZSHDIR/$1" ] && source "$ZSHDIR/$1"
 }
 
 function zsh::add_plugin() {
-    local __plugin_name
-    __plugin_name=$(echo $1 | cut -d "/" -f 2)
+	local __plugin_name
+	__plugin_name=$(echo $1 | cut -d "/" -f 2)
 
-    if [ -d "$ZSHDIR/plugins/$__plugin_name" ]; then 
-        zsh::add_file "plugins/$__plugin_name/$__plugin_name.plugin.zsh" || \
-        zsh::add_file "plugins/$__plugin_name/$__plugin_name.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZSHDIR/plugins/$__plugin_name"
-    fi
+	if [ -d "$ZSHDIR/plugins/$__plugin_name" ]; then 
+		zsh::add_file "plugins/$__plugin_name/$__plugin_name.plugin.zsh" || \
+		zsh::add_file "plugins/$__plugin_name/$__plugin_name.zsh"
+	else
+		git clone "https://github.com/$1.git" "$ZSHDIR/plugins/$__plugin_name"
+	fi
 }
 
 function zsh::add_completion() {
-    local __plugin_name
-    __plugin_name=$(echo $1 | cut -d "/" -f 2)
+	local __plugin_name
+	__plugin_name=$(echo $1 | cut -d "/" -f 2)
 
-    if [ -d "$ZSHDIR/plugins/$__plugin_name" ]; then 
-        completion_file_path=$(ls $ZSHDIR/plugins/$__plugin_name/_*)
-        fpath+="$(dirname "${completion_file_path}")"
-        zsh::add_file "plugins/$__plugin_name/$__plugin_name.plugin.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZSHDIR/plugins/$__plugin_name"
-        fpath+=$(ls $ZSHDIR/plugins/$__plugin_name/_*)
-        [ -f $XDG_STATE_HOME/.zcompdump ] && $XDG_STATE_HOME/.zcompdump
-    fi
+	if [ -d "$ZSHDIR/plugins/$__plugin_name" ]; then 
+		completion_file_path=$(ls $ZSHDIR/plugins/$__plugin_name/_*)
+		fpath+="$(dirname "${completion_file_path}")"
+		zsh::add_file "plugins/$__plugin_name/$__plugin_name.plugin.zsh"
+	else
+		git clone "https://github.com/$1.git" "$ZSHDIR/plugins/$__plugin_name"
+		fpath+=$(ls $ZSHDIR/plugins/$__plugin_name/_*)
+		[ -f $XDG_STATE_HOME/.zcompdump ] && $XDG_STATE_HOME/.zcompdump
+	fi
 
-    completion_file="$(basename "${completion_file_path}")"
+	completion_file="$(basename "${completion_file_path}")"
 
-    if [ "$2" = true ] && compinit "${completion_file:1}"
+	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
 

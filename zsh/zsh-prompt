@@ -2,16 +2,16 @@ autoload -U colors; colors
 
 # Set suffix to display number of nested shells
 function() {
-    local __level=$SHLVL
-    local __suffix
+	local __level=$SHLVL
+	local __suffix
 
-    if [ -n "$TMUX" ]; then
-        __level=$(( $__level - 1 ))
-    fi
+	if [ -n "$TMUX" ]; then
+		__level=$(( $__level - 1 ))
+	fi
 
-    __suffix=$(printf '\$%.0s' {1..$__level})
+	__suffix=$(printf '\$%.0s' {1..$__level})
 
-    export PS1="[@%F{51}%1/%f\${vcs_info_msg_0_}]%F{160}%(1j.*.)%(?..!)%f${__suffix}: "
-    export RPROMPT="%F{30}%~%f"
+	export PS1="[@%F{51}%1/%f\${vcs_info_msg_0_}]%F{160}%(1j.*.)%(?..!)%f${__suffix}: "
+	export RPROMPT="%F{30}%~%f"
 }
 

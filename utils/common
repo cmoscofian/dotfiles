@@ -1,15 +1,17 @@
-function common::add_file() {
-    [ -f "$1" ] && source "$1"
+common::add_file() {
+	[ -f "$1" ] && source "$1"
 }
 
-function common::add_folder() {
-    if [ ! -d $1 ]; then
-        echo "Not a valid folder to add"
-        return 1
-    fi
+common::add_folder() {
+	if [ ! -d $1 ]; then
+		echo "Not a valid folder to add"
+		return 1
+	fi
 
-    local __file
-    for __file in $(ls $1); do
-        common::add_file "$1/$__file"
-    done
+	local __file
+	for __file in $(ls $1); do
+		common::add_file "$1/$__file"
+	done
 }
+
+# vim: ft=bash

@@ -9,58 +9,59 @@
 # Default: "master\|main"
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f::branches() {
-    local __ignore_pattern="master\|main"
+f::branches() {
+	local __ignore_pattern="master\|main"
 
-    local __opt
-    local __help=0
+	local __opt
+	local __help=0
 
-    while getopts ":i:h" __opt; do
-        case $__opt in
-            i) __ignore_pattern=$OPTARG;;
-            h) __help=1;;
-            \?) ;;
-        esac
-    done
-    shift $(( OPTIND - 1 ))
+	while getopts ":i:h" __opt; do
+		case $__opt in
+			i) __ignore_pattern=$OPTARG;;
+			h) __help=1;;
+			\?) ;;
+		esac
+	done
+	shift $(( OPTIND - 1 ))
 
-    if [ $__help -eq 1 ]; then
-        echo -e "USAGE: $0 [-b branch] [-h] path\n"
-        return 0
-    fi
+	if [ $__help -eq 1 ]; then
+		echo -e "USAGE: $0 [-b branch] [-h] path\n"
+		return 0
+	fi
 
-    if [ $# -lt 1 ]; then
-        print::error "you must provide at least one path to map the workspace"
-        return 1
-    fi
+	if [ $# -lt 1 ]; then
+		print::error "you must provide at least one path to map the workspace"
+		return 1
+	fi
 
-    local __path=$PWD
-    local __workspace
-    local __i_workspace
+	local __path=$PWD
+	local __workspace
+	local __i_workspace
 
-    for __workspace in $@; do
-        ([ ! -d $__workspace ] || [ -z $__workspace ]) && continue
+	for __workspace in $@; do
+		([ ! -d $__workspace ] || [ -z $__workspace ]) && continue
 
-        cd $__workspace
+		cd $__workspace
 
-        for __i_workspace in $(ls); do
-            ([ ! -d $__i_workspace ] || [ -z $__i_workspace ]) && continue
+		for __i_workspace in $(ls); do
+			([ ! -d $__i_workspace ] || [ -z $__i_workspace ]) && continue
 
-            cd $__i_workspace
-            local __msg="project $__i_workspace"
+			cd $__i_workspace
+			local __msg="project $__i_workspace"
 
-            if git::is_worktree; then
-                local __dangling=$(git branch | grep -v "$__ignore_pattern" | wc -l)
-                if [ $__dangling -ne 0 ]; then
-                    print::warning "$__msg has $__dangling branches"
-                fi
-            fi
-            cd ..
-        done
-    done
+			if git::is_worktree; then
+				local __dangling=$(git branch | grep -v "$__ignore_pattern" | wc -l)
+				if [ $__dangling -ne 0 ]; then
+					print::warning "$__msg has $__dangling branches"
+				fi
+			fi
+			cd ..
+		done
+	done
 
-    cd $__path
+	cd $__path
 
-    return 0
+	return 0
 }
 
+# vim: ft=bash

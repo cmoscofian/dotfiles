@@ -6,19 +6,21 @@
 # [package]: Package from which to run test and validate coverage
 #
 # Author: Charles Moscofian <charlesmoscofian@hotmail.com>
-function f::gocov() {
-    local __package="./..."
-    while getopts ":p" __opt; do
-        case $__opt in
-            p) __package=$OPTARG;;
-            \?) ;;
-        esac
-    done
-    shift $(( OPTIND - 1 ))
+f::gocov() {
+	local __package="./..."
+	while getopts ":p" __opt; do
+		case $__opt in
+			p) __package=$OPTARG;;
+			\?) ;;
+		esac
+	done
+	shift $(( OPTIND - 1 ))
 
-    local __temp="/tmp/go-cover.$$.tmp"
+	local __temp="/tmp/go-cover.$$.tmp"
 
-    go test -coverprofile=$__temp -coverpkg=$__package $@ $__package
-    go tool cover -html=$__temp
-    unlink $__temp
+	go test -coverprofile=$__temp -coverpkg=$__package $@ $__package
+	go tool cover -html=$__temp
+	unlink $__temp
 }
+
+# vim: ft=bash

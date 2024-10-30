@@ -10,7 +10,7 @@ zstyle ':completion::complete:*' cache-path "$XDG_CACHE_HOME/.zcompcache"
 
 zmodload zsh/complist
 compinit -d "$XDG_STATE_HOME/.zcompdump"
-_comp_options+=(globdots) # Complete hidden files
+_comp_options+=(globdots)                         # Complete hidden files
 
 autoload -U add-zsh-hook
 
@@ -24,8 +24,8 @@ zsh::add_file "zsh-prompt"
 zsh::add_file "zsh-vcs"
 zsh::add_file "zsh-vim"
 zsh::add_file "zsh-widgets"
-common::add_file "/usr/share/fzf/completion.zsh"
-common::add_file "/usr/share/fzf/key-bindings.zsh"
+common::add_file "/usr/local/share/fzf/completion.zsh"
+common::add_file "/usr/local/share/fzf/key-bindings.zsh"
 common::add_file "$SDKMAN_DIR/bin/sdkman-init.sh" # This loads sdkman
-common::add_file "$NVM_DIR/nvm.sh" # This loads nvm
-common::add_file "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+common::add_file "$NVM_DIR/nvm.sh"                # This loads nvm
+common::add_file "$NVM_DIR/bash_completion"       # This loads nvm bash_completion

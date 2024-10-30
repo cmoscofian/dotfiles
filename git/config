@@ -1,78 +1,80 @@
 [user]
-    name = Charles Moscofian
-    email = charlesmoscofian@hotmail.com
-    signinKey = charlesmoscofian@hotmail.com
+	name = Charles Moscofian
+	email = charlesmoscofian@hotmail.com
+	signinKey = charlesmoscofian@hotmail.com
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [alias]
-    unstage = restore --staged
+	unstage = restore --staged
 
 [core]
-    autocrlf = input
-    editor = nvim
-    symlinks = false
+	autocrlf = input
+	editor = nvim
+	symlinks = false
 
 [url "github:"]
-    insteadOf = https://github.com
+	insteadOf = https://github.com
 
 [color]
-    ui = auto
+	ui = auto
 
 [color "interactive"]
-    prompt = cyan bold
-    help = yellow
+	prompt = cyan bold
+	help = yellow
 
 [remote]
-    pushDefault = origin
-    pullDefault = origin
+	pushDefault = origin
+	pullDefault = origin
 
 [commit]
-    verbose = true
-    gpgSign = true
+	verbose = true
+	gpgSign = true
 
 [tag]
-    gpgSign = true
+	gpgSign = true
 
 [fetch]
-    prune = true
-    pruneTags = true
+	prune = true
+	pruneTags = true
 
 [pull]
-    ff = only
+	ff = only
 
 [push]
-    autoSetupRemote = true
-    default = current
+	autoSetupRemote = true
+	default = current
 
 [filter "lfs"]
-    clean = git-lfs clean -- %f
-    process = git-lfs filter-process
-    required = true
-    smudge = git-lfs smudge -- %f
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
 
 [log]
-    graphColors = white,yellow,cyan
+	graphColors = white,yellow,cyan
 
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 
 [difftool]
-    prompt = false
-    trustExitCode = true
+	prompt = false
+	trustExitCode = true
 
 [merge]
-    ff = only
-    tool = vimdiff
+	ff = only
+	tool = vimdiff
 
 [mergetool]
-    prompt = false
-    trustExitCode = true
-    keepBackup = false
+	prompt = false
+	trustExitCode = true
+	keepBackup = false
 
 [includeIf "gitdir:~/Workspace/work/"]
-    path = ./work/config
+	path = ./work/config
 
 [submodule]
-    recurse = true
+	recurse = true
+
+# vim: ft=gitconfig

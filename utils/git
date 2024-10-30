@@ -1,8 +1,9 @@
-function git::is_worktree() {
-    [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == true ]]
+git::is_worktree() {
+	[[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == true ]]
 }
 
-function git::is_repo() {
-    [[ $(git rev-parse --is-inside-git-dir 2> /dev/null) == true ]]
+git::is_repo() {
+	[[ $(git rev-parse --is-inside-git-dir 2> /dev/null) == true ]]
 }
 
+# vim: ft=bash

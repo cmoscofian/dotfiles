@@ -14,7 +14,6 @@ set clipboard=unnamedplus
 set colorcolumn=+1
 set completeopt=menuone,noinsert,noselect
 set encoding=utf-8
-set expandtab
 set fileencoding=utf-8
 set foldmethod=indent
 set guicursor=i-r-ci-cr:blinkon350-blinkoff350,a:block
@@ -29,6 +28,7 @@ set list
 set listchars=tab:▸\ ,nbsp:~,trail:.
 set mouse=a
 set nobackup
+set noexpandtab
 set nofoldenable
 set nohlsearch
 set noswapfile
