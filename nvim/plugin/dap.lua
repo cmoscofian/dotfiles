@@ -1,18 +1,19 @@
-local dap = require("dap")
-local ui = require("dapui")
 local config = require("cmoscofian.dap")
+local dap = require("dap")
+local dapui = require("dapui")
+local vscode = require("dap.ext.vscode")
 
 dap.adapters = config.adapters
 dap.configurations = config.configurations
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-	ui.open()
+	dapui.open({ reset = true })
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-	ui.close()
+	dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-	ui.close()
+	dapui.close()
 end
 
 local opts = { silent = true }
@@ -24,16 +25,34 @@ vim.keymap.set("n", "<F5>", dap.continue, opts)
 vim.keymap.set("n", "<F10>", dap.step_over, opts)
 vim.keymap.set("n", "<F11>", dap.step_into, opts)
 vim.keymap.set("n", "<F12>", dap.step_out, opts)
-vim.keymap.set("n", "<leader>dt", ui.toggle, opts)
+vim.keymap.set("n", "<leader>dt", function() dapui.toggle({ reset = true }) end, opts)
 
-ui.setup {
+dapui.setup {
+	controls = {
+		icons = {
+			pause = "■",
+			play = "▶",
+			step_over = "→",
+			step_into = "↓",
+			step_out = "↑",
+			step_back = "←",
+			run_last = "↕",
+			terminate = "✗",
+			disconnect = "◎",
+		}
+	},
+	icons = {
+		expanded = "▼",
+		collapsed = "▷",
+		current_frame = "▷",
+	},
 	layouts = {
 		{
 			elements = {
-				"stacks",
-				"breakpoints",
-				"watches",
-				"scopes",
+				{ id = "stacks", size = 0.1 },
+				{ id = "breakpoints", size = 0.2 },
+				{ id = "watches", size = 0.2 },
+				{ id = "scopes", size = 0.5 },
 			},
 			size = 40,
 			position = "left",
@@ -47,30 +66,33 @@ ui.setup {
 		},
 	},
 	windows = {
-		indent = 2,
+		indent = 4,
 	},
 }
 
-vim.fn.sign_define {
+vim.fn.sign_define({
 	{
 		name = "DapBreakpoint",
-		text = "*",
+		text = "⊚",
 		texthl = "DapBreakpoint"
 	},
 	{
 		name = "DapBreakpointCondition",
-		text = "#",
+		text = "⊙",
 		texthl = "DapBreakpointCondition"
 	},
 	{
 		name = "DapBreakpointRejected",
-		text = "x",
+		text = "✗",
 		texthl = "DapBreakpointRejected",
 		linehl = "DapBreakpointRejectedLine"
 	},
 	{
 		name = "DapStopped",
+		text = "",
 		texthl = "DapStopped",
 		linehl = "DapStoppedLine"
 	},
-}
+})
+
+vscode.load_launchjs(".vim/dap.json", nil)
