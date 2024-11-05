@@ -30,14 +30,14 @@ vim.keymap.set("n", "<leader>dt", function() dapui.toggle({ reset = true }) end,
 dapui.setup {
 	controls = {
 		icons = {
-			pause = "■",
+			pause = "▣",
 			play = "▶",
-			step_over = "→",
-			step_into = "↓",
-			step_out = "↑",
-			step_back = "←",
-			run_last = "↕",
-			terminate = "✗",
+			step_over = "▶",
+			step_into = "▼",
+			step_out = "▲",
+			step_back = "◀",
+			run_last = "◆",
+			terminate = "●",
 			disconnect = "◎",
 		}
 	},
@@ -83,13 +83,13 @@ vim.fn.sign_define({
 	},
 	{
 		name = "DapBreakpointRejected",
-		text = "✗",
+		text = "●",
 		texthl = "DapBreakpointRejected",
 		linehl = "DapBreakpointRejectedLine"
 	},
 	{
 		name = "DapStopped",
-		text = "",
+		text = "∙",
 		texthl = "DapStopped",
 		linehl = "DapStoppedLine"
 	},
