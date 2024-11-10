@@ -1,25 +1,12 @@
-# configuration folders and/or files that should never be ignored
-!bin/
-!git/config
+# configuration folders and/or files that should not be ignored
 !gnupg/*.conf
-!macos/
-!nvim/
-!shell/
-!ssh/config
 !ssh/keys/.gitkeep
-!rust/cargo/config.toml
-!tmux/
-!utils/
-!vim/
-!x/
 !xdg/*/.gitkeep
-!zsh/
 
 # configuration folders that should be ignored by default
-git/
+git/work/
 gnupg/
-pass/
-ssh/
+ssh/keys
 xdg/
 
 # configuration files that should always be ignored
@@ -29,4 +16,5 @@ xdg/
 .DS_Store
 .netrwhist
 configstore
+known_hosts
 shell-work

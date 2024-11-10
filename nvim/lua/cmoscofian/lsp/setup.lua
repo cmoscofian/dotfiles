@@ -4,19 +4,23 @@ local M = {}
 
 local set_diagnostics = function()
 	local signs = {
-		{ name = "DiagnosticSignError", text = "e" },
-		{ name = "DiagnosticSignWarn",  text = "w" },
-		{ name = "DiagnosticSignHint",  text = "h" },
-		{ name = "DiagnosticSignInfo",  text = "i" },
+		{ "DiagnosticSignError", "▶" },
+		{ "DiagnosticSignWarn", "▶" },
+		{ "DiagnosticSignHint", "▷" },
+		{ "DiagnosticSignInfo", "▷" },
 	}
 
 	for _, sign in ipairs(signs) do
-		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+		vim.fn.sign_define(sign[1], {
+			texthl = sign[1],
+			text = sign[2],
+			numhl = "" ,
+		})
 	end
 
-	local diagnostic_config = {
+	vim.diagnostic.config({
 		virtual_text = false,
-		signs = { active = signs },
+		signs = true,
 		update_in_insert = true,
 		underline = true,
 		severity_sort = true,
@@ -25,10 +29,9 @@ local set_diagnostics = function()
 			focusable = false,
 			header = { "Diagnostics", "Title" },
 			prefix = "",
-			source = "always",
+			source = true,
 		},
-	}
-	vim.diagnostic.config(diagnostic_config)
+	})
 end
 
 local set_hover_handlers = function()

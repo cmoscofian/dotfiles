@@ -87,7 +87,6 @@ f::workupt() {
 						cd ..
 						continue
 					fi
-
 				fi
 
 				git gc --prune --aggressive &> /dev/null

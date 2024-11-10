@@ -20,7 +20,7 @@ f::gocov() {
 
 	go test -coverprofile=$__temp -coverpkg=$__package $@ $__package
 	go tool cover -html=$__temp
-	unlink $__temp
+	shred -u -n12 -z $__temp
 }
 
 # vim: ft=bash
