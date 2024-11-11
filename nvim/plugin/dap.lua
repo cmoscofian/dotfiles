@@ -1,7 +1,7 @@
 local config = require("cmoscofian.dap")
 local dap = require("dap")
 local dapui = require("dapui")
-local vscode = require("dap.ext.vscode")
+local vsc_de = require("dap.ext.vscode")
 
 dap.adapters = config.adapters
 dap.configurations = config.configurations
@@ -19,13 +19,15 @@ end
 local opts = { silent = true }
 vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, opts)
 vim.keymap.set("n", "<leader>dB", function() dap.set_breakpoint(vim.fn.input("Condition: ")) end, opts)
+vim.keymap.set("n", "<leader>dl", function() dap.set_breakpoint(nil, nil, vim.fn.input("LogPoint: ")) end, opts)
+vim.keymap.set("n", "<leader>dL", function() dap.set_breakpoint(nil, vim.fn.input("HitCondition: "), nil) end, opts)
 vim.keymap.set("n", "<leader>dc", dap.clear_breakpoints, opts)
 vim.keymap.set("n", "<leader>dr", dap.run_to_cursor, opts)
+vim.keymap.set("n", "<leader>dt", function() dapui.toggle({ reset = true }) end, opts)
 vim.keymap.set("n", "<F5>", dap.continue, opts)
 vim.keymap.set("n", "<F10>", dap.step_over, opts)
 vim.keymap.set("n", "<F11>", dap.step_into, opts)
 vim.keymap.set("n", "<F12>", dap.step_out, opts)
-vim.keymap.set("n", "<leader>dt", function() dapui.toggle({ reset = true }) end, opts)
 
 dapui.setup {
 	controls = {
@@ -49,17 +51,18 @@ dapui.setup {
 	layouts = {
 		{
 			elements = {
-				{ id = "stacks", size = 0.1 },
+				{ id = "stacks",      size = 0.1 },
 				{ id = "breakpoints", size = 0.2 },
-				{ id = "watches", size = 0.2 },
-				{ id = "scopes", size = 0.5 },
+				{ id = "watches",     size = 0.2 },
+				{ id = "scopes",      size = 0.5 },
 			},
 			size = 40,
 			position = "left",
 		},
 		{
 			elements = {
-				"repl",
+				{ id = "repl",    size = 0.5 },
+				{ id = "console", size = 0.5 },
 			},
 			size = 0.3,
 			position = "bottom",
@@ -73,26 +76,38 @@ dapui.setup {
 vim.fn.sign_define({
 	{
 		name = "DapBreakpoint",
-		text = "⊚",
+		text = "•",
 		texthl = "DapBreakpoint"
 	},
 	{
 		name = "DapBreakpointCondition",
-		text = "⊙",
+		text = "∘",
 		texthl = "DapBreakpointCondition"
+	},
+	-- TODO: This does not exist in nvim-dap, open an upstream discussion.
+	-- Should be simple to implement and adds a bit of value (I think)...
+	{
+		name = "DapHitCondition",
+		text = "∘",
+		texthl = "DapHitCondition",
+	},
+	{
+		name = "DapLogPoint",
+		text = "∘",
+		texthl = "DapLogPoint",
 	},
 	{
 		name = "DapBreakpointRejected",
-		text = "●",
+		text = "▪",
 		texthl = "DapBreakpointRejected",
 		linehl = "DapBreakpointRejectedLine"
 	},
 	{
 		name = "DapStopped",
-		text = "∙",
+		text = "",
 		texthl = "DapStopped",
 		linehl = "DapStoppedLine"
 	},
 })
 
-vscode.load_launchjs(".vim/dap.json", nil)
+vsc_de.load_launchjs(".vim/dap.json", nil)

@@ -61,6 +61,8 @@ return {
 		request = "launch",
 		name = "Main",
 		program = "${file}",
+		console = "integratedTerminal",
+		justMyCode = false,
 		pythonPath = python_path,
 	},
 	{
@@ -68,6 +70,8 @@ return {
 		request = "launch",
 		name = "Pytest (default)",
 		module = "pytest",
+		console = "integratedTerminal",
+		justMyCode = false,
 		args = { "-vv" },
 		pythonPath = python_path,
 	},
@@ -76,6 +80,8 @@ return {
 		request = "launch",
 		name = "Pytest (single)",
 		module = "pytest",
+		console = "integratedTerminal",
+		justMyCode = false,
 		args = { "${file}", "-vv" },
 		pythonPath = python_path,
 	}, {
