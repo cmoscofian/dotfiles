@@ -16,6 +16,7 @@
 
 [url "github:"]
 	insteadOf = https://github.com
+	insteadOf = git@github.com:
 
 [color]
 	ui = auto
