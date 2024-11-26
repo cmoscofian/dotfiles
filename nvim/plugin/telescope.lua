@@ -10,12 +10,11 @@ telescope.setup {
 			local tail = utils.path_tail(path)
 			return string.format("%s (%s)", tail, path)
 		end,
-		prompt_prefix = "∴ ",
-		selection_caret = "▷ ",
 		file_ignore_patterns = {
-			".git",
-			"node_modules",
-			"target",
+			"^%.git/",
+			"^node_modules/",
+			"^target/",
+			"^build/",
 			"%.lock",
 		},
 		mappings = {
@@ -30,6 +29,8 @@ telescope.setup {
 				["<c-v>"] = actions.select_vertical,
 			},
 		},
+		prompt_prefix = "> ",
+		selection_caret = "▷ ",
 	},
 	pickers = {
 		find_files = {

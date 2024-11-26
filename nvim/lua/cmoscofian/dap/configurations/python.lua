@@ -1,35 +1,38 @@
 local ts_utils = require("nvim-treesitter.ts_utils")
 
-local poetry_getenv = function()
-	local handle = io.popen("poetry env info -p")
+--- Return the python executable from the poetry virtual environment if
+--- available.
+--- @return string | nil
+local poetry_exec = function()
+	local handle = io.popen("poetry env info -e")
 	if handle ~= nil then
-		local result = handle:read("*a")
+		local result = handle:read()
 		handle:close()
-		return result:sub(1, #result - 1)
+		return result
 	end
 	return nil
 end
 
+--- Fetch the path of the "nearest" python executable (check for a poetry
+--- project, then a virtual environment and finally python3 from $PATH)
+--- @return string
 local python_path = function()
-	local poetry = poetry_getenv()
-	if vim.fn.executable(poetry .. "/bin/python") == 1 then
-		return poetry .. "/bin/python"
-	end
-
-	local pipx = os.getenv("PIPX_HOME")
-	if vim.fn.executable(pipx .. "/venvs/bin/python") == 1 then
-		return pipx .. "/venvs/bin/python"
+	local poetry = poetry_exec()
+	if poetry and vim.fn.executable(poetry) == 1 then
+		return poetry
 	end
 
 	local pwd = vim.fn.getcwd()
-	if vim.fn.executable(pwd .. "/venv/bin/python") == 1 then
-		return pwd .. "/venv/bin/python"
+	if vim.fn.executable(pwd .. "/.venv/bin/python") == 1 then
+		return pwd .. "/.venv/bin/python"
 	end
 
-	return "/usr/bin/python3"
+	return vim.fn.exepath("python3")
 end
 
-local pytest_method = function()
+---Fetch the test method name under the cursor, based on the pattern ^test_*
+---@return string | nil
+local get_test_method_under_cursor = function()
 	local node = ts_utils.get_node_at_cursor(0, true)
 	while node and node:type() ~= "function_definition" do
 		node = node:parent()
@@ -86,7 +89,7 @@ return {
 		pythonPath = python_path,
 	}, {
 		__call = function(config)
-			local method = pytest_method()
+			local method = get_test_method_under_cursor()
 			if method then
 				table.insert(config.args, "-k" .. method)
 			end

@@ -6,9 +6,6 @@ return {
 		name = "Debug Main",
 		request = "launch",
 		program = "${file}",
-		env = {
-			GO_ENVIRONMENT = "gokvsclient_test",
-		}
 	},
 	{
 		type = "go",
