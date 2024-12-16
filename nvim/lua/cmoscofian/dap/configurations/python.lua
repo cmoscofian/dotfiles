@@ -1,5 +1,7 @@
 local ts_utils = require("nvim-treesitter.ts_utils")
 
+local path = nil
+
 --- Return the python executable from the poetry virtual environment if
 --- available.
 --- @return string | nil
@@ -17,14 +19,20 @@ end
 --- project, then a virtual environment and finally python3 from $PATH)
 --- @return string
 local python_path = function()
+	if path then
+		return path
+	end
+
 	local poetry = poetry_exec()
 	if poetry and vim.fn.executable(poetry) == 1 then
+		path = poetry
 		return poetry
 	end
 
-	local pwd = vim.fn.getcwd()
-	if vim.fn.executable(pwd .. "/.venv/bin/python") == 1 then
-		return pwd .. "/.venv/bin/python"
+	local pwd = vim.fn.getcwd() .. "/.venv/bin/python"
+	if vim.fn.executable(pwd) == 1 then
+		path = pwd
+		return pwd
 	end
 
 	return vim.fn.exepath("python3")

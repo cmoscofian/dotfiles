@@ -1,8 +1,8 @@
-function zsh::add_file() {
+zsh::add_file() {
 	[ -f "$ZSHDIR/$1" ] && source "$ZSHDIR/$1"
 }
 
-function zsh::add_plugin() {
+zsh::add_plugin() {
 	local __plugin_name
 	__plugin_name=$(echo $1 | cut -d "/" -f 2)
 
@@ -14,7 +14,7 @@ function zsh::add_plugin() {
 	fi
 }
 
-function zsh::add_completion() {
+zsh::add_completion() {
 	local __plugin_name
 	__plugin_name=$(echo $1 | cut -d "/" -f 2)
 

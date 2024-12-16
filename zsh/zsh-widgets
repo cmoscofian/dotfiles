@@ -1,4 +1,4 @@
-function tmux::new-window-widget() {
+tmux::new-window-widget() {
 	local __extra
 	local __name
 	local __project
@@ -33,7 +33,7 @@ bindkey -M emacs "^K" tmux::new-window-widget
 bindkey -M vicmd "^K" tmux::new-window-widget
 bindkey -M viins "^K" tmux::new-window-widget
 
-function tmux::new-session-widget() {
+tmux::new-session-widget() {
 	local __extra
 	local __fzf_label
 	local __name

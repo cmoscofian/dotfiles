@@ -13,7 +13,7 @@ zstyle ':vcs_info:git+post-backend:*' hooks git-remote-tracking
 zstyle ':vcs_info:git*:*' formats ', %c%u%F{201}%.7i%f@%F{201}%b%f%m'
 zstyle ':vcs_info:git*:*' actionformats ', %c%u%F{201}%.7i%f@%F{201}%b%f|%F{201}%a%f'
 
-function +vi-git-untracked() {
++vi-git-untracked() {
 	emulate -L zsh
 	if [ $(git status --porcelain 2> /dev/null | grep '^??' | wc -l) -ne 0 ]; then
 		hook_com[unstaged]+='%F{226}*%f'
@@ -21,7 +21,7 @@ function +vi-git-untracked() {
 	return 0
 }
 
-function +vi-git-stashed() {
++vi-git-stashed() {
 	emulate -L zsh
 	if git rev-parse --verify refs/stash &> /dev/null; then
 		hook_com[misc]+='%F{160}$%f'
@@ -29,7 +29,7 @@ function +vi-git-stashed() {
 	return 0
 }
 
-function +vi-git-remote-tracking() {
++vi-git-remote-tracking() {
 	emulate -L zsh
 	git rev-parse @{upstream} &> /dev/null || return
 	local -a x;
