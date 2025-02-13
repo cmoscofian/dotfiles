@@ -1,9 +1,9 @@
 --ansi
 --border
 --color "fg:-1,bg:-1,preview-fg:-1,preview-bg:-1,fg+:bright-white:regular,bg+:cyan:regular,hl:bright-magenta:regular,hl+:bright-magenta:regular,gutter:-1,pointer:bright-cyan:regular,info:bright-black:regular:dim,border:bright-black:regular:dim,query:white:regular:dim,prompt:bright-black:regular:dim"
+--height -1
 --info inline-right
 --keep-right
---height -1
 --no-separator
 --padding 1%
 --pointer ▷
