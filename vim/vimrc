@@ -2,7 +2,7 @@ syntax on
 filetype plugin on
 filetype indent on
 
-colorscheme nibble
+colorscheme nibblelight
 
 " Options {{{
 set autoindent

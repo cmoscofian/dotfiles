@@ -19,8 +19,8 @@ white = "#c0c0c0"
 yellow = "#808000"
 
 [colors.primary]
-background = "#000080"
-foreground = "#c0c0c0"
+background = "#ffffff"
+foreground = "#000000"
 
 [cursor]
 blink_interval = 350

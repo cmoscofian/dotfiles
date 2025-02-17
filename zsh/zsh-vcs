@@ -5,18 +5,18 @@ add-zsh-hook precmd vcs_info
 # zstyle ':vcs_info:*' debug true
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%F{46}*%f'
-zstyle ':vcs_info:*' unstagedstr '%F{160}*%f'
+zstyle ':vcs_info:*' stagedstr '%F{2}*%f'
+zstyle ':vcs_info:*' unstagedstr '%F{1}*%f'
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-stashed
 zstyle ':vcs_info:git+post-backend:*' hooks git-remote-tracking
-zstyle ':vcs_info:git*:*' formats ', %c%u%F{201}%.7i%f@%F{201}%b%f%m'
-zstyle ':vcs_info:git*:*' actionformats ', %c%u%F{201}%.7i%f@%F{201}%b%f|%F{201}%a%f'
+zstyle ':vcs_info:git*:*' formats ', %c%u%F{5}%.7i%f@%F{5}%b%f%m'
+zstyle ':vcs_info:git*:*' actionformats ', %c%u%F{5}%.7i%f@%F{5}%b%f|%F{5}%a%f'
 
 +vi-git-untracked() {
 	emulate -L zsh
 	if [ $(git status --porcelain 2> /dev/null | grep '^??' | wc -l) -ne 0 ]; then
-		hook_com[unstaged]+='%F{226}*%f'
+		hook_com[unstaged]+='%F{3}*%f'
 	fi
 	return 0
 }
@@ -24,7 +24,7 @@ zstyle ':vcs_info:git*:*' actionformats ', %c%u%F{201}%.7i%f@%F{201}%b%f|%F{201}
 +vi-git-stashed() {
 	emulate -L zsh
 	if git rev-parse --verify refs/stash &> /dev/null; then
-		hook_com[misc]+='%F{160}$%f'
+		hook_com[misc]+='%F{1}$%f'
 	fi
 	return 0
 }
@@ -34,7 +34,7 @@ zstyle ':vcs_info:git*:*' actionformats ', %c%u%F{201}%.7i%f@%F{201}%b%f|%F{201}
 	git rev-parse @{upstream} &> /dev/null || return
 	local -a x;
 	x=($(git rev-list --left-right --count HEAD...@{upstream}))
-	(( x[2] )) && hook_com[branch]+="%F{160}⇣-$x[2]%f"
-	(( x[1] )) && hook_com[branch]+="%F{46}⇡+$x[1]%f"
+	(( x[2] )) && hook_com[branch]+="%F{1}⇣-$x[2]%f"
+	(( x[1] )) && hook_com[branch]+="%F{2}⇡+$x[1]%f"
 	return 0
 }

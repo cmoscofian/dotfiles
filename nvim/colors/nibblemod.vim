@@ -1,4 +1,4 @@
-runtime colors/nibble.vim
+runtime colors/nibblelight.vim
 
 " Lualine highlights {{{
 highlight! link LualineA Menu
