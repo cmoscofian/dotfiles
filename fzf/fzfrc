@@ -1,6 +1,6 @@
 --ansi
 --border
---color "fg:-1,bg:-1,preview-fg:-1,preview-bg:-1,fg+:blue:regular,bg+:white:regular:dim,hl:magenta:regular,hl+:magenta:regular,gutter:-1,pointer:cyan:regular,info:bright-black:regular:dim,border:bright-black:regular:dim,query:white:regular:dim,prompt:bright-black:regular:dim"
+--color "fg:-1,bg:-1,preview-fg:-1,preview-bg:-1,fg+:blue:regular,bg+:white:regular:dim,hl:magenta:regular,hl+:magenta:regular,gutter:-1,pointer:cyan:regular,info:bright-black:regular:dim,border:bright-black:regular:dim,query:white:regular:dim,prompt:cyan:regular:dim"
 --height -1
 --info inline-right
 --keep-right
