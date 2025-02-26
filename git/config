@@ -37,6 +37,7 @@
 	gpgSign = true
 
 [fetch]
+	all = true
 	prune = true
 	pruneTags = true
 
@@ -57,6 +58,8 @@
 	graphColors = white,yellow,cyan
 
 [diff]
+	algorithm = histogram
+	colorMoved = plain
 	tool = vimdiff
 
 [difftool]
@@ -77,5 +80,11 @@
 
 [submodule]
 	recurse = true
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = -version:refname
 
 # vim: ft=gitconfig
