@@ -33,14 +33,9 @@ local jdtls_config = {
 			configuration = {
 				runtimes = {
 					{
-						name = "JavaSE-17",
-						path = sdkdir .. "/candidates/java/17.0.10-graal/",
-						default = true,
-					},
-					{
 						name = "JavaSE-21",
-						path = sdkdir .. "/candidates/java/21.0.2-graal/",
-						default = false,
+						path = sdkdir .. "/candidates/java/21.0.6-tem/",
+						default = true,
 					},
 				},
 			},
