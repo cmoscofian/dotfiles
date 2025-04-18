@@ -34,7 +34,7 @@ local jdtls_config = {
 				runtimes = {
 					{
 						name = "JavaSE-21",
-						path = sdkdir .. "/candidates/java/21.0.6-tem/",
+						path = sdkdir .. "/candidates/java/21.0.7-tem/",
 						default = true,
 					},
 				},
