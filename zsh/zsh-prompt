@@ -2,6 +2,6 @@ autoload -U colors; colors
 
 # Set suffix to display number of nested shells
 () {
-	export PS1="[@%F{6}%1/%f\${vcs_info_msg_0_}]%F{160}%(1j.*.)%(?..!)%f: "
-	export RPROMPT="%F{4}%~%f"
+	export PS1="[@%F{4}%1/%f\${vcs_info_msg_0_}]%F{160}%(1j.*.)%(?..!)%f: "
+	export RPROMPT="%F{12}%~%f"
 }

@@ -17,7 +17,6 @@ gitsigns.setup {
 		virt_text_pos = "right_align",
 	},
 	preview_config = {
-		border = "rounded",
 		style = "minimal",
 		relative = "cursor",
 		row = 0,

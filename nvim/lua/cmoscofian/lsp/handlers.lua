@@ -22,6 +22,9 @@ end
 
 local M = {}
 
+---@param use_placeholder boolean Whether or not to use the word under the
+---cursor as a starting point to the rename operation
+---@return nil
 M.on_rename = function(use_placeholder)
 	vim.validate {
 		use_placeholder = { use_placeholder, "boolean", true },
@@ -71,7 +74,8 @@ M.on_rename = function(use_placeholder)
 			return
 		end
 
-		local params = vim.lsp.util.make_position_params()
+		--- @class lsp.RenameParams
+		local params = vim.lsp.util.make_position_params(0, "utf-8")
 		params.newName = input
 		vim.lsp.buf_request(0, "textDocument/rename", params, on_rename)
 	end
@@ -88,12 +92,16 @@ M.on_rename = function(use_placeholder)
 	vim.ui.input(opts, on_confirm)
 end
 
+---@param find_tests boolean Whether or not to match test files when searching
+---for the reference objects
+---@return nil
 M.on_reference = function(find_tests)
 	vim.validate {
 		find_tests = { find_tests, "boolean", true }
 	}
 
-	local params = vim.lsp.util.make_position_params()
+	--- @class lsp.ReferenceParams
+	local params = vim.lsp.util.make_position_params(0, "utf-8")
 	params.context = { includeDeclaration = true }
 
 	vim.lsp.buf_request(0, "textDocument/references", params, function(err, locations, ctx)

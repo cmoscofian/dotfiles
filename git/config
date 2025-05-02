@@ -60,7 +60,7 @@
 [diff]
 	algorithm = histogram
 	colorMoved = plain
-	tool = vimdiff
+	tool = nvimdiff
 
 [difftool]
 	prompt = false
