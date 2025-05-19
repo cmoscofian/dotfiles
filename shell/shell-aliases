@@ -2,4 +2,4 @@
 alias pip=pip3
 alias vim=nvim
 
-# vim: ft=zsh
+# vim: ft=bash

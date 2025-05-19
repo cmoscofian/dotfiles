@@ -6,7 +6,7 @@ vim.lsp.config("*", {
 	single_file_support = true,
 })
 
-vim.lsp.config("clangd", {
+vim.lsp.config("c", {
 	cmd = { "clangd", "--background-index", "--suggest-missing-includes" },
 	filetypes = { "c", "cc", "cpp", "h", "hpp", "objc", "objcpp" },
 	root_markers = {
@@ -28,7 +28,7 @@ vim.lsp.config("clangd", {
 	},
 })
 
-vim.lsp.config("cssls", {
+vim.lsp.config("css", {
 	cmd = { "vscode-css-language-server", "--stdio" },
 	filetypes = { "css", "scss", "less" },
 	init_options = { provideFormatter = true },
@@ -43,7 +43,7 @@ vim.lsp.config("cssls", {
 	},
 })
 
-vim.lsp.config("gopls", {
+vim.lsp.config("go", {
 	cmd = { "gopls", "-rpc.trace", "-logfile=/tmp/gopls", "serve", "--debug=localhost:6060" },
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	root_markers = {
@@ -79,7 +79,7 @@ vim.lsp.config("html", {
 	},
 })
 
-vim.lsp.config("jsonls", {
+vim.lsp.config("json", {
 	cmd = { "vscode-json-language-server", "--stdio" },
 	filetypes = { "json", "jsonc" },
 	init_options = {
@@ -88,7 +88,7 @@ vim.lsp.config("jsonls", {
 	root_markers = { ".git" },
 })
 
-vim.lsp.config("kotlin-language-server", {
+vim.lsp.config("kotlin", {
 	filetypes = { "kotlin" },
 	root_markers = {
 		"settings.gradle",
@@ -101,7 +101,7 @@ vim.lsp.config("kotlin-language-server", {
 	cmd = { "kotlin-language-server" },
 })
 
-vim.lsp.config("lua_ls", {
+vim.lsp.config("lua", {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
 	root_markers = {
@@ -137,7 +137,7 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
-vim.lsp.config("pyright", {
+vim.lsp.config("python", {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
 	root_markers = {
@@ -162,7 +162,7 @@ vim.lsp.config("pyright", {
 	},
 })
 
-vim.lsp.config("rust_analyzer", {
+vim.lsp.config("rust", {
 	cmd = { "rust-analyzer", },
 	filetypes = { "rust" },
 	capabilities = {
@@ -182,7 +182,7 @@ vim.lsp.config("rust_analyzer", {
 	},
 })
 
-vim.lsp.config("ts_ls", {
+vim.lsp.config("typescript", {
 	cmd = { "typescript-language-server", "--stdio" },
 	init_options = {
 		preferences = {
@@ -222,7 +222,7 @@ vim.lsp.config("ts_ls", {
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("LspGroup", {}),
+	group = vim.api.nvim_create_augroup("LspAttachGroup", {}),
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		config.on_attach(client, args.buf)
@@ -230,14 +230,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.lsp.enable({
-	"clangd",
-	"cssls",
-	"gopls",
+	"c",
+	"css",
+	"go",
 	"html",
-	"jsonls",
-	"kotlin-language-server",
-	"lua_ls",
-	"pyright",
-	"rust_analyzer",
-	"ts_ls",
+	"json",
+	"kotlin",
+	"lua",
+	"python",
+	"rust",
+	"typescript",
 })

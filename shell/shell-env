@@ -117,4 +117,4 @@ export CDPATH="$PRIVATE_PROJECTS:$CDPATH"
 export CDPATH="$STUDY_PROJECTS:$CDPATH"
 export CDPATH="$WORK_PROJECTS:$CDPATH"
 
-# vim: ft=zsh
+# vim: ft=bash

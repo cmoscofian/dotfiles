@@ -12,7 +12,9 @@ return function(callback, config)
 
 	local handler = nil
 	handler, err = vim.uv.spawn("dlv", opts, function(code)
+		---@diagnostic disable-next-line: need-check-nil
 		stdout:close()
+		---@diagnostic disable-next-line: need-check-nil,undefined-field
 		handler:close()
 		if code ~= 0 then
 			print("dlv exited with code", code)
@@ -21,6 +23,7 @@ return function(callback, config)
 
 	assert(handler, "Error running dlv: " .. tostring(err))
 
+	---@diagnostic disable-next-line: need-check-nil
 	stdout:read_start(function(err, chunk)
 		assert(not err, err)
 		if chunk then
