@@ -41,7 +41,7 @@ tmux::new-session-widget() {
 	local __session
 	local __src
 
-	__session=$(comm -3 <(echo main "$ZSH_WIDGET_EXTRA_SESSIONS" | tr -s " " "\n" | sort -u) <(tmux list-sessions -F "#{session_name}" 2> /dev/null))
+	__session=$(comm -3 <(echo main "$ZSH_WIDGET_EXTRA_SESSIONS" | tr -s " " "\n" | sort -u) <(tmux list-sessions -F "#{session_name}" 2> /dev/null | sort -u))
 	if [ -z "$__session" ]; then
 		print::warning "No valid session to be launched"
 		zle .reset-prompt

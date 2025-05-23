@@ -54,7 +54,6 @@ vim.lsp.config("go", {
 	settings = {
 		gopls = {
 			analyses = {
-				fieldalignment = true,
 				nilness = true,
 				shadow = true,
 				unusedparams = true,
@@ -221,6 +220,19 @@ vim.lsp.config("typescript", {
 	},
 })
 
+vim.lsp.config("yaml", {
+	cmd = { "yaml-language-server", "--stdio" },
+	filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
+	root_markers = { ".git" },
+	settings = {
+		redhat = {
+			telemetry = {
+				enabled = false,
+			},
+		},
+	},
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("LspAttachGroup", {}),
 	callback = function(args)
@@ -228,6 +240,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		config.on_attach(client, args.buf)
 	end,
 })
+
+vim.api.nvim_create_user_command("LspRestart", function(_)
+	vim.lsp.stop_client(vim.lsp.get_clients(), true)
+	vim.cmd("edit")
+end, { force = true })
+
+vim.api.nvim_create_user_command("LspStop", function(_)
+	vim.lsp.stop_client(vim.lsp.get_clients(), true)
+end, { force = true })
 
 vim.lsp.enable({
 	"c",
@@ -240,4 +261,5 @@ vim.lsp.enable({
 	"python",
 	"rust",
 	"typescript",
+	"yaml",
 })

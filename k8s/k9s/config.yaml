@@ -1,0 +1,56 @@
+# -----------------------------------------------------------------------------
+# Author:       Charles Moscofian <charlesmoscofian@hotmail.com>
+# Name:         K9s config
+# Location:     $XDG_CONFIG_HOME/k9s/config.yaml
+# -----------------------------------------------------------------------------
+
+k9s:
+  liveViewAutoRefresh: false
+  refreshRate: 2
+  apiServerTimeout: 15s
+  maxConnRetry: 5
+  readOnly: false
+  noExitOnCtrlC: false
+  portForwardAddress: localhost
+  ui:
+    enableMouse: false
+    headless: false
+    logoless: true
+    crumbsless: false
+    splashless: true
+    reactive: false
+    noIcons: false
+    skin: nibblelight
+    defaultsToFullScreen: false
+    useFullGVRTitle: false
+  skipLatestRevCheck: false
+  disablePodCounting: false
+  shellPod:
+    image: busybox:1.35.0
+    command: []
+    args: []
+    namespace: default
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    tty: true
+  imageScans:
+    enable: false
+    exclusions:
+      namespaces: []
+      labels: {}
+  logger:
+    tail: 100
+    buffer: 9000
+    sinceSeconds: -1
+    textWrap: false
+    showTime: false
+    disableAutoscroll: false
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
+  defaultView: ""

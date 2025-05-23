@@ -1,0 +1,113 @@
+# -----------------------------------------------------------------------------
+# Author:       Charles Moscofian <charlesmoscofian@hotmail.com>
+# Name:         Nibblelight
+# Location:     $XDG_CONFIG_HOME/k9s/skins/nibblelight.yaml
+# -----------------------------------------------------------------------------
+
+k9s:
+  body:
+    fgColor: black
+    bgColor: white
+    logoColor: darkblue
+    logoColorMsg: black
+    logoColorInfo: darkgreen
+    logoColorWarn: darkgoldenrod
+    logoColorError: darkred
+  prompt:
+    fgColor: black
+    bgColor: white
+    suggestColor: dimgrey
+    border:
+      command: black
+      default: black
+  help:
+    fgColor: dimgrey
+    bgColor: white
+    sectionColor: darkblue
+    keyColor: black
+    numKeyColor: darkmagenta
+  frame:
+    title:
+      fgColor: darkblue
+      bgColor: white
+      highlightColor: darkmagenta
+      counterColor: dimgrey
+      filterColor: darkmagenta
+    border:
+      fgColor: black
+      focusColor: black
+    menu:
+      fgColor: dimgrey
+      fgStyle: dim
+      keyColor: black
+      numKeyColor: darkmagenta
+    crumbs:
+      fgColor: darkblue
+      bgColor: white
+      activeColor: lightgrey
+    status:
+      newColor: black
+      modifyColor: darkcyan
+      addColor: darkgreen
+      pendingColor: dimgrey
+      errorColor: red
+      highlightColor: darkmagenta
+      killColor: darkred
+      completedColor: lightgrey
+  info:
+    sectionColor: darkblue
+    fgColor: black
+    cpuColor: darkred
+    memColor: darkred
+    k9sRevColor: lightgrey
+  views:
+    table:
+      fgColor: black
+      bgColor: white
+      cursorFgColor: white
+      cursorBgColor: lightgrey
+      markColor: darkmagenta
+      header:
+        fgColor: darkblue
+        bgColor: white
+        sorterColor: dimgrey
+    xray:
+      fgColor: black
+      bgColor: white
+      cursorColor: darkmagenta
+      cursorTextColor: white
+      graphicColor: lightgrey
+    charts:
+      bgColor: white
+      dialBgColor: white
+      chartBgColor: white
+      defaultDialColors: []
+      defaultChartColors: []
+      resourceColors: {}
+      focusFgColor: white
+      focusBgColor: darkmagenta
+    yaml:
+      keyColor: black
+      valueColor: darkblue
+      colonColor: lightgrey
+    picker:
+      mainColor: black
+      focusColor: darkmagenta
+      shortcutColor: darkblue
+    logs:
+      fgColor: darkblue
+      bgColor: white
+      indicator:
+        fgColor: black
+        bgColor: white
+        toggleOnColor: darkgreen
+        toggleOffColor: darkred
+  dialog:
+    fgColor: black
+    bgColor: white
+    buttonFgColor: black
+    buttonBgColor: white
+    buttonFocusFgColor: darkblue
+    buttonFocusBgColor: lightgrey
+    labelFgColor: darkmagenta
+    fieldFgColor: black

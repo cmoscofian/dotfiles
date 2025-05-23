@@ -14,9 +14,10 @@ treesitter.setup {
 		"markdown",
 		"python",
 		"rust",
-		"typescript",
 		"tsx",
+		"typescript",
 		"vim",
+		"yaml",
 	},
 	highlight = {
 		enable = true,
