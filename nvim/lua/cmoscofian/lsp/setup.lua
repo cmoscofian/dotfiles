@@ -38,14 +38,14 @@ end
 
 local set_highlight_document = function(client)
 	if client.server_capabilities.documentHighlightProvider then
-		local group_name = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
+		local group_id = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
 		vim.api.nvim_create_autocmd("CursorHold", {
-			group = group_name,
+			group = group_id,
 			buffer = 0,
 			callback = vim.lsp.buf.document_highlight,
 		})
 		vim.api.nvim_create_autocmd("CursorMoved", {
-			group = group_name,
+			group = group_id,
 			buffer = 0,
 			callback = vim.lsp.buf.clear_references,
 		})

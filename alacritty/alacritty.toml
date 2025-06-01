@@ -1,22 +1,22 @@
-[colors.bright]
-black = "#000000"
-blue = "#0000ff"
-cyan = "#00ffff"
-green = "#00ff00"
-magenta = "#ff00ff"
-red = "#ff0000"
-white = "#ffffff"
-yellow = "#ffff00"
-
 [colors.normal]
-black = "#404040"
-blue = "#000080"
-cyan = "#008080"
-green = "#008000"
+black   = "#000000"
+red     = "#800000"
+green   = "#008000"
+yellow  = "#808000"
+blue    = "#000080"
 magenta = "#800080"
-red = "#800000"
-white = "#c0c0c0"
-yellow = "#808000"
+cyan    = "#008080"
+white   = "#c0c0c0"
+
+[colors.bright]
+black   = "#808080"
+red     = "#ff0000"
+green   = "#00ff00"
+yellow  = "#ffff00"
+blue    = "#0000ff"
+magenta = "#ff00ff"
+cyan    = "#00ffff"
+white   = "#ffffff"
 
 [colors.primary]
 background = "#ffffff"
