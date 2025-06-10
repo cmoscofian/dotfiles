@@ -30,7 +30,7 @@ export XAUTHORITY="$XDG_STATE_HOME/.xauthority"
 export XINITRC="$XDIR/client/xinitrc"
 
 # Set general usage env variables
-export BROWSER="vivaldi"
+export BROWSER="firefox"
 export EDITOR="nvim"
 export LANG="en_US.UTF-8"
 export MANPAGER="nvim +Man!"
