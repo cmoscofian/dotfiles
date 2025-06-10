@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+local _artist
+local _title
+local _status
+local _player
+
+_player="spotify"
+if [[ ! -z $1 ]]; then
+	_player=$1
+fi
+
+_artist=$(playerctl -p $_player metadata artist)
+_title=$(playerctl -p $_player metadata title)
+
+if [[ ! -z $_artist ]] && [[ ! -z $_title ]] ; then
+	_status="${_artist:0:20} - ${_title:0:30}"
+	echo "$_status, "
+elif [[ ! -z $_title ]]; then
+	_status="${_title:0:30}"
+	echo "$_status, "
+fi
