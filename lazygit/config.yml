@@ -1,0 +1,16 @@
+gui:
+  showBottomLine: false
+  showCommandLog: false
+  showFileTree: false
+  border: single
+  theme:
+    activeBorderColor:
+      - cyan
+      - bold
+    selectedLineBgColor:
+      - white
+
+git:
+  branchLogCmd: "git log --graph --color=always --oneline {{branchName}} --"
+  commit:
+    signOff: true
