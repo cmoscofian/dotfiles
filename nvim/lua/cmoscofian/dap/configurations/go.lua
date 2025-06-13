@@ -1,9 +1,9 @@
 local ts_utils = require("nvim-treesitter.ts_utils")
 
-local query = vim.treesitter.query.parse("go", [[
+local leaf_node_query = vim.treesitter.query.parse("go", [[
 	(call_expression
 		(identifier) @testmethod
-		(#match? @testmethod "^(It|Describe|Context)")
+		(#match? @testmethod "^(It|Specify)")
 		(argument_list
 			(interpreted_string_literal
 				(interpreted_string_literal_content) @methodname
@@ -12,17 +12,29 @@ local query = vim.treesitter.query.parse("go", [[
 	)
 ]])
 
---- Get Ginkgo "^(It|Context|Describe)" test under the cursor
+local container_query = vim.treesitter.query.parse("go", [[
+	(call_expression
+		(identifier) @testmethod
+		(#match? @testmethod "^(Describe|Context|When|It|Specify)")
+		(argument_list
+			(interpreted_string_literal
+				(interpreted_string_literal_content) @methodname
+			)
+		)
+	)
+]])
+
+--- Get Ginkgo Leaf Node "^(It|Specify)" test under the cursor
 --- @return string | nil
-local get_ginkgo_test_under_the_cursor = function()
+local get_ginkgo_leaf_node_test_under_cursor = function()
 	local node = ts_utils.get_node_at_cursor(0, true)
 	while node do
 		if node:type() ~= "call_expression" then
 			goto skip
 		end
 
-		for id, capture in query:iter_captures(node, 0) do
-			if query.captures[id] == "methodname" then
+		for id, capture in leaf_node_query:iter_captures(node, 0) do
+			if leaf_node_query.captures[id] == "methodname" then
 				return vim.treesitter.get_node_text(capture, 0)
 			end
 		end
@@ -34,12 +46,12 @@ local get_ginkgo_test_under_the_cursor = function()
 	return nil
 end
 
---- Get all Ginkgo tests in the file
+--- Get all Ginkgo leaf node and containers in the file
 --- @return string | nil
 local get_all_ginkgo_tests = function()
 	local methods = {}
 	local tree = vim.treesitter.get_parser():parse()[1]
-	for _, match in query:iter_matches(tree:root(), 0) do
+	for _, match in container_query:iter_matches(tree:root(), 0) do
 		local method = {}
 		for _, nodes in pairs(match) do
 			for _, node in ipairs(nodes) do
@@ -110,7 +122,7 @@ return {
 		program = "./${relativeFileDirname}",
 	}, {
 		__call = function(config)
-			local test_name = get_ginkgo_test_under_the_cursor()
+			local test_name = get_ginkgo_leaf_node_test_under_cursor()
 			if test_name then
 				config.args = { "-ginkgo.v", "-ginkgo.focus", test_name }
 			end
