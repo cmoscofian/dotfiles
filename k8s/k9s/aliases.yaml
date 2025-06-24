@@ -1,0 +1,21 @@
+aliases:
+  dp: deployments
+  sec: v1/secrets
+  jo: jobs
+  cr: clusterroles
+  crb: clusterrolebindings
+  ro: roles
+  rb: rolebindings
+  np: networkpolicies
+  # Argo resources
+  aap: argoproj.io/v1alpha1/applications
+  aas: argoproj.io/v1alpha1/applicationsets
+  apr: argoproj.io/v1alpha1/appprojects
+  arl: argoproj.io/v1alpha1/rollouts
+  # Kargo resources
+  kfr: kargo.akuity.io/v1alpha1/freights
+  kpr: kargo.akuity.io/v1alpha1/projects
+  kpc: kargo.akuity.io/v1alpha1/projectconfigs
+  kpm: kargo.akuity.io/v1alpha1/promotions
+  kst: kargo.akuity.io/v1alpha1/stages
+  kwh: kargo.akuity.io/v1alpha1/warehouses
