@@ -14,9 +14,8 @@
 	editor = nvim
 	symlinks = false
 
-[url "github:"]
+[url "ssh://git@github.com"]
 	insteadOf = https://github.com
-	insteadOf = git@github.com:
 
 [color]
 	ui = auto
@@ -86,5 +85,8 @@
 
 [tag]
 	sort = -version:refname
+
+[http]
+	version = HTTP/2
 
 # vim: ft=gitconfig
