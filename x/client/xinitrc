@@ -1,3 +1,5 @@
+source $HOME/.dotfiles/zsh/zshenv
+
 # start the notification daemon (dunst)
 exec /usr/bin/dunst &
 
@@ -11,6 +13,6 @@ exec /usr/bin/nm-applet --sm-disable &
 exec /usr/local/bin/slstatus &
 
 # start the ssh-agent and the window manager (dwm)
-exec /usr/bin/ssh-agent /usr/local/bin/dwm > $XDG_STATE_HOME/dwm.log
+exec /usr/bin/ssh-agent /usr/local/bin/dwm
 
 # vim: ft=sh
