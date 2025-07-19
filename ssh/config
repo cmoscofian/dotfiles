@@ -3,9 +3,14 @@ Host *
 	AddKeysToAgent yes
 	UseKeychain yes
 
-Host github
+Host github.com
+	IdentitiesOnly yes
+
+Match host private.github.com user git
 	HostName github.com
-	User git
+	IdentityFile ~/.ssh/keys/github
+
+Match host github.com user git
 	IdentityFile ~/.ssh/keys/github
 
 # vim: ft=sshconfig
