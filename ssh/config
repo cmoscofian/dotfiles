@@ -6,11 +6,11 @@ Host *
 Host github.com
 	IdentitiesOnly yes
 
-Match host private.github.com user git
+Match host personal.github.com user git
 	HostName github.com
-	IdentityFile ~/.ssh/keys/github
+	IdentityFile ~/.ssh/keys/personal
 
 Match host github.com user git
-	IdentityFile ~/.ssh/keys/github
+	IdentityFile ~/.ssh/keys/personal
 
 # vim: ft=sshconfig
