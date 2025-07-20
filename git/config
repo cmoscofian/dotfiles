@@ -67,7 +67,7 @@
 
 [merge]
 	ff = only
-	tool = vimdiff
+	tool = nvimdiff
 
 [mergetool]
 	prompt = false
