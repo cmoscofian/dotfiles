@@ -21,7 +21,7 @@
 	url = https://github.com/mfussenegger/nvim-jdtls
 [submodule "nvim/pack/plugins/start/nvim-lazygit"]
 	path = nvim/pack/plugins/start/nvim-lazygit
-	url = https://github.com/cmoscofian/nvim-lazygit
+	url = https://github.com/kdheepak/lazygit.nvim.git
 [submodule "nvim/pack/plugins/start/nvim-luasnip"]
 	path = nvim/pack/plugins/start/nvim-luasnip
 	url = https://github.com/L3MON4D3/LuaSnip
