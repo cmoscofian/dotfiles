@@ -1,7 +1,8 @@
 local telescope = require("telescope")
-local utils = require("telescope.utils")
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+local config = require("telescope.config")
+local utils = require("telescope.utils")
 
 telescope.setup {
 	defaults = {
@@ -29,6 +30,9 @@ telescope.setup {
 		},
 		prompt_prefix = "> ",
 		selection_caret = "▷ ",
+		vimgrep_arguments = vim.list_extend(config.values.vimgrep_arguments, {
+			"--multiline",
+		}),
 	},
 	pickers = {
 		find_files = {
