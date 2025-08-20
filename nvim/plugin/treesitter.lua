@@ -1,9 +1,28 @@
-local treesitter = require("nvim-treesitter.configs")
+local treesitter = require("nvim-treesitter")
 
-treesitter.setup {
-	auto_install = false,
-	ensure_installed = {
+treesitter.install({
+	"bash",
+	"cpp",
+	"css",
+	"go",
+	"html",
+	"java",
+	"javascript",
+	"json",
+	"markdown",
+	"python",
+	"rust",
+	"tsx",
+	"typescript",
+	"vim",
+	"yaml",
+})
+treesitter.setup()
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
 		"bash",
+		"c",
 		"cpp",
 		"css",
 		"go",
@@ -19,10 +38,9 @@ treesitter.setup {
 		"vim",
 		"yaml",
 	},
-	highlight = {
-		enable = true,
-	},
-	ignore_install = {},
-	modules = {},
-	sync_install = true,
-}
+	callback = function()
+		vim.treesitter.start()
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})

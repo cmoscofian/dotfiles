@@ -40,6 +40,7 @@
 [submodule "nvim/pack/plugins/start/nvim-treesitter"]
 	path = nvim/pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
+	branch = main
 [submodule "vim/pack/plugins/start/nerdtree"]
 	path = vim/pack/plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree
