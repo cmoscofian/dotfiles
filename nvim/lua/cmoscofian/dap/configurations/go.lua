@@ -116,7 +116,7 @@ return {
 	}),
 	setmetatable({
 		type = "go",
-		name = "Ginkgo '^(It|Context|Describe)'",
+		name = "Ginkgo '^(It|Specify)'",
 		request = "launch",
 		mode = "test",
 		program = "./${relativeFileDirname}",

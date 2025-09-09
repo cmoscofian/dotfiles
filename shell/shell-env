@@ -70,6 +70,12 @@ export RUSTUP_HOME="$XDG_RUNTIME_HOME/rust/rustup"
 export CARGO_HOME="$XDG_RUNTIME_HOME/rust/cargo"
 export CARGO_BIN="$XDG_RUNTIME_HOME/rust/cargo/bin"
 
+# Set aws config env variables
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+
+# Set kubernetes env variables
+export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
+
 # Set path for golang executables
 export PATH="$GOBIN:/usr/local/bin/go:/usr/local/go/bin:$PATH"
 
