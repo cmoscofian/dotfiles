@@ -87,19 +87,6 @@ vim.lsp.config("json", {
 	root_markers = { ".git" },
 })
 
-vim.lsp.config("kotlin", {
-	filetypes = { "kotlin" },
-	root_markers = {
-		"settings.gradle",
-		"settings.gradle.kts",
-		"build.xml",
-		"pom.xml",
-		"build.gradle",
-		"build.gradle.kts",
-	},
-	cmd = { "kotlin-language-server" },
-})
-
 vim.lsp.config("lua", {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
@@ -256,7 +243,6 @@ vim.lsp.enable({
 	"go",
 	"html",
 	"json",
-	"kotlin",
 	"lua",
 	"python",
 	"rust",
