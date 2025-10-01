@@ -1,5 +1,3 @@
-local ts_utils = require("nvim-treesitter.ts_utils")
-
 local leaf_node_query = vim.treesitter.query.parse("go", [[
 	(call_expression
 		(identifier) @testmethod
@@ -27,7 +25,7 @@ local container_query = vim.treesitter.query.parse("go", [[
 --- Get Ginkgo Leaf Node "^(It|Specify)" test under the cursor
 --- @return string | nil
 local get_ginkgo_leaf_node_test_under_cursor = function()
-	local node = ts_utils.get_node_at_cursor(0, true)
+	local node = vim.treesitter.get_node()
 	while node do
 		if node:type() ~= "call_expression" then
 			goto skip

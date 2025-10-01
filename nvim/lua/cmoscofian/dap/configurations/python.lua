@@ -1,5 +1,3 @@
-local ts_utils = require("nvim-treesitter.ts_utils")
-
 local path = nil
 
 --- Return the python executable from the poetry virtual environment if
@@ -41,7 +39,7 @@ end
 ---Fetch the test method name under the cursor, based on the pattern ^test_*
 ---@return string | nil
 local get_test_method_under_cursor = function()
-	local node = ts_utils.get_node_at_cursor(0, true)
+	local node = vim.treesitter.get_node()
 	while node and node:type() ~= "function_definition" do
 		node = node:parent()
 	end
