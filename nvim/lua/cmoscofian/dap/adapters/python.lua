@@ -1,4 +1,4 @@
-return function(callback, config)
+return function(callback, _)
 	local xdg = os.getenv("XDG_RUNTIME_HOME")
 	callback({
 		type = "executable",

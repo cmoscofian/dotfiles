@@ -1,4 +1,4 @@
-local languages = { "go", "python" }
+local languages = { "go", "lua", "python" }
 
 ---comment Gather all adapters based on the local language list.
 ---@return table

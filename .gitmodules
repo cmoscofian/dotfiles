@@ -47,3 +47,6 @@
 [submodule "vim/pack/themes/start/nibble"]
 	path = vim/pack/themes/start/nibble
 	url = https://github.com/cmoscofian/nibble-vim
+[submodule "nvim/pack/plugins/opt/osv"]
+	path = nvim/pack/plugins/opt/osv
+	url = https://github.com/jbyuki/one-small-step-for-vimkind.git
