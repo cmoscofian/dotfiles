@@ -208,9 +208,9 @@ return {
 		program = "${fileDirname}",
 		cwd = "${workspaceFolder}",
 		outputMode = "remote",
-		args = { "-test.v" },
 	}, {
 		__call = function(config)
+			config.args = { "-test.v" }
 			local test_name = get_test_function_name_under_cursor()
 			if test_name then
 				table.insert(config.args, "-test.run")
@@ -227,9 +227,9 @@ return {
 		program = "${fileDirname}",
 		cwd = "${workspaceFolder}",
 		outputMode = "remote",
-		args = { "-test.v" },
 	}, {
 		__call = function(config)
+			config.args = { "-test.v" }
 			local test_name = get_subtest_method_name_under_cursor()
 			if test_name then
 				table.insert(config.args, "-test.run")
@@ -246,9 +246,9 @@ return {
 		program = "${fileDirname}",
 		cwd = "${workspaceFolder}",
 		outputMode = "remote",
-		args = { "-ginkgo.v" },
 	}, {
 		__call = function(config)
+			config.args = { "-ginkgo.v" }
 			local test_name = get_ginkgo_subject_test_name_under_cursor()
 			if test_name then
 				table.insert(config.args, "-ginkgo.focus")
@@ -265,9 +265,9 @@ return {
 		program = "${fileDirname}",
 		cwd = "${workspaceFolder}",
 		outputMode = "remote",
-		args = { "-ginkgo.v" },
 	}, {
 		__call = function(config)
+			config.args = { "-ginkgo.v" }
 			local test_name = get_ginkgo_test_name_from_file()
 			if test_name then
 				table.insert(config.args, "-ginkgo.focus")

@@ -1,7 +1,7 @@
 local languages = { "go", "lua", "python" }
 
----comment Gather all adapters based on the local language list.
----@return table
+--- Gather all adapters based on the local language list.
+--- @return table
 local adapters = function()
 	local T = {}
 	for _, lang in pairs(languages) do
@@ -14,8 +14,8 @@ local adapters = function()
 	return T
 end
 
----comment Gather all configurations based on the local language list.
----@return table
+--- Gather all configurations based on the local language list.
+--- @return table
 local configurations = function()
 	local T = {}
 	for _, lang in pairs(languages) do

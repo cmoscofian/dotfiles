@@ -110,4 +110,13 @@ vim.fn.sign_define({
 	},
 })
 
+vim.api.nvim_create_user_command("OsvStart", function(_)
+	vim.cmd("packadd osv")
+	require("osv").launch({ port = 30001 })
+end, { force = true })
+
+vim.api.nvim_create_user_command("OsvStop", function(_)
+	require("osv").stop()
+end, { force = true })
+
 vsc_de.load_launchjs(".vim/dap.json", nil)

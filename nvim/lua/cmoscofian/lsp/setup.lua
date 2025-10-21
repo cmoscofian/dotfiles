@@ -68,7 +68,8 @@ local set_keybinds_and_options = function(bufnr)
 
 	local status, telescope = pcall(require, "telescope.builtin")
 	if status then
-		vim.keymap.set("n", "grr", function() handlers.on_reference(true) end, opts)
+		vim.keymap.set("n", "grr", function() handlers.on_reference(false) end, opts)
+		vim.keymap.set("n", "grR", function() handlers.on_reference(true) end, opts)
 		vim.keymap.set("n", "grt", telescope.lsp_type_definitions, opts)
 		vim.keymap.set("n", "gri", telescope.lsp_implementations, opts)
 		vim.keymap.set("n", "gs", telescope.lsp_dynamic_workspace_symbols, opts)

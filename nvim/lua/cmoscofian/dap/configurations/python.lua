@@ -1,7 +1,6 @@
 local path = nil
 
---- Return the python executable from the poetry virtual environment if
---- available.
+--- Return the python executable from the poetry virtual environment if available
 --- @return string | nil
 local poetry_exec = function()
 	local handle = io.popen("poetry env info -e")
@@ -36,8 +35,8 @@ local python_path = function()
 	return vim.fn.exepath("python3")
 end
 
----Fetch the test method name under the cursor, based on the pattern ^test_*
----@return string | nil
+--- Fetch the test method name under the cursor, based on the pattern ^test
+--- @return string | nil
 local get_test_method_under_cursor = function()
 	local node = vim.treesitter.get_node()
 	while node and node:type() ~= "function_definition" do
@@ -91,11 +90,11 @@ return {
 		module = "pytest",
 		console = "integratedTerminal",
 		justMyCode = false,
-		args = { "${file}", "-vv" },
 		pythonPath = python_path,
 	}, {
 		__call = function(config)
 			local method = get_test_method_under_cursor()
+			config.args = { "${file}", "-vv" }
 			if method then
 				table.insert(config.args, "-k" .. method)
 			end

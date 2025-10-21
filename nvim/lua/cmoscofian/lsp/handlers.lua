@@ -22,9 +22,8 @@ end
 
 local M = {}
 
----@param use_placeholder boolean Whether or not to use the word under the
----cursor as a starting point to the rename operation
----@return nil
+--- @param use_placeholder boolean Whether or not to use the word under the cursor as a starting point to the rename operation
+--- @return nil
 M.on_rename = function(use_placeholder)
 	vim.validate {
 		use_placeholder = { use_placeholder, "boolean", true },
@@ -75,6 +74,7 @@ M.on_rename = function(use_placeholder)
 		end
 
 		--- @class lsp.RenameParams
+		--- @diagnostic disable-next-line: assign-type-mismatch
 		local params = vim.lsp.util.make_position_params(0, "utf-8")
 		params.newName = input
 		vim.lsp.buf_request(0, "textDocument/rename", params, on_rename)
@@ -92,9 +92,8 @@ M.on_rename = function(use_placeholder)
 	vim.ui.input(opts, on_confirm)
 end
 
----@param find_tests boolean Whether or not to match test files when searching
----for the reference objects
----@return nil
+--- @param find_tests boolean Whether or not to match test files when searching for the reference objects
+--- @return nil
 M.on_reference = function(find_tests)
 	vim.validate {
 		find_tests = { find_tests, "boolean", true }
@@ -104,7 +103,7 @@ M.on_reference = function(find_tests)
 	local params = vim.lsp.util.make_position_params(0, "utf-8")
 	params.context = { includeDeclaration = true }
 
-	vim.lsp.buf_request(0, "textDocument/references", params, function(err, locations, ctx)
+	vim.lsp.buf_request(0, "textDocument/references", params, function(err, locations, _)
 		if err then
 			vim.notify(string.format("[Code: %d][Message: %s]", err.code, err.message), vim.log.levels.ERROR)
 			return
@@ -116,21 +115,10 @@ M.on_reference = function(find_tests)
 
 		if not find_tests then
 			local filtered_result = {}
-			local ft = vim.api.nvim_get_option_value("filetype", {
-				buf = ctx.bufnr,
-			})
 
-			if ft == "go" then
-				filtered_result = vim.tbl_filter(function(f)
-					return not string.find(f.uri, "_test") and not string.find(f.uri, "mock")
-				end, locations)
-			end
-
-			if ft == "java" then
-				filtered_result = vim.tbl_filter(function(f)
-					return not string.find(f.uri, "test") and not string.find(f.uri, "mock")
-				end, locations)
-			end
+			filtered_result = vim.tbl_filter(function(f)
+				return not string.find(f.uri, "test") and not string.find(f.uri, "mock")
+			end, locations)
 
 			if not vim.tbl_isempty(filtered_result) then
 				locations = filtered_result
