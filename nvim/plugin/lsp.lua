@@ -67,6 +67,26 @@ vim.lsp.config("go", {
 	},
 })
 
+vim.lsp.config("helm", {
+	cmd = { "helm_ls", "serve" },
+	filetypes = { "helm" },
+	root_markers = { "Chart.yaml" },
+	settings = {
+		["helm-ls"] = {
+			yamlls = {
+				path = "yaml-language-server",
+			},
+		},
+	},
+	capabilities = {
+		workspace = {
+			didChangeWatchedFiles = {
+				dynamicRegistration = true,
+			},
+		},
+	},
+})
+
 vim.lsp.config("html", {
 	cmd = { "vscode-html-language-server", "--stdio" },
 	filetypes = { "html", "templ" },
@@ -241,6 +261,7 @@ vim.lsp.enable({
 	"c",
 	"css",
 	"go",
+	"helm",
 	"html",
 	"json",
 	"lua",
