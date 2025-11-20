@@ -54,15 +54,25 @@ vim.lsp.config("go", {
 	settings = {
 		gopls = {
 			analyses = {
-				nilness = true,
-				shadow = true,
-				unusedparams = true,
-				unusedvariables = true,
-				unusedwrite = true,
-				useany = true,
+				-- ST1000: Incorrect or missing package comment¶
+				-- Packages must have a package comment that is formatted
+				-- according to the guidelines laid out in
+				-- https://go.dev/wiki/CodeReviewComments#package-comments.
+				ST1000 = false,
+			},
+			gofumpt = true,
+			hints = {
+				assignVariableTypes = true,
+				compositeLiteralFields = true,
+				compositeLiteralTypes = true,
+				constantValues = true,
+				functionTypeParameters = true,
+				parameterNames = true,
+				rangeVariableTypes = true,
 			},
 			staticcheck = true,
 			usePlaceholders = true,
+			vulncheck = "Imports",
 		}
 	},
 })

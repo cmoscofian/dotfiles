@@ -1,9 +1,6 @@
 [submodule "nvim/pack/plugins/start/nvim-cmp"]
 	path = nvim/pack/plugins/start/nvim-cmp
 	url = https://github.com/hrsh7th/nvim-cmp
-[submodule "nvim/pack/plugins/start/nvim-cmp-buffer"]
-	path = nvim/pack/plugins/start/nvim-cmp-buffer
-	url = https://github.com/hrsh7th/cmp-buffer
 [submodule "nvim/pack/plugins/start/nvim-cmp-lsp"]
 	path = nvim/pack/plugins/start/nvim-cmp-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
