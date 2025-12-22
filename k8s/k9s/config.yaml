@@ -14,7 +14,7 @@ k9s:
   portForwardAddress: localhost
   ui:
     enableMouse: false
-    headless: false
+    headless: true
     logoless: true
     crumbsless: false
     splashless: true
