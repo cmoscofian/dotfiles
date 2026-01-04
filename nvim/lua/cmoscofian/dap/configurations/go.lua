@@ -187,7 +187,7 @@ return {
 		name = "Main (main.go)",
 		request = "launch",
 		mode = "debug",
-		program = "${workspaceFolder}",
+		program = "${file}",
 		cwd = "${workspaceFolder}",
 		outputMode = "remote",
 	},

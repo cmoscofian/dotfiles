@@ -25,9 +25,9 @@ vim.keymap.set("n", "<leader>dc", dap.clear_breakpoints, opts)
 vim.keymap.set("n", "<leader>dr", dap.run_to_cursor, opts)
 vim.keymap.set("n", "<leader>dt", function() dapui.toggle({ reset = true }) end, opts)
 vim.keymap.set("n", "<F5>", dap.continue, opts)
-vim.keymap.set("n", "<F10>", dap.step_over, opts)
-vim.keymap.set("n", "<F11>", dap.step_into, opts)
-vim.keymap.set("n", "<F12>", dap.step_out, opts)
+vim.keymap.set("n", "<F1>", dap.step_over, opts)
+vim.keymap.set("n", "<F2>", dap.step_into, opts)
+vim.keymap.set("n", "<F3>", dap.step_out, opts)
 
 dapui.setup {
 	controls = {
