@@ -1,5 +1,13 @@
 #!/bin/zsh
 
+# NOTE: Default configuration for my window manager.
+#
+# If using a desktop manager this file should be symlinked to the appropriate
+# place as specified in the ".desktop" file and make it executable.
+#
+# ln -sv $XDIR/client/xinitrc /usr/local/bin/dwmstart
+# chmod +x /usr/local/bin/dwmstart
+#
 # start the notification daemon (dunst)
 exec /usr/bin/dunst &
 
