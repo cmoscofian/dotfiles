@@ -1,7 +1,6 @@
 local config = require("cmoscofian.dap")
 local dap = require("dap")
 local dapui = require("dapui")
-local vsc_de = require("dap.ext.vscode")
 
 dap.adapters = config.adapters
 dap.configurations = config.configurations
@@ -118,5 +117,3 @@ end, { force = true })
 vim.api.nvim_create_user_command("OsvStop", function(_)
 	require("osv").stop()
 end, { force = true })
-
-vsc_de.load_launchjs(".vim/dap.json", nil)
