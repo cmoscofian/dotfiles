@@ -7,6 +7,10 @@
 [submodule "nvim/pack/plugins/start/nvim-dap"]
 	path = nvim/pack/plugins/start/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap
+[submodule "nvim/pack/plugins/start/nvim-dap-view"]
+	path = nvim/pack/plugins/start/nvim-dap-view
+	url = https://github.com/igorlfs/nvim-dap-view.git
+	branch = main
 [submodule "nvim/pack/plugins/start/nvim-gitsigns"]
 	path = nvim/pack/plugins/start/nvim-gitsigns
 	url = https://github.com/lewis6991/gitsigns.nvim
@@ -44,7 +48,3 @@
 [submodule "nvim/pack/plugins/opt/osv"]
 	path = nvim/pack/plugins/opt/osv
 	url = https://github.com/jbyuki/one-small-step-for-vimkind.git
-[submodule "nvim-dap-view"]
-	path = nvim/pack/plugins/start/nvim-dap-view
-	url = https://github.com/igorlfs/nvim-dap-view.git
-	branch = main
