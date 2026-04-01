@@ -4,7 +4,7 @@ common::add_file() {
 
 common::add_folder() {
 	if [ ! -d $1 ]; then
-		echo "Not a valid folder to add"
+		echo "Not a valid folder to add $1"
 		return 1
 	fi
 
