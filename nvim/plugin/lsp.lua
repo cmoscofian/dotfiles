@@ -153,6 +153,22 @@ vim.lsp.config("lua", {
 	},
 })
 
+vim.lsp.config("nix", {
+	cmd = { "nil" },
+	filetypes = { "nix" },
+	root_markers = {
+		"flake.nix",
+		".git",
+	},
+	settings = {
+		["nil"] = {
+			formatting = {
+				command = { "nixfmt", "--indent", "4" },
+			},
+		},
+	},
+})
+
 vim.lsp.config("python", {
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
@@ -259,12 +275,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_user_command("LspRestart", function(_)
-	vim.lsp.stop_client(vim.lsp.get_clients(), true)
+	vim.lsp.client:stop(true)
 	vim.cmd("edit")
 end, { force = true })
 
 vim.api.nvim_create_user_command("LspStop", function(_)
-	vim.lsp.stop_client(vim.lsp.get_clients(), true)
+	vim.lsp.client:stop(true)
 end, { force = true })
 
 vim.lsp.enable({
@@ -275,6 +291,7 @@ vim.lsp.enable({
 	"html",
 	"json",
 	"lua",
+	"nix",
 	"python",
 	"rust",
 	"typescript",
