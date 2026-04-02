@@ -1,0 +1,98 @@
+* {
+	border: none;
+	border-radius: 8px;
+	font-family: "AdwaitaMono Nerd Font", monospace;
+	font-size: 13px;
+	min-height: 0;
+}
+
+/* Main bar — black transparent glass */
+window#waybar {
+	background: rgba(0, 0, 0, 0.55);
+	color: #c0c0c0;
+	border-radius: 12px;
+	border: 1px solid rgba(0, 255, 0, 0.15);
+}
+
+/* Shared pill style */
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery,
+#tray {
+	background: rgba(0, 0, 0, 0.35);
+	margin: 4px 0;
+	padding: 5px 12px;
+	border-radius: 8px;
+	color: #c0c0c0;
+}
+
+/* Workspaces */
+#workspaces button {
+	color: #808080;
+	padding: 0 6px;
+	background: transparent;
+}
+
+#workspaces button.active {
+	color: #00ffff;
+	/* background: rgba(126, 126, 126, 0.15); */
+	background: rgba(0, 0, 0, 0.35);
+}
+
+#workspaces button:hover {
+	background: rgba(0, 126, 0, 0.15);
+}
+
+#workspaces button.urgent {
+	color: #ffffff;
+	background: rgba(255, 0, 0, 0.7);
+}
+
+#clock {
+	font-weight: bold;
+	color: #00ffff;
+}
+
+#battery {
+	color: #00ff00;
+}
+
+#battery.warning {
+	color: #ffff00;
+}
+
+#battery.critical {
+	color: #ff0000;
+}
+
+#cpu {
+	color: #ffff00;
+}
+
+#memory {
+	color: #00ffff;
+}
+
+#network {
+	color: #ffffff;
+}
+
+#network.disconnected {
+	color: #808080;
+}
+
+#pulseaudio {
+	color: #00ff00;
+}
+
+#pulseaudio.muted {
+	color: #808080;
+}
+
+#tray {
+	padding-right: 8px;
+}

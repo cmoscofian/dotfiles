@@ -1,0 +1,80 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 32,
+	"margin-top": 6,
+	"margin-left": 10,
+	"margin-right": 10,
+	"spacing": 8,
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"battery",
+		"cpu",
+		"memory",
+		"network",
+		"pulseaudio",
+		"tray"
+	],
+	"hyprland/workspaces": {
+		"format": "{name}",
+		"format-icons": {
+			"urgent": ""
+		},
+		"names": [
+			"1",
+			"2",
+			"3",
+			"4",
+			"5",
+			"6",
+			"7",
+			"8",
+			"9"
+		]
+	},
+	"clock": {
+		"format": " {:%H:%M}",
+		"tooltip": true,
+		"tooltip-format": "{:%A, %B %d, %Y}"
+	},
+	"cpu": {
+		"format": " {usage}%"
+	},
+	"memory": {
+		"format": " {used:0.1f}G"
+	},
+	"network": {
+		"format-wifi": " {essid}",
+		"format-ethernet": "󰈀 wired",
+		"format-disconnected": " off"
+	},
+	"pulseaudio": {
+		"format": " {volume}%",
+		"format-muted": " off",
+		"on-click": "playerctl play-pause"
+	},
+	"battery": {
+		"format": "{icon} {capacity}%",
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%"
+	},
+	"tray": {
+		"spacing": 6
+	}
+}
