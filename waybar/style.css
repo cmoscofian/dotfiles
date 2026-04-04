@@ -44,12 +44,12 @@ window#waybar {
 }
 
 #workspaces button:hover {
-	background: rgba(0, 126, 0, 0.15);
+	background: rgba(0, 0, 255, 0.25);
 }
 
 #workspaces button.urgent {
 	color: #ffffff;
-	background: rgba(255, 0, 0, 0.7);
+	background: rgba(255, 0, 0, 0.5);
 }
 
 #clock {

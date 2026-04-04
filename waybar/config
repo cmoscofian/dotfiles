@@ -7,7 +7,8 @@
 	"margin-right": 10,
 	"spacing": 8,
 	"modules-left": [
-		"hyprland/workspaces"
+		"hyprland/workspaces",
+		"hyprland/window"
 	],
 	"modules-center": [
 		"clock"
@@ -22,9 +23,6 @@
 	],
 	"hyprland/workspaces": {
 		"format": "{name}",
-		"format-icons": {
-			"urgent": ""
-		},
 		"names": [
 			"1",
 			"2",
@@ -36,6 +34,13 @@
 			"8",
 			"9"
 		]
+	},
+	"hyprland/window": {
+		"format": "{class}",
+		"max-length": 50,
+		"separate-outputs": true,
+		"icon": true,
+		"icon-size": 16
 	},
 	"clock": {
 		"format": " {:%H:%M}",
