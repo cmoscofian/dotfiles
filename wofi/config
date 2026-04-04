@@ -1,14 +1,10 @@
-exec_search=true
 height=400
 hide_scroll=true
-image_size=24
 key_down=Ctrl-j
 key_up=Ctrl-k
-layer=overlay
 location=center
 matching=fuzzy
 prompt=
 show=run
-sort_order=alphabetical
 term=alacritty
 width=600

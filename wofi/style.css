@@ -1,104 +1,48 @@
 * {
-	border: none;
-	border-radius: 8px;
 	font-family: "AdwaitaMono Nerd Font", monospace;
 	font-size: 13px;
-	min-height: 0;
 }
 
-/* Main bar — soft white glass */
-window#waybar {
+window {
 	background: rgba(255, 255, 255, 0.95);
+	border-radius: 10px;
 	color: #000000;
-	border-radius: 12px;
-	border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Pills */
-#workspaces,
-#clock,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#battery,
-#tray {
+#outer-box {
+	padding: 10px;
+}
+
+#input {
+	margin-bottom: 8px;
+	padding: 6px 10px;
+	border-radius: 6px;
 	background: rgba(0, 0, 0, 0.04);
-	margin: 4px 0;
-	padding: 5px 12px;
-	border-radius: 8px;
 	color: #000000;
 }
 
-/* Workspaces */
-#workspaces button {
-	color: #555555;
-	padding: 0 5px;
+#text {
+	color: #000000;
+}
+
+#inner-box {
 	background: transparent;
 }
 
-#workspaces button.active {
-	color: #000000;
-	background: rgba(0, 126, 0, 0.15);
+#entry {
+	padding: 6px 10px;
+	margin: 2px 0;
+	border-radius: 6px;
 }
 
-#workspaces button:hover {
+#entry:hover {
 	background: rgba(0, 0, 0, 0.06);
 }
 
-/* Clock */
-#clock {
-	font-weight: bold;
+#entry:selected {
+	background: rgba(0, 126, 0, 0.15);
 }
 
-/* CPU */
-#cpu {
-	color: #806000;
-	/* darker yellow accent */
-}
-
-/* Memory */
-#memory {
-	color: #800080;
-	/* magenta accent */
-}
-
-/* Network */
-#network {
-	color: #0040aa;
-	/* blue accent */
-}
-
-#network.disconnected {
-	color: #cc0000;
-	/* red warning */
-}
-
-/* Audio */
-#pulseaudio {
-	color: #007e00;
-	/* green */
-}
-
-#pulseaudio.muted {
-	color: #777777;
-}
-
-/* Battery */
-#battery {
-	color: #007e00;
-	/* normal */
-}
-
-#battery.warning {
-	color: #b58900;
-}
-
-#battery.critical {
-	color: #cc0000;
-}
-
-/* Tray */
-#tray {
-	padding-right: 8px;
+#entry:selected #text {
+	color: #000000;
 }
