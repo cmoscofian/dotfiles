@@ -3,7 +3,6 @@ hide_scroll=true
 key_down=Ctrl-j
 key_up=Ctrl-k
 location=center
-matching=fuzzy
 prompt=
 show=run
 term=alacritty
