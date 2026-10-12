@@ -7,6 +7,8 @@
 	"margin-right": 10,
 	"spacing": 8,
 	"modules-left": [
+		"mango/workspaces",
+		"mango/window",
 		"hyprland/workspaces",
 		"hyprland/window"
 	],
