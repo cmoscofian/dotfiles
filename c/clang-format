@@ -1,5 +1,7 @@
 ---
 AlignArrayOfStructures: Right
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: true
 AlignConsecutiveAssignments:
   Enabled: true
   AcrossComments: true
@@ -10,11 +12,12 @@ AlignConsecutiveDeclarations:
   AcrossEmptyLines: false
 AllowShortEnumsOnASingleLine: false
 AlwaysBreakAfterReturnType: AllDefinitions
+BinPackArguments: true
 BraceWrapping:
   AfterFunction: true
-BreakBeforeBraces: Linux
-AllowAllParametersOfDeclarationOnNextLine: true
-AllowAllArgumentsOnNextLine: true
+  AfterStruct: true
+BreakBeforeBraces: Allman
+ColumnLimit: 0
 IndentGotoLabels: false
 IndentWidth: 4
 Language: Cpp
