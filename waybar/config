@@ -20,9 +20,23 @@
 		"cpu",
 		"memory",
 		"network",
+		"mango/language",
 		"pulseaudio",
 		"tray"
 	],
+	"mango/workspaces": {
+		"format": "{name}",
+		"hide-empty": true,
+		"on-click": "activate",
+		"on-click-right": "toggle",
+		"overview-label": "OVERVIEW"
+	},
+	"mango/window": {
+		"format": "{title}",
+		"icon": true,
+		"icon-size": 16,
+		"max-length": 50
+	},
 	"hyprland/workspaces": {
 		"format": "{name}",
 		"names": [
